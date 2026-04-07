@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halalisani Ngema — HR & Financial Services Professional</title>
+  <meta name="description" content="Halalisani Ngema — HR Benefits Consultant, Financial Services Professional, and AI Enthusiast based in KwaZulu-Natal, South Africa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────── */
+    :root {
+      --bg:         #080810;
+      --bg2:        #0f0f1a;
+      --bg3:        #13131f;
+      --gold:       #c9a84c;
+      --gold-lt:    #e0c47a;
+      --gold-dim:   #7d6630;
+      --cream:      #f5efe0;
+      --text:       #e8e0d0;
+      --text-muted: #8a8070;
+      --border:     rgba(201,168,76,0.18);
+      --border-lt:  rgba(201,168,76,0.35);
+      --ff-serif:   'Cormorant Garamond', Georgia, serif;
+      --ff-sans:    'Outfit', sans-serif;
+      --ff-mono:    'DM Mono', monospace;
+    }
+
+    /* ─── RESET & BASE ───────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    ::selection { background: var(--gold-dim); color: var(--cream); }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── SCROLLBAR ──────────────────────────── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+    /* ─── NOISE OVERLAY ──────────────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    /* ─── NAV ────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 900;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 4rem;
+      background: linear-gradient(to bottom, rgba(8,8,16,0.95) 0%, transparent 100%);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.4s, background 0.4s;
+    }
+    nav.scrolled {
+      border-color: var(--border);
+      background: rgba(8,8,16,0.96);
+    }
+    .nav-logo {
+      font-family: var(--ff-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+    }
+    .nav-links {
+      display: flex; gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -3px; left: 0; right: 0; height: 1px;
+      background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .nav-links a:hover { color: var(--gold-lt); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.4rem;
+      border: 1px solid var(--gold-dim);
+      color: var(--gold);
+      border-radius: 2px;
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--bg);
+      border-color: var(--gold);
+    }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--gold); transition: all 0.3s; }
+
+    /* ─── HERO ───────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 8rem 4rem 6rem;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(201,168,76,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(100,80,200,0.04) 0%, transparent 60%),
+        linear-gradient(160deg, #080810 0%, #0d0d1c 50%, #080810 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 70% at 60% 50%, black 20%, transparent 80%);
+    }
+    .hero-deco-line {
+      position: absolute; top: 20%; left: 0;
+      width: 28vw; height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+      opacity: 0.5;
+    }
+    .hero-deco-circle {
+      position: absolute; bottom: 15%; right: 8%;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.1);
+      box-shadow: 0 0 60px rgba(201,168,76,0.04) inset;
+    }
+    .hero-deco-circle::before {
+      content: '';
+      position: absolute; inset: 20px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.06);
+    }
+    .hero-content {
+      position: relative;
+      max-width: 900px;
+      animation: heroFadeUp 1.2s ease both;
+    }
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.8rem;
+      animation: heroFadeUp 1s 0.1s ease both;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block; width: 36px; height: 1px;
+      background: var(--gold);
+    }
+    .hero-name {
+      font-family: var(--ff-serif);
+      font-size: clamp(3.5rem, 8vw, 7.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+      animation: heroFadeUp 1s 0.2s ease both;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+    .hero-divider {
+      width: 80px; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin: 1.8rem 0;
+      animation: heroFadeUp 1s 0.3s ease both;
+    }
+    .hero-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      margin-bottom: 1.4rem;
+      animation: heroFadeUp 1s 0.35s ease both;
+    }
+    .hero-tagline {
+      max-width: 520px;
+      font-size: 1.0rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      animation: heroFadeUp 1s 0.45s ease both;
+    }
+    .hero-actions {
+      display: flex; gap: 1.2rem; flex-wrap: wrap;
+      animation: heroFadeUp 1s 0.55s ease both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.9rem 2.2rem;
+      background: var(--gold);
+      color: var(--bg);
+      font-family: var(--ff-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none; border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.2);
+    }
+    .btn-primary:hover {
+      background: var(--gold-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(201,168,76,0.3);
+    }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.9rem 2.2rem;
+      background: transparent;
+      color: var(--gold);
+      font-family: var(--ff-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--border-lt);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s, transform 0.2s;
+    }
+    .btn-outline:hover {
+      background: rgba(201,168,76,0.06);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .hero-scroll-indicator {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-muted);
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    .hero-scroll-indicator svg { width: 16px; opacity: 0.5; }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+    .hero-meta {
+      position: absolute; right: 4rem; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 1.2rem;
+      animation: heroFadeUp 1.2s 0.6s ease both;
+    }
+    .hero-meta-item {
+      writing-mode: vertical-rl;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .hero-meta-item::after {
+      content: '';
+      display: block; width: 1px; height: 20px;
+      background: var(--border-lt);
+    }
+
+    /* ─── SECTIONS ───────────────────────────── */
+    section { padding: 7rem 4rem; position: relative; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block; width: 28px; height: 1px;
+      background: var(--gold);
+    }
+    .section-heading {
+      font-family: var(--ff-serif);
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    .section-heading em { font-style: italic; color: var(--gold-lt); }
+
+    /* ─── ABOUT ──────────────────────────────── */
+    #about { background: var(--bg2); }
+    #about::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-lt), transparent);
+    }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+      align-items: center;
+    }
+    .about-quote-wrap {
+      position: relative; padding: 2.5rem 2.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: rgba(201,168,76,0.03);
+    }
+    .about-quote-mark {
+      position: absolute; top: -1.2rem; left: 2rem;
+      font-family: var(--ff-serif);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+    .about-quote {
+      font-family: var(--ff-serif);
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--cream);
+    }
+    .about-text p {
+      font-size: 0.97rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+    .about-text p strong { color: var(--gold-lt); font-weight: 500; }
+    .about-meta-list {
+      margin-top: 2rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem 1.5rem;
+    }
+    .about-meta-item {
+      display: flex; flex-direction: column; gap: 0.2rem;
+    }
+    .about-meta-label {
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    .about-meta-value {
+      font-size: 0.9rem; font-weight: 400; color: var(--text);
+    }
+
+    /* ─── SKILLS ─────────────────────────────── */
+    #skills { background: var(--bg); }
+    .skills-intro {
+      max-width: 600px;
+      margin-bottom: 4rem;
+    }
+    .skills-intro p {
+      font-size: 0.97rem; font-weight: 300; color: var(--text-muted); line-height: 1.8;
+    }
+    .skills-columns {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+    }
+    .skills-group-title {
+      font-family: var(--ff-serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--gold-lt);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .skill-grid {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+    }
+    .skill-chip {
+      padding: 0.5rem 1.1rem;
+      background: rgba(201,168,76,0.06);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      transition: background 0.3s, border-color 0.3s, color 0.3s, transform 0.2s;
+      cursor: default;
+    }
+    .skill-chip:hover {
+      background: rgba(201,168,76,0.14);
+      border-color: var(--gold-dim);
+      color: var(--gold-lt);
+      transform: translateY(-2px);
+    }
+    .skill-chip.highlight {
+      background: rgba(201,168,76,0.12);
+      border-color: var(--gold-dim);
+      color: var(--gold);
+    }
+
+    /* ─── EXPERIENCE ─────────────────────────── */
+    #experience { background: var(--bg2); }
+    #experience::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-lt), transparent);
+    }
+    .timeline { position: relative; margin-top: 3.5rem; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, var(--gold-dim), transparent);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 4.5rem;
+      padding-left: 2.5rem;
+      opacity: 0; transform: translateX(-20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .timeline-item.visible { opacity: 1; transform: translateX(0); }
+    .timeline-dot {
+      position: absolute; left: -2rem; top: 0.5rem;
+      width: 10px; height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(201,168,76,0.15);
+    }
+    .timeline-period {
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-role {
+      font-family: var(--ff-serif);
+      font-size: 1.65rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.2rem;
+    }
+    .timeline-company {
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .timeline-list {
+      list-style: none; display: flex; flex-direction: column; gap: 0.6rem;
+      max-width: 680px;
+    }
+    .timeline-list li {
+      position: relative; padding-left: 1.3rem;
+      font-size: 0.92rem; font-weight: 300;
+      color: var(--text-muted); line-height: 1.7;
+    }
+    .timeline-list li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--gold-dim);
+    }
+    .timeline-skills-row {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem;
+    }
+    .timeline-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.85rem;
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--gold-dim);
+      border-radius: 1px;
+    }
+
+    /* ─── CERTIFICATIONS ─────────────────────── */
+    #certifications { background: var(--bg); }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .cert-card {
+      padding: 2rem 2rem 1.8rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s, box-shadow 0.3s;
+    }
+    .cert-card.visible { opacity: 1; transform: translateY(0); }
+    .cert-card:hover {
+      border-color: var(--gold-dim);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.15);
+    }
+    .cert-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .cert-card:hover::before { opacity: 1; }
+    .cert-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      margin-bottom: 1.2rem;
+    }
+    .cert-badge svg { width: 18px; color: var(--gold); fill: none; stroke: currentColor; stroke-width: 1.5; }
+    .cert-title {
+      font-family: var(--ff-serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+    .cert-issuer {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .cert-desc {
+      font-size: 0.86rem; font-weight: 300;
+      color: var(--text-muted); line-height: 1.7;
+    }
+    .cert-date {
+      margin-top: 1.2rem;
+      font-family: var(--ff-mono);
+      font-size: 0.7rem; color: var(--gold-dim);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── EDUCATION ──────────────────────────── */
+    #education { background: var(--bg2); }
+    #education::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-lt), transparent);
+    }
+    .edu-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+      margin-top: 3rem;
+    }
+    .edu-card {
+      padding: 2.4rem;
+      background: rgba(201,168,76,0.03);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex; flex-direction: column; gap: 0.5rem;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .edu-card:hover {
+      border-color: var(--gold-dim);
+      background: rgba(201,168,76,0.06);
+    }
+    .edu-year {
+      font-family: var(--ff-mono);
+      font-size: 0.72rem; color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+    .edu-qual {
+      font-family: var(--ff-serif);
+      font-size: 1.3rem; font-weight: 400;
+      color: var(--cream); line-height: 1.3;
+    }
+    .edu-institution {
+      font-size: 0.84rem; font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    /* ─── CONTACT ────────────────────────────── */
+    #contact { background: var(--bg); text-align: center; }
+    .contact-inner {
+      max-width: 680px; margin: 0 auto;
+    }
+    .contact-heading {
+      font-family: var(--ff-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+      line-height: 1.1;
+    }
+    .contact-heading em { font-style: italic; color: var(--gold); }
+    .contact-sub {
+      font-size: 1rem; font-weight: 300;
+      color: var(--text-muted); line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+    .contact-links {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem;
+      margin-bottom: 4rem;
+    }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      padding: 0.85rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-size: 0.83rem; font-weight: 400;
+      color: var(--text);
+      transition: background 0.3s, border-color 0.3s, color 0.3s, transform 0.2s;
+    }
+    .contact-link svg { width: 16px; flex-shrink: 0; }
+    .contact-link:hover {
+      background: rgba(201,168,76,0.08);
+      border-color: var(--gold-dim);
+      color: var(--gold-lt);
+      transform: translateY(-2px);
+    }
+    .contact-availability {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.6rem 1.4rem;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+    }
+    .availability-dot {
+      width: 7px; height: 7px;
+      background: #4caf82;
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(76,175,130,0.4); }
+      50%       { opacity: 0.8; box-shadow: 0 0 0 5px rgba(76,175,130,0); }
+    }
+
+    /* ─── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand {
+      font-family: var(--ff-serif);
+      font-size: 1rem; color: var(--gold);
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── FADE IN ON SCROLL ───────────────────── */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── MOBILE ─────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      #hero { padding: 7rem 2rem 5rem; }
+      .hero-meta { display: none; }
+      section { padding: 5rem 2rem; }
+      .about-grid, .skills-columns, .edu-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      footer { padding: 1.5rem 2rem; flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ─── MOBILE NAV OPEN ────────────────────── */
+    .mobile-nav {
+      display: none;
+      position: fixed; inset: 0;
+      background: var(--bg);
+      z-index: 800;
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--ff-serif);
+      font-size: 2.5rem; font-weight: 300;
+      color: var(--text);
+      transition: color 0.3s;
+    }
+    .mobile-nav a:hover { color: var(--gold); }
+    .mobile-nav-close {
+      position: absolute; top: 2rem; right: 2rem;
+      background: none; border: none;
+      color: var(--gold); font-size: 1.5rem; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <span class="nav-logo">H. Ngema</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
+    <a href="#about" onclick="toggleMobileNav()">About</a>
+    <a href="#skills" onclick="toggleMobileNav()">Skills</a>
+    <a href="#experience" onclick="toggleMobileNav()">Experience</a>
+    <a href="#certifications" onclick="toggleMobileNav()">Certifications</a>
+    <a href="#contact" onclick="toggleMobileNav()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-deco-line"></div>
+    <div class="hero-deco-circle"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Available for Opportunities &bull; KwaZulu-Natal, SA</div>
+      <h1 class="hero-name">Halalisani<br><em>Ngema</em></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-title">HR & Financial Services Professional &nbsp;·&nbsp; AI Enthusiast</p>
+      <p class="hero-tagline">
+        Bringing over 13 years of experience in HR consulting, benefits administration, 
+        and client-facing financial services — now enhanced by a deep curiosity 
+        for AI-powered tools and emerging technologies.
+      </p>
+      <div class="hero-actions">
+        <a href="#experience" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          View Experience
+        </a>
+        <a href="#contact" class="btn-outline">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contact Me
+        </a>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">South Africa</div>
+      <div class="hero-meta-item">13+ Years</div>
+      <div class="hero-meta-item">Finance & HR</div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <div class="about-quote-wrap fade-in">
+            <div class="about-quote-mark">&ldquo;</div>
+            <p class="about-quote">
+              Combining the precision of financial operations with the forward-looking lens of artificial intelligence.
+            </p>
+          </div>
+        </div>
+        <div class="fade-in">
+          <div class="section-label">About Me</div>
+          <h2 class="section-heading">A Seasoned <em>Professional</em></h2>
+          <div class="about-text">
+            <p>
+              With a <strong>National Diploma in Office Management and Technology</strong> from the Durban University of Technology, 
+              I bring a strong foundation in administration, people operations, and client services.
+            </p>
+            <p>
+              My career at <strong>Nedbank Group</strong> spanned over 13 years — starting in HR Benefits Consulting before moving 
+              into a Multifunctional Consultant role. I've navigated compliance, payroll, fraud prevention, 
+              cash handling, and customer relationship management at a professional level.
+            </p>
+            <p>
+              Today, I'm committed to bridging my operational background with emerging AI technologies, having completed 
+              <strong>ALX AI programmes</strong> and actively exploring AI-powered productivity tools.
+            </p>
+          </div>
+          <div class="about-meta-list">
+            <div class="about-meta-item">
+              <span class="about-meta-label">Location</span>
+              <span class="about-meta-value">KwaZulu-Natal, South Africa</span>
+            </div>
+            <div class="about-meta-item">
+              <span class="about-meta-label">Languages</span>
+              <span class="about-meta-value">English &amp; Zulu (Fluent)</span>
+            </div>
+            <div class="about-meta-item">
+              <span class="about-meta-label">Experience</span>
+              <span class="about-meta-value">13+ Years</span>
+            </div>
+            <div class="about-meta-item">
+              <span class="about-meta-label">Licence</span>
+              <span class="about-meta-value">Code B Driver's Licence</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-label">Core Capabilities</div>
+      <h2 class="section-heading" style="margin-bottom:0">Soft Skills &amp; <em>Technical Expertise</em></h2>
+      <div class="skills-intro fade-in" style="margin-top:1rem">
+        <p>A balanced mix of interpersonal strengths and practical technical proficiencies built across finance, HR, and emerging technology domains.</p>
+      </div>
+      <div class="skills-columns">
+        <div class="fade-in">
+          <div class="skills-group-title">Soft Skills</div>
+          <div class="skill-grid">
+            <span class="skill-chip highlight">Communication</span>
+            <span class="skill-chip highlight">Customer Service</span>
+            <span class="skill-chip">Problem-Solving</span>
+            <span class="skill-chip">Teamwork</span>
+            <span class="skill-chip">Attention to Detail</span>
+            <span class="skill-chip">Ethics &amp; Compliance</span>
+            <span class="skill-chip">Conflict Resolution</span>
+            <span class="skill-chip">Leadership</span>
+            <span class="skill-chip">Adaptability</span>
+          </div>
+        </div>
+        <div class="fade-in">
+          <div class="skills-group-title">Technical Skills</div>
+          <div class="skill-grid">
+            <span class="skill-chip highlight">AI Prompt Engineering</span>
+            <span class="skill-chip highlight">AI-Powered Tools</span>
+            <span class="skill-chip">Microsoft Word &amp; Excel</span>
+            <span class="skill-chip">Linux Ubuntu CLI</span>
+            <span class="skill-chip">Professional Reporting</span>
+            <span class="skill-chip">Client Complaint Handling</span>
+            <span class="skill-chip">Payroll Processing</span>
+            <span class="skill-chip">Benefits Administration</span>
+            <span class="skill-chip">No-Code Development</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-label">Work History</div>
+      <h2 class="section-heading">Professional <em>Experience</em></h2>
+      <div class="timeline">
+        <!-- Role 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">Oct 2013 — Sep 2020</div>
+          <div class="timeline-role">Multifunctional Consultant</div>
+          <div class="timeline-company">Nedbank Group Ltd &bull; Retail Banking</div>
+          <ul class="timeline-list">
+            <li>Authenticated clients and transactions; prevented fraud and minimised risk exposure across teller and service channels.</li>
+            <li>Delivered teller services, handled customer enquiries, and provided basic sales support to branch clientele.</li>
+            <li>Managed ATM cash replenishment, stationery controls, availability monitoring, and first-line technical support.</li>
+            <li>Identified cross-sell opportunities and educated clients on self-service digital channels.</li>
+          </ul>
+          <div class="timeline-skills-row">
+            <span class="timeline-tag">Risk Mitigation</span>
+            <span class="timeline-tag">Compliance</span>
+            <span class="timeline-tag">Cash Handling</span>
+            <span class="timeline-tag">CRM</span>
+            <span class="timeline-tag">Sales Enablement</span>
+            <span class="timeline-tag">Technical Support</span>
+          </div>
+        </div>
+        <!-- Role 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">May 2007 — Sep 2013</div>
+          <div class="timeline-role">HR Benefits Consultant</div>
+          <div class="timeline-company">Nedbank Group Ltd &bull; Human Resources</div>
+          <ul class="timeline-list">
+            <li>Conducted benefits consultations for new hires, current employees, and exiting staff — covering medical aid, pension, UIF, life/disability cover, and funeral cover.</li>
+            <li>Processed and audited payroll adjustments, benefits enrolments, and terminations with precision and legislative compliance.</li>
+            <li>Maintained accurate employee records and liaised with Metrofile and Docufile for document management.</li>
+            <li>Collaborated with HR Business Partners and Finance on policy updates and compliance initiatives.</li>
+          </ul>
+          <div class="timeline-skills-row">
+            <span class="timeline-tag">Benefits Admin</span>
+            <span class="timeline-tag">Legislative Compliance</span>
+            <span class="timeline-tag">Payroll</span>
+            <span class="timeline-tag">Employee Advisory</span>
+            <span class="timeline-tag">Policy Interpretation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-label">Learning &amp; Development</div>
+      <h2 class="section-heading">Certifications &amp; <em>Training</em></h2>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="cert-title">AI Career Essentials</div>
+          <div class="cert-issuer">ALX Africa</div>
+          <div class="cert-desc">Developed AI literacy and practical skills. Enhanced leadership and communication. Completed real-world AI application projects and career advancement preparation.</div>
+          <div class="cert-date">May 2025</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-badge">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="cert-title">AI Starter Kit Course</div>
+          <div class="cert-issuer">ALX Africa</div>
+          <div class="cert-desc">Created high-quality AI content (images, videos, websites). Mastered prompt engineering for tailored AI responses. Developed a no-code website using AI-powered APIs.</div>
+          <div class="cert-date">March 2025</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-badge">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="cert-title">Business Writing One &amp; Two</div>
+          <div class="cert-issuer">Write Right</div>
+          <div class="cert-desc">Advanced professional writing techniques for corporate communication, report writing, and workplace documentation.</div>
+          <div class="cert-date">2016</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-badge">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+          </div>
+          <div class="cert-title">Microsoft Excel Essentials</div>
+          <div class="cert-issuer">Bytes Technology Group</div>
+          <div class="cert-desc">Comprehensive Microsoft Excel 2007 training covering data management, formulas, charts, and spreadsheet reporting fundamentals.</div>
+          <div class="cert-date">2011</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <div class="section-label">Academic Background</div>
+      <h2 class="section-heading"><em>Education</em></h2>
+      <div class="edu-grid fade-in">
+        <div class="edu-card">
+          <div class="edu-year">2007</div>
+          <div class="edu-qual">National Diploma in Office Management and Technology</div>
+          <div class="edu-institution">Durban University of Technology &bull; Durban, KZN</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-year">2003</div>
+          <div class="edu-qual">Matric Certificate</div>
+          <div class="edu-institution">Mpoqabulungu High School</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="section-label" style="justify-content:center">Let's Connect</div>
+        <h2 class="contact-heading">Ready to <em>Work Together?</em></h2>
+        <p class="contact-sub">
+          I'm actively seeking opportunities in HR operations, financial services, 
+          or AI-adjacent roles — based in KwaZulu-Natal and open to relocation.
+          Let's have a conversation.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:halalisanin@gmail.com" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            halalisanin@gmail.com
+          </a>
+          <a href="tel:+27619306110" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.01z"/></svg>
+            +27 61 930 6110
+          </a>
+          <a href="https://github.com/halalisanin" target="_blank" rel="noopener" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            github.com/halalisanin
+          </a>
+        </div>
+        <div class="contact-availability">
+          <span class="availability-dot"></span>
+          Available for new opportunities
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">Halalisani Ngema</div>
+    <div class="footer-copy">&copy; 2025 &nbsp;&middot;&nbsp; Mandeni, KwaZulu-Natal, South Africa</div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile nav
+    function toggleMobileNav() {
+      document.getElementById('mobileNav').classList.toggle('open');
+    }
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in, .timeline-item, .cert-card').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Stagger cert cards
+    document.querySelectorAll('.cert-card').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.1}s`;
+    });
+
+    // Stagger timeline items
+    document.querySelectorAll('.timeline-item').forEach((item, i) => {
+      item.style.transitionDelay = `${i * 0.15}s`;
+    });
+  </script>
+
+</body>
+</html>
