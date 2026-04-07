@@ -81,6 +81,58 @@
       letter-spacing: 0.06em;
       color: var(--gold);
     }
+    .nav-logo-wrap {
+      display: flex; align-items: center;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .nav-photo {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      object-fit: cover; object-position: center top;
+      border: 2px solid var(--gold-dim);
+      margin-right: 0.75rem;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .nav-photo:hover {
+      border-color: var(--gold);
+      transform: scale(1.06);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
+    }
+    /* Profile avatar in nav */
+    .nav-avatar {
+      display: flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-dim);
+      overflow: hidden;
+      flex-shrink: 0;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.25s;
+      position: relative;
+      background: var(--bg3);
+      text-decoration: none;
+    }
+    .nav-avatar:hover {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.18), 0 4px 16px rgba(0,0,0,0.4);
+      transform: scale(1.07);
+    }
+    .nav-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+    }
+    .nav-avatar__initials {
+      display: none;
+      font-family: var(--ff-serif);
+      font-size: 1rem; font-weight: 600;
+      color: var(--gold);
+      pointer-events: none;
+    }
+    .nav-avatar--initials .nav-avatar__initials { display: flex; }
+    .nav-avatar--initials img { display: none; }
     .nav-links {
       display: flex; gap: 2.5rem;
       list-style: none;
@@ -739,7 +791,10 @@
 
   <!-- NAV -->
   <nav id="navbar">
-    <span class="nav-logo">H. Ngema</span>
+    <a href="#hero" class="nav-avatar" title="Back to top" aria-label="Home">
+      <img src="profile.jpg" alt="Halalisani Ngema" onerror="this.style.display='none';this.parentElement.classList.add('nav-avatar--initials')" />
+      <span class="nav-avatar__initials">HN</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -775,9 +830,9 @@
       <div class="hero-divider"></div>
       <p class="hero-title">HR & Financial Services Professional &nbsp;·&nbsp; AI Enthusiast</p>
       <p class="hero-tagline">
-        Bringing over 13 years of experience in HR consulting, benefits administration, 
-        and client-facing financial services — now enhanced by a deep curiosity 
-        for AI-powered tools and emerging technologies.
+        Over 13 years spanning HR administration, telephonic &amp; face-to-face customer service, 
+        compliance, and retail banking — across Nedbank, Metropolitan, and Leza Legalwise — 
+        now powered by AI literacy, SEO expertise, and Claude vibe-coding skills.
       </p>
       <div class="hero-actions">
         <a href="#experience" class="btn-primary">
@@ -819,16 +874,28 @@
           <div class="about-text">
             <p>
               With a <strong>National Diploma in Office Management and Technology</strong> from the Durban University of Technology, 
-              I bring a strong foundation in administration, people operations, and client services.
+              I bring a comprehensive foundation in administration, HR operations, and client-facing services — 
+              built across more than a decade in the banking and financial services industry.
             </p>
             <p>
-              My career at <strong>Nedbank Group</strong> spanned over 13 years — starting in HR Benefits Consulting before moving 
-              into a Multifunctional Consultant role. I've navigated compliance, payroll, fraud prevention, 
-              cash handling, and customer relationship management at a professional level.
+              My career at <strong>Nedbank Group</strong> spanned over 13 years. In my HR Benefits Consultant role, I handled the full 
+              employee benefits lifecycle — onboarding, active employees, and exits — covering medical aid, pension, UIF, 
+              life cover, and funeral policies. I managed payroll adjustments, audits, enrolments, and terminations 
+              with precision, and liaised cross-functionally with HR Business Partners and Finance.
             </p>
             <p>
-              Today, I'm committed to bridging my operational background with emerging AI technologies, having completed 
-              <strong>ALX AI programmes</strong> and actively exploring AI-powered productivity tools.
+              As a <strong>Multifunctional Consultant</strong> in Nedbank Retail, I delivered teller services, telephonic 
+              and walk-in customer service, fraud prevention, ATM management, first-line technical support, 
+              and cross-selling — gaining deep fluency in both retail banking operations and customer relationship management.
+            </p>
+            <p>
+              I also gained <strong>sales experience</strong> during stints at <strong>Metropolitan</strong> and <strong>Leza Legalwise</strong>, 
+              where I developed skills in needs-based selling, client engagement, and financial product advisory — 
+              rounding out a well-balanced profile across admin, service, and sales.
+            </p>
+            <p>
+              Today, I pair this operational depth with growing expertise in <strong>AI tools, SEO, and Claude vibe-coding</strong> — 
+              ready to bring modern digital fluency to any forward-thinking organisation.
             </p>
           </div>
           <div class="about-meta-list">
@@ -882,6 +949,8 @@
           <div class="skill-grid">
             <span class="skill-chip highlight">AI Prompt Engineering</span>
             <span class="skill-chip highlight">AI-Powered Tools</span>
+            <span class="skill-chip highlight">Claude Vibe-Coding</span>
+            <span class="skill-chip highlight">SEO Skills</span>
             <span class="skill-chip">Microsoft Word &amp; Excel</span>
             <span class="skill-chip">Linux Ubuntu CLI</span>
             <span class="skill-chip">Professional Reporting</span>
@@ -920,6 +989,25 @@
             <span class="timeline-tag">CRM</span>
             <span class="timeline-tag">Sales Enablement</span>
             <span class="timeline-tag">Technical Support</span>
+          </div>
+        </div>
+        <!-- Role 3 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">Additional Experience</div>
+          <div class="timeline-role">Sales Consultant</div>
+          <div class="timeline-company">Metropolitan Life &amp; Leza Legalwise</div>
+          <ul class="timeline-list">
+            <li>Consulted clients on life insurance, funeral cover, and legal protection products tailored to their individual needs.</li>
+            <li>Built a pipeline through telephonic outreach, referrals, and face-to-face consultations.</li>
+            <li>Developed strong persuasion, objection-handling, and needs-analysis skills in a target-driven environment.</li>
+          </ul>
+          <div class="timeline-skills-row">
+            <span class="timeline-tag">Life Insurance Sales</span>
+            <span class="timeline-tag">Legal Cover</span>
+            <span class="timeline-tag">Client Needs Analysis</span>
+            <span class="timeline-tag">Objection Handling</span>
+            <span class="timeline-tag">Telephonic Sales</span>
           </div>
         </div>
         <!-- Role 1 -->
