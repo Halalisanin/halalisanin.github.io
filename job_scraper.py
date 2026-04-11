@@ -16,7 +16,7 @@ Usage:
 Requirements: pip3 install requests beautifulsoup4 schedule
 """
 
-import json, re, time, hashlib, argparse, urllib.request, urllib.parse
+import json, re, time, hashlib, argparse, urllib.request, urllib.parse, subprocess
 from pathlib import Path
 from datetime import datetime
 
@@ -32,6 +32,7 @@ except ImportError:
 BASE_DIR    = Path(__file__).parent
 CONFIG_FILE = BASE_DIR / "social_config.json"
 SEEN_FILE   = BASE_DIR / ".seen_jobs.json"
+JOBS_FILE   = BASE_DIR / "jobs.json"
 
 config = {}
 if CONFIG_FILE.exists():
@@ -209,6 +210,66 @@ def format_job(job):
         f"🔗 [View on {job['source']}]({job['url']})"
     )
 
+# ── Jobs JSON (for website) ────────────────────────────────────────────────────
+def save_jobs_json(jobs_list):
+    """Save all current jobs to jobs.json for the website. Keeps latest 300."""
+    today = datetime.now().strftime("%Y-%m-%d")
+    # Load existing jobs
+    existing = []
+    if JOBS_FILE.exists():
+        try:
+            with open(JOBS_FILE) as f:
+                existing = json.load(f).get("jobs", [])
+        except Exception:
+            existing = []
+
+    # Build a set of existing URLs to avoid duplicates
+    existing_urls = {j["url"] for j in existing}
+
+    # Add date_found to new jobs and prepend
+    new_jobs = []
+    for j in jobs_list:
+        if j["url"] not in existing_urls:
+            j["date_found"] = today
+            new_jobs.append(j)
+
+    combined = new_jobs + existing
+    # Keep only latest 300, remove jobs older than 14 days
+    from datetime import datetime as dt, timedelta
+    cutoff = (dt.now() - timedelta(days=14)).strftime("%Y-%m-%d")
+    combined = [j for j in combined if j.get("date_found", today) >= cutoff][:300]
+
+    payload = {
+        "updated": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "count":   len(combined),
+        "jobs":    combined,
+    }
+    with open(JOBS_FILE, "w") as f:
+        json.dump(payload, f, indent=2)
+    print(f"  ✓ jobs.json updated ({len(combined)} total listings)")
+
+def git_push_jobs():
+    """Commit and push jobs.json so the website updates automatically."""
+    token = config.get("github_token", "")
+    try:
+        if token:
+            subprocess.run(
+                f"git remote set-url origin https://{token}@github.com/Halalisanin/halalisanin.github.io.git",
+                shell=True, cwd=BASE_DIR, capture_output=True
+            )
+        subprocess.run("git add jobs.json", shell=True, cwd=BASE_DIR, capture_output=True)
+        result = subprocess.run(
+            f'git commit -m "Update jobs board {datetime.now().strftime("%Y-%m-%d %H:%M")}"',
+            shell=True, cwd=BASE_DIR, capture_output=True, text=True
+        )
+        if "nothing to commit" in result.stdout + result.stderr:
+            print("  jobs.json unchanged, no push needed.")
+            return
+        subprocess.run("git push origin main", shell=True, cwd=BASE_DIR, capture_output=True)
+        print("  ✓ jobs.json pushed — website updated!")
+    except Exception as e:
+        print(f"  Git push error: {e}")
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 def run_scrape():
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M')}] Searching for jobs…")
@@ -246,12 +307,17 @@ def run_scrape():
 
     save_seen(seen)
 
+    # Save ALL collected jobs to jobs.json for the website (including already-seen ones)
+    all_for_site = list({job_hash(j["title"], j["url"]): j for j in all_jobs}.values())
+    save_jobs_json(all_for_site)
+    git_push_jobs()
+
     if sent == 0:
-        msg = "🔍 Job search complete — no new matches this round. Will check again later."
-        print("  No new jobs this round.")
+        msg = "🔍 Job search complete — no new Telegram alerts this round. Website updated!"
+        print("  No new Telegram alerts this round.")
         send_telegram(msg)
     else:
-        print(f"\n  Done! Sent {sent} jobs to Telegram.")
+        print(f"\n  Done! Sent {sent} jobs to Telegram + website updated.")
 
 # ──────────────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
