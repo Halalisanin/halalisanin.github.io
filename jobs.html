@@ -89,6 +89,11 @@
     .job-apply{display:inline-flex;align-items:center;gap:.4rem;margin-top:.5rem;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.5rem 1.1rem;border-radius:2px;transition:background .25s,transform .2s;width:fit-content;}
     .job-apply:hover{background:var(--gold-lt);transform:translateY(-1px);}
     .job-apply svg{flex-shrink:0;}
+    .job-rating{display:flex;align-items:center;gap:.4rem;margin-top:.3rem;}
+    .job-stars{display:flex;gap:1px;cursor:pointer;}
+    .job-star{font-size:.85rem;color:rgba(201,168,76,.22);transition:color .12s;user-select:none;line-height:1;}
+    .job-star.on{color:var(--gold);}
+    .job-rating-label{font-size:.65rem;color:var(--text-muted);font-family:var(--ff-mono);}
     .no-jobs{text-align:center;padding:5rem 0;color:var(--text-muted);grid-column:1/-1;}
     .no-jobs-title{font-family:var(--ff-serif);font-size:1.5rem;color:var(--text);margin-bottom:.5rem;}
 
@@ -131,8 +136,9 @@
       <li><a href="blog.html">Blog</a></li>
       <li><a href="jobs.html" class="active">Jobs</a></li>
       <li><a href="ourwork.html">Our Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+    <a href="contact.html" class="nav-cta">Get in Touch</a>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
     </div>
@@ -145,7 +151,7 @@
     <a href="blog.html"     onclick="toggleMobileNav()">Blog</a>
     <a href="jobs.html"     onclick="toggleMobileNav()">Jobs</a>
     <a href="ourwork.html"  onclick="toggleMobileNav()">Our Work</a>
-    <a href="index.html#contact" onclick="toggleMobileNav()">Get in Touch</a>
+    <a href="contact.html"  onclick="toggleMobileNav()">Contact</a>
   </div>
 
   <div class="page-header">
@@ -254,7 +260,13 @@
         grid.innerHTML = '<div class="no-jobs"><div class="no-jobs-title">No jobs found</div><p>Try a different search or category.</p></div>';
         return;
       }
-      grid.innerHTML = jobs.map(j => `
+      grid.innerHTML = jobs.map(j => {
+        const rid = 'jr_' + btoa(j.url || j.title || Math.random()).replace(/[^a-z0-9]/gi,'').slice(0,16);
+        const myR = parseInt(localStorage.getItem('job_rating_' + rid) || '0');
+        const stars = [1,2,3,4,5].map(v =>
+          `<span class="job-star${myR>=v?' on':''}" data-rid="${rid}" data-v="${v}">★</span>`
+        ).join('');
+        return `
         <div class="job-card">
           <div class="job-card-top">
             <span class="job-source ${sourceClass(j.source)}">${j.source || 'Adzuna'}</span>
@@ -264,12 +276,40 @@
           <div class="job-company">${j.company || ''}</div>
           ${j.snippet ? `<div class="job-snippet">${j.snippet}</div>` : ''}
           <div><span class="job-cat-tag">${j.category || 'general'}</span></div>
+          <div class="job-rating">
+            <div class="job-stars">${stars}</div>
+            <span class="job-rating-label">${myR ? myR+'/5' : 'Rate'}</span>
+          </div>
           <a href="${j.url}" target="_blank" rel="noopener" class="job-apply">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Apply Now
           </a>
-        </div>
-      `).join('');
+        </div>`;
+      }).join('');
+
+      // Wire up job star clicks
+      document.querySelectorAll('.job-star').forEach(s => {
+        s.addEventListener('mouseenter', () => {
+          const rid = s.dataset.rid, v = parseInt(s.dataset.v);
+          s.closest('.job-stars').querySelectorAll('.job-star').forEach(x =>
+            x.classList.toggle('on', parseInt(x.dataset.v) <= v));
+        });
+        s.addEventListener('mouseleave', () => {
+          const rid = s.dataset.rid;
+          const saved = parseInt(localStorage.getItem('job_rating_' + rid) || '0');
+          s.closest('.job-stars').querySelectorAll('.job-star').forEach(x =>
+            x.classList.toggle('on', parseInt(x.dataset.v) <= saved));
+        });
+        s.addEventListener('click', () => {
+          const rid = s.dataset.rid, v = parseInt(s.dataset.v);
+          localStorage.setItem('job_rating_' + rid, v);
+          const label = s.closest('.job-rating').querySelector('.job-rating-label');
+          if (label) label.textContent = v + '/5';
+          s.closest('.job-stars').querySelectorAll('.job-star').forEach(x =>
+            x.classList.toggle('on', parseInt(x.dataset.v) <= v));
+        });
+      });
+
       document.querySelectorAll('.job-card').forEach(el => observer.observe(el));
     }
 

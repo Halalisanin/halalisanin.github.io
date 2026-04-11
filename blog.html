@@ -66,15 +66,17 @@
     /* BLOG GRID */
     .blog-section{padding:4rem 0 6rem;}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
-    .blog-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:1.75rem 1.6rem;text-decoration:none;display:flex;flex-direction:column;gap:.65rem;transition:border-color .3s,transform .3s,box-shadow .3s;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s,border-color .3s,box-shadow .3s;}
+    .blog-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;text-decoration:none;display:flex;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s,border-color .3s,box-shadow .3s;}
     .blog-card.visible{opacity:1;transform:translateY(0);}
     .blog-card:hover{border-color:var(--gold-dim);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.3);}
+    .blog-card-img{width:100%;height:160px;object-fit:cover;display:block;background:var(--bg2);}
+    .blog-card-body{padding:1.4rem 1.5rem;display:flex;flex-direction:column;gap:.55rem;flex:1;}
     .blog-card-date{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-family:var(--ff-mono);}
-    .blog-card-title{font-family:var(--ff-serif);font-size:1.25rem;font-weight:600;color:var(--cream);line-height:1.3;}
+    .blog-card-title{font-family:var(--ff-serif);font-size:1.2rem;font-weight:600;color:var(--cream);line-height:1.3;}
     .blog-card-excerpt{font-size:.82rem;color:var(--text-muted);line-height:1.65;flex:1;}
-    .blog-card-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.25rem;}
+    .blog-card-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.2rem;}
     .blog-tag{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dim);border:1px solid rgba(201,168,76,.15);padding:.15rem .5rem;border-radius:2px;}
-    .blog-card-read{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-top:.35rem;}
+    .blog-card-read{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-top:.2rem;}
     .blog-empty{color:var(--text-muted);font-size:.9rem;text-align:center;padding:4rem 0;grid-column:1/-1;}
 
     /* FOOTER */
@@ -114,8 +116,9 @@
       <li><a href="blog.html" class="active">Blog</a></li>
       <li><a href="jobs.html">Jobs</a></li>
       <li><a href="ourwork.html">Our Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+    <a href="contact.html" class="nav-cta">Get in Touch</a>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
     </div>
@@ -128,7 +131,7 @@
     <a href="blog.html"     onclick="toggleMobileNav()">Blog</a>
     <a href="jobs.html"     onclick="toggleMobileNav()">Jobs</a>
     <a href="ourwork.html"  onclick="toggleMobileNav()">Our Work</a>
-    <a href="index.html#contact" onclick="toggleMobileNav()">Get in Touch</a>
+    <a href="contact.html"  onclick="toggleMobileNav()">Contact</a>
   </div>
 
   <div class="page-header">
@@ -184,11 +187,14 @@
       }
       grid.innerHTML = posts.map(p => `
         <a href="post.html?id=${p.id}" class="blog-card">
-          <div class="blog-card-date">${p.date}</div>
-          <div class="blog-card-title">${p.title}</div>
-          <div class="blog-card-excerpt">${p.excerpt}</div>
-          <div class="blog-card-tags">${(p.tags||[]).map(t=>`<span class="blog-tag">${t}</span>`).join('')}</div>
-          <div class="blog-card-read">Read more →</div>
+          ${p.image ? `<img class="blog-card-img" src="${p.image}" alt="${p.title}" loading="lazy"/>` : ''}
+          <div class="blog-card-body">
+            <div class="blog-card-date">${p.date}</div>
+            <div class="blog-card-title">${p.title}</div>
+            <div class="blog-card-excerpt">${p.excerpt}</div>
+            <div class="blog-card-tags">${(p.tags||[]).map(t=>`<span class="blog-tag">${t}</span>`).join('')}</div>
+            <div class="blog-card-read">Read more →</div>
+          </div>
         </a>
       `).join('');
       document.querySelectorAll('.blog-card').forEach(el => observer.observe(el));

@@ -1,9 +1,90 @@
 [
   {
+    "id": "2026-04-21-online-presence-south-africa",
+    "title": "Building Your Professional Online Presence in South Africa",
+    "date": "2026-04-21",
+    "tags": ["career", "linkedin", "digital"],
+    "image": "posts/images/pexels-a-darmel-8134019.jpg",
+    "excerpt": "South African recruiters are looking you up online before they call you. Here is how to make sure what they find works in your favour — without needing a degree in digital marketing."
+  },
+  {
+    "id": "2026-04-20-hr-benefits-administration",
+    "title": "What Is HR Benefits Administration — and How to Break Into It",
+    "date": "2026-04-20",
+    "tags": ["hr", "admin", "career"],
+    "image": "posts/images/pexels-pavel-danilyuk-8761510.jpg",
+    "excerpt": "HR benefits administration is one of the most stable and underappreciated career paths in South Africa. Here is what the job actually involves — and how to get your foot in the door."
+  },
+  {
+    "id": "2026-04-19-telephonic-interview-tips",
+    "title": "How to Ace a Telephonic Interview — A Practical Guide",
+    "date": "2026-04-19",
+    "tags": ["interview", "career", "tips"],
+    "image": "posts/images/pexels-ron-lach-9783835.jpg",
+    "excerpt": "Telephonic interviews are the first filter for most South African contact centre, admin, and banking roles. They are also where most candidates get eliminated — for entirely avoidable reasons."
+  },
+  {
+    "id": "2026-04-18-call-centre-to-corporate",
+    "title": "From Call Centre to Corporate — Building a Real Career Path",
+    "date": "2026-04-18",
+    "tags": ["career", "growth", "customer-service"],
+    "image": "posts/images/pexels-cottonbro-6814524.jpg",
+    "excerpt": "The call centre is not a dead end — it is one of the most accessible entry points into a professional career in South Africa. Here is how to use it as a launchpad."
+  },
+  {
+    "id": "2026-04-17-job-seeker-rights-south-africa",
+    "title": "Know Your Rights as a Job Seeker in South Africa",
+    "date": "2026-04-17",
+    "tags": ["rights", "south-africa", "legal"],
+    "image": "posts/images/pexels-yankrukov-7698886.jpg",
+    "excerpt": "South African labour law gives job seekers real protections — but most people do not know what they are. Here is what you are entitled to before you even get hired."
+  },
+  {
+    "id": "2026-04-16-ai-job-search-2026",
+    "title": "How AI Tools Are Changing the Job Search in 2026",
+    "date": "2026-04-16",
+    "tags": ["ai", "career", "technology"],
+    "image": "posts/images/pexels-a-darmel-8133866.jpg",
+    "excerpt": "Artificial intelligence is reshaping how South Africans find jobs, write CVs, and prepare for interviews. Here is what is actually useful — and what is overhyped."
+  },
+  {
+    "id": "2026-04-15-interview-tips-customer-service",
+    "title": "Interview Tips for Customer Service Roles in South Africa",
+    "date": "2026-04-15",
+    "tags": ["interview", "customer-service", "career"],
+    "image": "posts/images/pexels-gustavo-fring-6285079.jpg",
+    "excerpt": "Customer service interviews follow predictable patterns. If you know what they are testing for — and how to answer the questions they always ask — you walk in prepared instead of guessing."
+  },
+  {
+    "id": "2026-04-14-banking-sector-jobs",
+    "title": "Banking Sector Jobs in South Africa — What You Actually Need to Know",
+    "date": "2026-04-14",
+    "tags": ["banking", "career", "south-africa"],
+    "image": "posts/images/pexels-werner-pfennig-6950048.jpg",
+    "excerpt": "South Africa's banking sector is one of the most stable employers in the country. But getting in — and staying in — requires understanding how the industry actually works from the inside."
+  },
+  {
+    "id": "2026-04-13-hiring-manager-secrets",
+    "title": "What Hiring Managers Actually Look For in an Office Admin",
+    "date": "2026-04-13",
+    "tags": ["career", "admin", "hiring"],
+    "image": "posts/images/pexels-mikhail-nilov-9301866.jpg",
+    "excerpt": "After years inside HR and banking administration, I can tell you exactly what gets a candidate shortlisted — and what quietly disqualifies them before they say a word."
+  },
+  {
+    "id": "2026-04-12-cv-tips",
+    "title": "How to Write a CV That Gets You Shortlisted in South Africa",
+    "date": "2026-04-12",
+    "tags": ["career", "cv", "south-africa"],
+    "image": "posts/images/pexels-cottonbro-6804098.jpg",
+    "excerpt": "Most CVs are rejected in under 10 seconds. Here is exactly what South African recruiters look for — and how to make sure yours passes the first filter."
+  },
+  {
     "id": "2026-04-11-welcome",
     "title": "Welcome to My Blog",
     "date": "2026-04-11",
     "tags": ["career", "ai", "personal"],
+    "image": "posts/images/pexels-mikhail-nilov-9304666.jpg",
     "excerpt": "A brief introduction to who I am, why I started this blog, and what I plan to share here — from HR insights to AI experiments and everything in between."
   }
 ]
