@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 """
-job_scraper.py — South African job scraper for Halalisani Ngema
-Searches PNet, CareerJunction, and Indeed ZA for matching roles.
-Sends matches to your Telegram jobs bot.
+job_scraper.py — Job scraper for Halalisani Ngema
+Uses Adzuna API (free) + CareerJunction HTML scraping.
 
-Usage:  python3 job_scraper.py
-        python3 job_scraper.py --once       # run once and exit
-        python3 job_scraper.py --interval 3 # run every 3 hours (default)
+Setup:
+  1. Register FREE at https://developer.adzuna.com/
+  2. Add your app_id and app_key to social_config.json
+  3. Run: python3 job_scraper.py --once
 
-Requirements:  pip3 install requests beautifulsoup4 schedule
+Usage:
+  python3 job_scraper.py --once        # run once and exit
+  python3 job_scraper.py               # run every 3 hours
+  python3 job_scraper.py --interval 6  # run every 6 hours
+
+Requirements: pip3 install requests beautifulsoup4 schedule
 """
 
 import json, re, time, hashlib, argparse, urllib.request, urllib.parse
@@ -20,45 +25,49 @@ try:
     from bs4 import BeautifulSoup
     import schedule
 except ImportError:
-    print("Missing dependencies. Run:  pip3 install requests beautifulsoup4 schedule")
+    print("Run:  pip3 install requests beautifulsoup4 schedule")
     exit(1)
 
-# ── Config ────────────────────────────────────────────────────────────────────
-CONFIG_FILE = Path(__file__).parent / "social_config.json"
-SEEN_FILE   = Path(__file__).parent / ".seen_jobs.json"
+# ── Config ─────────────────────────────────────────────────────────────────────
+BASE_DIR    = Path(__file__).parent
+CONFIG_FILE = BASE_DIR / "social_config.json"
+SEEN_FILE   = BASE_DIR / ".seen_jobs.json"
 
 config = {}
 if CONFIG_FILE.exists():
     with open(CONFIG_FILE) as f:
         config = json.load(f)
 
-BOT_TOKEN = config.get("telegram_bot_token", "")
-CHAT_ID   = config.get("telegram_chat_id", "")
+BOT_TOKEN    = config.get("telegram_bot_token", "")
+CHAT_ID      = config.get("telegram_chat_id", "")
+ADZUNA_ID    = config.get("adzuna_app_id", "")
+ADZUNA_KEY   = config.get("adzuna_app_key", "")
 
-# ── Job search criteria ───────────────────────────────────────────────────────
-SEARCH_QUERIES = [
-    "HR administrator Johannesburg",
-    "HR benefits consultant Johannesburg",
-    "payroll administrator Johannesburg",
-    "customer service banking Johannesburg",
-    "banking consultant Johannesburg",
-    "administration clerk Johannesburg",
-    "HR officer Gauteng",
-    "call centre agent Johannesburg",
-    "teller Johannesburg",
+# ── Search terms ───────────────────────────────────────────────────────────────
+SEARCHES = [
+    "HR administrator",
+    "HR benefits consultant",
+    "payroll administrator",
+    "banking customer service",
+    "banking consultant",
+    "administration clerk",
+    "HR officer",
+    "call centre agent",
+    "teller",
+    "HR generalist",
 ]
 
 KEYWORDS_INCLUDE = [
     "hr", "human resources", "benefits", "payroll", "banking",
     "teller", "customer service", "administration", "admin",
-    "nedbank", "fnb", "standard bank", "absa", "capitec",
     "financial services", "contact centre", "call centre",
+    "clerk", "officer", "consultant", "people",
 ]
 
 KEYWORDS_EXCLUDE = [
-    "senior manager", "head of", "director", "executive",
-    "10 years", "15 years", "degree required", "honours",
-    "masters", "phd",
+    "senior manager", "head of department", "director", "executive",
+    "10+ years", "15 years", "honours degree", "masters", "phd",
+    "software engineer", "developer", "data scientist",
 ]
 
 HEADERS = {
@@ -68,21 +77,21 @@ HEADERS = {
     )
 }
 
-# ─────────────────────────────────────────────────────────────────────────────
-def load_seen() -> set:
+# ── Helpers ────────────────────────────────────────────────────────────────────
+def load_seen():
     if SEEN_FILE.exists():
         with open(SEEN_FILE) as f:
             return set(json.load(f))
     return set()
 
-def save_seen(seen: set):
+def save_seen(seen):
     with open(SEEN_FILE, "w") as f:
         json.dump(list(seen), f)
 
-def job_hash(title: str, url: str) -> str:
-    return hashlib.md5(f"{title}{url}".encode()).hexdigest()[:12]
+def job_hash(title, url):
+    return hashlib.md5((title + url).encode()).hexdigest()[:12]
 
-def is_relevant(title: str, description: str = "") -> bool:
+def is_relevant(title, description=""):
     text = (title + " " + description).lower()
     if not any(kw in text for kw in KEYWORDS_INCLUDE):
         return False
@@ -90,114 +99,96 @@ def is_relevant(title: str, description: str = "") -> bool:
         return False
     return True
 
-# ── Scrapers ──────────────────────────────────────────────────────────────────
-def scrape_pnet(query: str) -> list[dict]:
+# ── Adzuna API (free — register at developer.adzuna.com) ──────────────────────
+def scrape_adzuna(query):
+    if not ADZUNA_ID or not ADZUNA_KEY:
+        return []
     jobs = []
     try:
-        q = urllib.parse.quote(query)
-        url = f"https://www.pnet.co.za/jobs/{q.replace('+', '-').replace('%20', '-').lower()}/"
-        r = requests.get(url, headers=HEADERS, timeout=15)
-        soup = BeautifulSoup(r.text, "html.parser")
-        for card in soup.select("article.job-card, div.job-card, [data-job-id]")[:15]:
-            title_el = card.select_one("h2, h3, .job-title, [class*='title']")
-            link_el  = card.select_one("a[href]")
-            comp_el  = card.select_one("[class*='company'], [class*='employer']")
-            if not title_el or not link_el:
-                continue
-            title = title_el.get_text(strip=True)
-            href  = link_el["href"]
-            if not href.startswith("http"):
-                href = "https://www.pnet.co.za" + href
-            company = comp_el.get_text(strip=True) if comp_el else "Unknown"
-            if is_relevant(title):
-                jobs.append({"title": title, "company": company, "url": href, "source": "PNet"})
+        q   = urllib.parse.quote_plus(query)
+        url = (
+            f"https://api.adzuna.com/v1/api/jobs/za/search/1"
+            f"?app_id={ADZUNA_ID}&app_key={ADZUNA_KEY}"
+            f"&what={q}&where=johannesburg"
+            f"&results_per_page=20&sort_by=date&full_time=1"
+        )
+        r    = requests.get(url, headers=HEADERS, timeout=15)
+        data = r.json()
+        for job in data.get("results", []):
+            title   = job.get("title", "")
+            company = job.get("company", {}).get("display_name", "Unknown")
+            link    = job.get("redirect_url", "")
+            desc    = re.sub(r"<[^>]+>", " ", job.get("description", ""))[:200]
+            if is_relevant(title, desc):
+                jobs.append({
+                    "title":   title,
+                    "company": company,
+                    "url":     link,
+                    "source":  "Adzuna",
+                    "snippet": desc.strip(),
+                })
     except Exception as e:
-        print(f"  PNet error: {e}")
+        print(f"  Adzuna error: {e}")
     return jobs
 
-def scrape_careerjunction(query: str) -> list[dict]:
+# ── CareerJunction HTML scrape ─────────────────────────────────────────────────
+def scrape_careerjunction(query):
     jobs = []
     try:
-        q = urllib.parse.quote_plus(query)
-        url = f"https://www.careerjunction.co.za/jobs/results?keywords={q}&location=Gauteng"
-        r = requests.get(url, headers=HEADERS, timeout=15)
+        q   = urllib.parse.quote_plus(query)
+        url = f"https://www.careerjunction.co.za/jobs/results?keywords={q}&location=Gauteng&sortby=DatePosted"
+        r   = requests.get(url, headers=HEADERS, timeout=20)
         soup = BeautifulSoup(r.text, "html.parser")
-        for card in soup.select(".job-card, article, [class*='job-item'], [class*='JobCard']")[:15]:
-            title_el = card.select_one("h2, h3, [class*='title'], [class*='Title']")
-            link_el  = card.select_one("a[href]")
-            comp_el  = card.select_one("[class*='company'], [class*='Company'], [class*='employer']")
-            if not title_el or not link_el:
+
+        # Try multiple possible card selectors
+        cards = (
+            soup.select(".module.job-result") or
+            soup.select("[class*='job-result']") or
+            soup.select("[class*='JobResult']") or
+            soup.select("article")
+        )
+
+        for card in cards[:15]:
+            title_el = (
+                card.select_one("h2 a") or
+                card.select_one("h3 a") or
+                card.select_one("[class*='title'] a") or
+                card.select_one("a[href*='/job/']")
+            )
+            comp_el = (
+                card.select_one("[class*='company']") or
+                card.select_one("[class*='employer']")
+            )
+            if not title_el:
                 continue
-            title = title_el.get_text(strip=True)
-            href  = link_el["href"]
+            title   = title_el.get_text(strip=True)
+            href    = title_el.get("href", "")
             if not href.startswith("http"):
                 href = "https://www.careerjunction.co.za" + href
-            company = comp_el.get_text(strip=True) if comp_el else "Unknown"
+            company = comp_el.get_text(strip=True) if comp_el else "See listing"
             if is_relevant(title):
-                jobs.append({"title": title, "company": company, "url": href, "source": "CareerJunction"})
+                jobs.append({
+                    "title":   title,
+                    "company": company,
+                    "url":     href,
+                    "source":  "CareerJunction",
+                    "snippet": "",
+                })
     except Exception as e:
         print(f"  CareerJunction error: {e}")
     return jobs
 
-def scrape_indeed(query: str) -> list[dict]:
-    jobs = []
-    try:
-        q = urllib.parse.quote_plus(query)
-        url = f"https://za.indeed.com/jobs?q={q}&l=Johannesburg&sort=date"
-        r = requests.get(url, headers=HEADERS, timeout=15)
-        soup = BeautifulSoup(r.text, "html.parser")
-        for card in soup.select(".job_seen_beacon, .jobsearch-SerpJobCard, [class*='job_']")[:15]:
-            title_el = card.select_one("h2.jobTitle, h2, [class*='jobTitle']")
-            link_el  = card.select_one("a[href]")
-            comp_el  = card.select_one("[class*='companyName'], [class*='company']")
-            if not title_el or not link_el:
-                continue
-            title = title_el.get_text(strip=True)
-            href  = link_el["href"]
-            if not href.startswith("http"):
-                href = "https://za.indeed.com" + href
-            company = comp_el.get_text(strip=True) if comp_el else "Unknown"
-            if is_relevant(title):
-                jobs.append({"title": title, "company": company, "url": href, "source": "Indeed ZA"})
-    except Exception as e:
-        print(f"  Indeed error: {e}")
-    return jobs
-
-def scrape_jobmail(query: str) -> list[dict]:
-    jobs = []
-    try:
-        q = urllib.parse.quote_plus(query)
-        url = f"https://www.jobmail.co.za/jobs?keyword={q}&location=Johannesburg"
-        r = requests.get(url, headers=HEADERS, timeout=15)
-        soup = BeautifulSoup(r.text, "html.parser")
-        for card in soup.select("[class*='job-ad'], [class*='jobAd'], article")[:10]:
-            title_el = card.select_one("h2, h3, [class*='title']")
-            link_el  = card.select_one("a[href]")
-            comp_el  = card.select_one("[class*='company'], [class*='employer']")
-            if not title_el or not link_el:
-                continue
-            title = title_el.get_text(strip=True)
-            href  = link_el["href"]
-            if not href.startswith("http"):
-                href = "https://www.jobmail.co.za" + href
-            company = comp_el.get_text(strip=True) if comp_el else "Unknown"
-            if is_relevant(title):
-                jobs.append({"title": title, "company": company, "url": href, "source": "JobMail"})
-    except Exception as e:
-        print(f"  JobMail error: {e}")
-    return jobs
-
-# ── Telegram sender ───────────────────────────────────────────────────────────
-def send_telegram(message: str) -> bool:
+# ── Telegram ───────────────────────────────────────────────────────────────────
+def send_telegram(message):
     if not BOT_TOKEN or not CHAT_ID:
-        print("  ⚠  Telegram not configured. Edit social_config.json")
+        print("  Telegram not configured.")
         return False
     try:
         data = urllib.parse.urlencode({
-            "chat_id": CHAT_ID,
-            "text": message,
-            "parse_mode": "Markdown",
-            "disable_web_page_preview": "false"
+            "chat_id":                  CHAT_ID,
+            "text":                     message,
+            "parse_mode":               "Markdown",
+            "disable_web_page_preview": "true",
         }).encode()
         req = urllib.request.Request(
             f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage", data=data
@@ -208,72 +199,75 @@ def send_telegram(message: str) -> bool:
         print(f"  Telegram error: {e}")
         return False
 
-def format_job_message(job: dict) -> str:
+def format_job(job):
+    snippet = f"\n_{job['snippet'][:150]}_" if job.get("snippet") else ""
     return (
         f"💼 *New Job Match!*\n\n"
         f"*{job['title']}*\n"
         f"🏢 {job['company']}\n"
-        f"📍 Johannesburg / Gauteng\n"
-        f"🔗 [{job['source']}]({job['url']})"
+        f"📍 Johannesburg / Gauteng{snippet}\n\n"
+        f"🔗 [View on {job['source']}]({job['url']})"
     )
 
-# ── Main scrape loop ──────────────────────────────────────────────────────────
+# ── Main ───────────────────────────────────────────────────────────────────────
 def run_scrape():
-    print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M')}] Scraping jobs…")
-    seen   = load_seen()
-    found  = 0
+    print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M')}] Searching for jobs…")
+
+    if not ADZUNA_ID:
+        print("\n  ⚠  Adzuna API not configured.")
+        print("  Register FREE at: https://developer.adzuna.com/")
+        print("  Then add adzuna_app_id and adzuna_app_key to social_config.json\n")
+
+    seen     = load_seen()
     all_jobs = []
 
-    for query in SEARCH_QUERIES:
-        print(f"  Searching: {query}")
-        all_jobs += scrape_pnet(query)
+    for query in SEARCHES:
+        print(f"  → {query}")
+        all_jobs += scrape_adzuna(query)
         all_jobs += scrape_careerjunction(query)
-        all_jobs += scrape_indeed(query)
-        all_jobs += scrape_jobmail(query)
-        time.sleep(1)  # polite delay
+        time.sleep(0.5)
 
-    # Deduplicate by hash
+    # Deduplicate
     unique = {}
     for job in all_jobs:
         h = job_hash(job["title"], job["url"])
         if h not in seen and h not in unique:
             unique[h] = job
 
-    print(f"  Found {len(unique)} new matching jobs")
+    print(f"\n  Found {len(unique)} new matching jobs")
 
+    sent = 0
     for h, job in unique.items():
-        msg = format_job_message(job)
-        ok  = send_telegram(msg)
-        if ok:
-            print(f"  → Sent: {job['title']} ({job['source']})")
-            found += 1
+        if send_telegram(format_job(job)):
+            print(f"  ✓ {job['title']} ({job['source']})")
             seen.add(h)
-        time.sleep(0.5)
+            sent += 1
+            time.sleep(0.5)
 
     save_seen(seen)
-    if found == 0:
-        print("  No new jobs this round.")
-    else:
-        print(f"  ✓ Sent {found} new jobs to Telegram")
 
-# ─────────────────────────────────────────────────────────────────────────────
+    if sent == 0:
+        msg = "🔍 Job search complete — no new matches this round. Will check again later."
+        print("  No new jobs this round.")
+        send_telegram(msg)
+    else:
+        print(f"\n  Done! Sent {sent} jobs to Telegram.")
+
+# ──────────────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Job scraper for Halalisani Ngema")
-    parser.add_argument("--once", action="store_true", help="Run once and exit")
-    parser.add_argument("--interval", type=int, default=3, help="Hours between runs (default: 3)")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--once",     action="store_true")
+    parser.add_argument("--interval", type=int, default=3)
     args = parser.parse_args()
 
-    print("Job Scraper — halalisanin.github.io")
-    print(f"Bot token: {'configured ✓' if BOT_TOKEN else 'NOT SET ✗'}")
-    print(f"Chat ID:   {'configured ✓' if CHAT_ID else 'NOT SET ✗'}")
-
-    if not BOT_TOKEN or not CHAT_ID:
-        print("\nPlease fill in telegram_bot_token and telegram_chat_id in social_config.json")
+    print("Job Scraper — @Sani_prof_bot")
+    print(f"Telegram: {'ready ✓' if BOT_TOKEN and CHAT_ID else 'NOT configured ✗'}")
+    print(f"Adzuna:   {'ready ✓' if ADZUNA_ID else 'NOT configured — register free at developer.adzuna.com'}")
 
     run_scrape()
 
     if not args.once:
-        print(f"\nRunning every {args.interval} hours. Press Ctrl+C to stop.")
+        print(f"\nChecking every {args.interval} hours. Ctrl+C to stop.")
         schedule.every(args.interval).hours.do(run_scrape)
         while True:
             schedule.run_pending()
