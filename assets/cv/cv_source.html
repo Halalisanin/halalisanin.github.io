@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halalisani Ngema — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── PRINT-OPTIMISED, WEBSITE-THEMED CV ─── */
+    :root {
+      --gold:        #b8922a;
+      --gold-lt:     #c9a84c;
+      --gold-pale:   #f5ede0;
+      --ink:         #1a1a28;
+      --ink-mid:     #3a3a50;
+      --ink-muted:   #6b6b80;
+      --rule:        #c9a84c44;
+      --page-w:      210mm;
+      --page-h:      297mm;
+      --pad-x:       14mm;
+      --pad-y:       12mm;
+      --ff-serif:    'Cormorant Garamond', Georgia, serif;
+      --ff-sans:     'Outfit', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    html, body {
+      width: var(--page-w);
+      font-family: var(--ff-sans);
+      font-size: 9.2pt;
+      line-height: 1.55;
+      color: var(--ink);
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ─── PAGE WRAPPER ─────────────────────── */
+    .page {
+      width: var(--page-w);
+      min-height: var(--page-h);
+      display: grid;
+      grid-template-columns: 62mm 1fr;
+      grid-template-rows: auto 1fr;
+    }
+
+    /* ─── LEFT SIDEBAR ─────────────────────── */
+    .sidebar {
+      grid-column: 1;
+      grid-row: 1 / 3;
+      background: var(--ink);
+      padding: var(--pad-y) 9mm var(--pad-y) var(--pad-x);
+      color: #e8e0d0;
+      display: flex;
+      flex-direction: column;
+      gap: 5mm;
+    }
+
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2mm;
+    }
+    .photo-wrap img {
+      width: 44mm;
+      height: 44mm;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2.5px solid var(--gold-lt);
+      display: block;
+    }
+    .photo-placeholder {
+      width: 44mm;
+      height: 44mm;
+      border-radius: 50%;
+      border: 2px dashed var(--gold-lt);
+      background: #1a1a28;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-lt);
+      font-size: 8pt;
+      text-align: center;
+    }
+
+    .name-block {
+      text-align: center;
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+      padding-bottom: 4mm;
+    }
+    .name-block .name {
+      font-family: var(--ff-serif);
+      font-size: 15pt;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--gold-lt);
+      line-height: 1.2;
+    }
+    .name-block .title {
+      font-size: 7.5pt;
+      font-weight: 300;
+      color: #a09080;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 1.5mm;
+    }
+
+    .sb-section-title {
+      font-family: var(--ff-serif);
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+      padding-bottom: 1.5mm;
+      margin-bottom: 2.5mm;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2mm;
+    }
+    .contact-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 2mm;
+      font-size: 7.8pt;
+      color: #ccc0b0;
+      line-height: 1.4;
+    }
+    .contact-list .icon {
+      color: var(--gold-lt);
+      font-size: 8pt;
+      flex-shrink: 0;
+      margin-top: 0.5mm;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8mm;
+    }
+    .skill-list li {
+      font-size: 7.8pt;
+      color: #ccc0b0;
+      padding-left: 3mm;
+      position: relative;
+      line-height: 1.4;
+    }
+    .skill-list li::before {
+      content: '▸';
+      color: var(--gold-lt);
+      position: absolute;
+      left: 0;
+      font-size: 7pt;
+    }
+
+    .lang-item {
+      font-size: 7.8pt;
+      color: #ccc0b0;
+      margin-bottom: 1mm;
+    }
+    .lang-label {
+      color: var(--gold-lt);
+      font-weight: 500;
+    }
+
+    .detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8mm;
+    }
+    .detail-list li {
+      font-size: 7.5pt;
+      color: #b0a898;
+      display: flex;
+      justify-content: space-between;
+      gap: 2mm;
+    }
+    .detail-list .dl-label {
+      color: #8a8070;
+      flex-shrink: 0;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .detail-list .dl-value {
+      text-align: right;
+    }
+
+    /* ─── HEADER (top-right) ────────────────── */
+    .main-header {
+      grid-column: 2;
+      grid-row: 1;
+      background: var(--gold-pale);
+      padding: var(--pad-y) var(--pad-x) 7mm 10mm;
+      border-bottom: 3px solid var(--gold-lt);
+    }
+    .main-header .headline {
+      font-family: var(--ff-serif);
+      font-size: 11.5pt;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.35;
+      margin-bottom: 2.5mm;
+    }
+    .main-header .summary-text {
+      font-size: 8.3pt;
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+
+    /* ─── MAIN BODY (right column) ─────────── */
+    .main-body {
+      grid-column: 2;
+      grid-row: 2;
+      padding: 7mm var(--pad-x) var(--pad-y) 10mm;
+      display: flex;
+      flex-direction: column;
+      gap: 5.5mm;
+    }
+
+    .section-title {
+      font-family: var(--ff-serif);
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      border-bottom: 1.5px solid var(--rule);
+      padding-bottom: 1.5mm;
+      margin-bottom: 3mm;
+    }
+
+    .exp-item {
+      margin-bottom: 3.5mm;
+    }
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 3mm;
+      margin-bottom: 0.5mm;
+    }
+    .exp-role {
+      font-family: var(--ff-serif);
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .exp-period {
+      font-size: 7.2pt;
+      color: var(--ink-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .exp-org {
+      font-size: 7.8pt;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1.5mm;
+      letter-spacing: 0.03em;
+    }
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1mm;
+      padding-left: 3mm;
+    }
+    .exp-bullets li {
+      font-size: 7.8pt;
+      color: var(--ink-mid);
+      line-height: 1.5;
+      position: relative;
+      padding-left: 2.5mm;
+    }
+    .exp-bullets li::before {
+      content: '–';
+      color: var(--gold-lt);
+      position: absolute;
+      left: 0;
+    }
+    .exp-skills-tag {
+      font-size: 7pt;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-top: 1.5mm;
+      padding-left: 2.5mm;
+    }
+
+    .edu-item {
+      margin-bottom: 2.5mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 3mm;
+    }
+    .edu-degree {
+      font-family: var(--ff-serif);
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .edu-sub {
+      font-size: 7.8pt;
+      color: var(--ink-mid);
+    }
+    .edu-year {
+      font-size: 7.2pt;
+      color: var(--ink-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cert-item {
+      margin-bottom: 2.5mm;
+    }
+    .cert-name {
+      font-family: var(--ff-serif);
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .cert-org {
+      font-size: 7.5pt;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .cert-bullets {
+      list-style: none;
+      padding-left: 3mm;
+      margin-top: 0.8mm;
+    }
+    .cert-bullets li {
+      font-size: 7.5pt;
+      color: var(--ink-mid);
+      line-height: 1.45;
+      position: relative;
+      padding-left: 2.5mm;
+    }
+    .cert-bullets li::before {
+      content: '–';
+      color: var(--gold-lt);
+      position: absolute;
+      left: 0;
+    }
+
+    .ref-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5mm 4mm;
+    }
+    .ref-item {
+      font-size: 7.5pt;
+      color: var(--ink-mid);
+      line-height: 1.45;
+    }
+    .ref-name {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .ref-detail {
+      color: var(--ink-muted);
+    }
+
+    /* ─── PRINT RULES ───────────────────────── */
+    @media print {
+      html, body { width: 210mm; }
+      .page { page-break-after: avoid; }
+      .exp-item { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══════════════ SIDEBAR ═══════════════ -->
+  <aside class="sidebar">
+
+    <div class="photo-wrap">
+      <img src="../picture/profile.jpg" alt="Halalisani Ngema" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="photo-placeholder" style="display:none;">Photo</div>
+    </div>
+
+    <div class="name-block">
+      <div class="name">Halalisani<br/>Ngema</div>
+      <div class="title">HR &amp; Financial Services</div>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <div class="sb-section-title">Contact</div>
+      <ul class="contact-list">
+        <li><span class="icon">✆</span><span>+27 61 930 6110</span></li>
+        <li><span class="icon">@</span><span>halalisanin@gmail.com</span></li>
+        <li><span class="icon">⌖</span><span>11 Biccard Street<br/>Turffontein, Johannesburg<br/>2196</span></li>
+        <li><span class="icon">in</span><span>linkedin.com/in/<br/>halalisaningema</span></li>
+        <li><span class="icon">⬡</span><span>halalisanin.github.io</span></li>
+      </ul>
+    </div>
+
+    <!-- Skills -->
+    <div>
+      <div class="sb-section-title">Skills</div>
+      <ul class="skill-list">
+        <li>Customer service &amp; CRM</li>
+        <li>HR benefits consulting</li>
+        <li>Payroll &amp; record keeping</li>
+        <li>Compliance &amp; risk management</li>
+        <li>Cash handling &amp; ATM ops</li>
+        <li>Business &amp; report writing</li>
+        <li>MS Word &amp; Excel</li>
+        <li>AI tools &amp; prompt writing</li>
+        <li>Basic HTML &amp; CSS</li>
+        <li>Linux Ubuntu CLI (basic)</li>
+      </ul>
+    </div>
+
+    <!-- Languages -->
+    <div>
+      <div class="sb-section-title">Languages</div>
+      <div class="lang-item"><span class="lang-label">English</span> — Fluent</div>
+      <div class="lang-item"><span class="lang-label">isiZulu</span> — Fluent</div>
+    </div>
+
+    <!-- Personal Details -->
+    <div>
+      <div class="sb-section-title">Personal</div>
+      <ul class="detail-list">
+        <li><span class="dl-label">DOB</span><span class="dl-value">09 July 1984</span></li>
+        <li><span class="dl-label">Nationality</span><span class="dl-value">South African</span></li>
+        <li><span class="dl-label">ID</span><span class="dl-value">840709 5839 089</span></li>
+        <li><span class="dl-label">Licence</span><span class="dl-value">Code B</span></li>
+        <li><span class="dl-label">Disability</span><span class="dl-value">None</span></li>
+      </ul>
+    </div>
+
+    <!-- Interests -->
+    <div>
+      <div class="sb-section-title">Interests</div>
+      <ul class="skill-list">
+        <li>Playing keyboard</li>
+        <li>Learning AI &amp; new tech</li>
+        <li>Coding (SoloLearn, mimo, freeCodeCamp)</li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <header class="main-header">
+    <div class="headline">HR &amp; Financial Services Professional<br/>with 13+ Years at Nedbank Group</div>
+    <div class="summary-text">
+      Strong background in customer service, payroll administration, compliance, and staff benefits consulting across HR
+      and retail banking. Recently completed two AI certifications through ALX Africa, adding practical knowledge in AI
+      tools and digital content creation. Seeking opportunities in Johannesburg in HR, administration, banking, or
+      customer service where I can contribute immediately.
+    </div>
+  </header>
+
+  <!-- ═══════════════ MAIN BODY ═══════════════ -->
+  <main class="main-body">
+
+    <!-- Work Experience -->
+    <section>
+      <div class="section-title">Work Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Financial Advisor</span>
+          <span class="exp-period">Jan 2021 – Jun 2021</span>
+        </div>
+        <div class="exp-org">Metropolitan Life · Johannesburg</div>
+        <ul class="exp-bullets">
+          <li>Consulted clients on life cover, funeral plans, and investment products.</li>
+          <li>Conducted site visits and group presentations to acquire new clients.</li>
+          <li>Managed full onboarding including compliance documentation.</li>
+          <li>Maintained client relationships through regular follow-up for retention.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">Multifunctional Consultant</span>
+          <span class="exp-period">Oct 2013 – Sep 2020</span>
+        </div>
+        <div class="exp-org">Nedbank Group Ltd · KwaZulu-Natal</div>
+        <ul class="exp-bullets">
+          <li>Served clients across teller, enquiries, and ATM custodian functions.</li>
+          <li>Verified identities and transactions per bank security and fraud-prevention protocols.</li>
+          <li>Managed daily cash balancing, ATM loading and monitoring, and drawer records.</li>
+          <li>Logged and followed up first-line ATM and device technical issues to resolution.</li>
+          <li>Directed clients to digital channels and identified referral opportunities.</li>
+          <li>Upheld all Nedbank compliance, risk, and legislative requirements.</li>
+        </ul>
+        <div class="exp-skills-tag">Key skills: cash handling · operational controls · CRM · fraud prevention · first-line support</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-role">HR Benefits Consultant</span>
+          <span class="exp-period">May 2007 – Sep 2013</span>
+        </div>
+        <div class="exp-org">Nedbank Group Ltd · KwaZulu-Natal</div>
+        <ul class="exp-bullets">
+          <li>Onboarded new employees through contracts, HR policies, and full benefits induction.</li>
+          <li>Explained medical aid, retirement, life cover, UIF, disability and payroll-giving options.</li>
+          <li>Resolved ongoing staff queries on medical aid, car allowances, and leave pay.</li>
+          <li>Managed payroll benefit adjustments and resolved discrepancies on time.</li>
+          <li>Conducted exit consultations for resignations, retrenchments, retirements, and deaths.</li>
+          <li>Maintained payroll records; filed and archived documents with Metrofile and Docufile.</li>
+        </ul>
+        <div class="exp-skills-tag">Key skills: benefits administration · payroll · legislative compliance · employee advisory · records management</div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <div class="section-title">Education</div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-degree">National Diploma: Office Management &amp; Technology</div>
+          <div class="edu-sub">Durban University of Technology</div>
+        </div>
+        <span class="edu-year">2007</span>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-degree">Matric Certificate</div>
+          <div class="edu-sub">Mpoqabulungu High School</div>
+        </div>
+        <span class="edu-year">2003</span>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section>
+      <div class="section-title">Certifications &amp; Training</div>
+      <div class="cert-item">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <div>
+            <span class="cert-name">AI Career Essentials</span>
+            <span style="font-size:7.5pt;color:#8a8070;"> · </span>
+            <span class="cert-org">ALX Africa</span>
+          </div>
+          <span style="font-size:7.2pt;color:#8a8070;">May 2025</span>
+        </div>
+        <ul class="cert-bullets">
+          <li>Practical AI tools training, leadership, communication, and project-based problem-solving.</li>
+        </ul>
+      </div>
+      <div class="cert-item">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <div>
+            <span class="cert-name">AI Starter Kit</span>
+            <span style="font-size:7.5pt;color:#8a8070;"> · </span>
+            <span class="cert-org">ALX Africa</span>
+          </div>
+          <span style="font-size:7.2pt;color:#8a8070;">Mar 2025</span>
+        </div>
+        <ul class="cert-bullets">
+          <li>AI content creation (text, images, video, website); effective prompt engineering.</li>
+        </ul>
+      </div>
+      <div style="font-size:7.5pt;color:#6b6b80;margin-top:1.5mm;">
+        Business Writing 1 &amp; 2 (2016) · Report Writing / Write Right (2016) · Microsoft Excel 2007 Essentials — Bytes Technology Group (2011)
+      </div>
+    </section>
+
+    <!-- References -->
+    <section>
+      <div class="section-title">References</div>
+      <div class="ref-grid">
+        <div class="ref-item">
+          <div class="ref-name">Simiso Mkhize</div>
+          <div class="ref-detail">Finance Manager · Nedbank</div>
+          <div class="ref-detail">072 345 9216</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-name">Melissa Fyn</div>
+          <div class="ref-detail">HR Manager · Nedbank</div>
+          <div class="ref-detail">064 756 0708</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-name">Thobani Nyuswa</div>
+          <div class="ref-detail">Branch Manager · Nedbank</div>
+          <div class="ref-detail">083 328 0365</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-name">Ayanda Hlubi</div>
+          <div class="ref-detail">HR Manager · Nedbank</div>
+          <div class="ref-detail">010 233 1000</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-name">Lungelo Masinga</div>
+          <div class="ref-detail">Branch Manager · FNB</div>
+          <div class="ref-detail">061 957 7361</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+</body>
+</html>
