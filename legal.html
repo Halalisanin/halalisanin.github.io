@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal & Privacy — Halalisani Ngema</title>
+  <meta name="description" content="Privacy Policy, Terms of Use, POPIA Notice, and Jobs Board Disclaimer for halalisanin.github.io" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:         #080810;
+      --bg2:        #0f0f1a;
+      --bg3:        #13131f;
+      --gold:       #c9a84c;
+      --gold-lt:    #e0c47a;
+      --gold-dim:   #7d6630;
+      --cream:      #f5efe0;
+      --text:       #e8e0d0;
+      --text-muted: #8a8070;
+      --border:     rgba(201,168,76,0.18);
+      --ff-serif:   'Cormorant Garamond', Georgia, serif;
+      --ff-sans:    'Outfit', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--ff-sans); font-size: 16px; line-height: 1.8; overflow-x: hidden; }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 3rem; background: transparent; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+    nav.scrolled { background: rgba(8,8,16,0.95); border-color: var(--border); backdrop-filter: blur(12px); }
+    .nav-logo-btn { display:flex; align-items:center; text-decoration:none; }
+    .nav-logo-circle { width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,var(--gold-dim),var(--gold)); display:flex; align-items:center; justify-content:center; }
+    .nav-logo-initials { font-family:var(--ff-serif); font-size:1rem; font-weight:600; color:#080810; letter-spacing:.02em; }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-muted); transition:color .2s; text-decoration:none; }
+    .nav-links a:hover { color:var(--gold); }
+
+    /* HERO */
+    .page-header { padding: 9rem 2rem 4rem; text-align: center; border-bottom: 1px solid var(--border); }
+    .page-label { font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
+    .page-title { font-family:var(--ff-serif); font-size:clamp(2.2rem,5vw,3.5rem); font-weight:300; line-height:1.15; color:var(--cream); }
+    .page-title em { font-style:italic; color:var(--gold-lt); }
+    .page-sub { margin-top:1rem; color:var(--text-muted); max-width:520px; margin-inline:auto; font-size:.92rem; }
+
+    /* CONTENT */
+    .legal-wrap { max-width: 760px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .toc { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+    .toc h3 { font-family: var(--ff-serif); color: var(--gold); font-size: 1rem; margin-bottom: .75rem; }
+    .toc ol { padding-left: 1.2rem; }
+    .toc li { font-size: .85rem; margin-bottom: .3rem; color: var(--text-muted); }
+    .toc a { color: var(--text-muted); }
+    .toc a:hover { color: var(--gold); }
+
+    .legal-section { margin-bottom: 3.5rem; }
+    .legal-section h2 { font-family: var(--ff-serif); font-size: 1.7rem; font-weight: 400; color: var(--gold-lt); border-bottom: 1px solid var(--border); padding-bottom: .6rem; margin-bottom: 1.4rem; scroll-margin-top: 6rem; }
+    .legal-section h3 { font-size: 1rem; font-weight: 600; color: var(--cream); margin: 1.4rem 0 .5rem; }
+    .legal-section p { color: var(--text-muted); margin-bottom: 1rem; }
+    .legal-section ul { padding-left: 1.4rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .legal-section ul li { margin-bottom: .4rem; }
+    .effective { font-size: .78rem; color: var(--text-muted); margin-bottom: 2rem; letter-spacing: .04em; }
+    .highlight-box { background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.25); border-radius: 8px; padding: 1rem 1.4rem; margin-bottom: 1.2rem; font-size: .88rem; color: var(--text-muted); }
+    .highlight-box strong { color: var(--gold-lt); }
+
+    /* FOOTER */
+    footer { padding: 2.5rem 2rem; text-align: center; border-top: 1px solid var(--border); }
+    .footer-brand { font-family: var(--ff-serif); font-size: 1rem; color: var(--gold); margin-bottom: .4rem; }
+    .footer-copy { font-size: .75rem; color: var(--text-muted); }
+
+    @media(max-width:768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .legal-wrap { padding: 3rem 1.2rem 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo-btn" title="Home" aria-label="Go to homepage">
+      <div class="nav-logo-circle"><span class="nav-logo-initials">HN</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-label">Transparency &amp; Compliance</div>
+    <h1 class="page-title">Legal <em>&amp; Privacy</em></h1>
+    <p class="page-sub">POPIA notice, privacy policy, terms of use, and jobs board disclaimer for this website.</p>
+  </div>
+
+  <div class="legal-wrap">
+
+    <p class="effective">Effective date: 11 April 2026 &nbsp;·&nbsp; Owner: Halalisani Ngema &nbsp;·&nbsp; Website: halalisanin.github.io</p>
+
+    <div class="toc">
+      <h3>Contents</h3>
+      <ol>
+        <li><a href="#popia">POPIA Information Notice</a></li>
+        <li><a href="#privacy">Privacy Policy</a></li>
+        <li><a href="#jobs-disclaimer">Jobs Board Disclaimer</a></li>
+        <li><a href="#terms">Terms of Use</a></li>
+        <li><a href="#contact-legal">Contact &amp; Complaints</a></li>
+      </ol>
+    </div>
+
+    <!-- 1. POPIA -->
+    <div class="legal-section" id="popia">
+      <h2>1. POPIA Information Notice</h2>
+      <p>This notice is provided in accordance with the <strong style="color:var(--cream);">Protection of Personal Information Act 4 of 2013 (POPIA)</strong> of the Republic of South Africa.</p>
+
+      <h3>Responsible Party</h3>
+      <p>Halalisani Ngema, operating this website as a personal blog and jobs aggregation board. Contact details are provided in Section 5 below.</p>
+
+      <h3>What personal information we may process</h3>
+      <ul>
+        <li>Information you voluntarily provide when contacting us (name, email address, message content).</li>
+        <li>Technical data automatically collected by GitHub Pages (IP address, browser type, pages visited) — see GitHub's own privacy policy for details.</li>
+        <li>No registration, login, or account system exists on this website.</li>
+      </ul>
+
+      <h3>Purpose of processing</h3>
+      <ul>
+        <li>To respond to enquiries sent via the contact section.</li>
+        <li>To operate and improve this website.</li>
+      </ul>
+
+      <h3>Lawful basis</h3>
+      <p>Processing is based on your consent (contacting us voluntarily) and our legitimate interest in operating a personal website.</p>
+
+      <h3>Retention</h3>
+      <p>Contact messages are retained only as long as necessary to respond. No personal data is stored in any database on this site.</p>
+
+      <h3>Your rights under POPIA</h3>
+      <p>You have the right to access, correct, or request deletion of personal information we hold about you. To exercise these rights, contact us at the details in Section 5.</p>
+
+      <div class="highlight-box">
+        <strong>Note:</strong> This website is hosted on GitHub Pages (a service of GitHub, Inc.). GitHub may process technical data as a data sub-processor. Please review <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement</a> for details.
+      </div>
+    </div>
+
+    <!-- 2. PRIVACY POLICY -->
+    <div class="legal-section" id="privacy">
+      <h2>2. Privacy Policy</h2>
+
+      <h3>Cookies &amp; tracking</h3>
+      <p>This website does not use cookies, analytics trackers, or advertising scripts. No third-party tracking pixels are embedded.</p>
+
+      <h3>Third-party links</h3>
+      <p>The Jobs Board contains links to external job listings on third-party websites (Adzuna, CareerJunction, and others). We are not responsible for the privacy practices of those sites. Review their individual privacy policies before submitting any personal information.</p>
+
+      <h3>Social links</h3>
+      <p>Links to LinkedIn, Facebook, GitHub, and ALX Africa are provided for your convenience. Clicking them will take you to those platforms' own environments, which have their own privacy policies.</p>
+
+      <h3>Data security</h3>
+      <p>This is a static website served over HTTPS. We do not operate servers, databases, or user accounts. There is no mechanism for us to store your data beyond what you voluntarily send via email or messaging.</p>
+
+      <h3>Children's privacy</h3>
+      <p>This website is not directed at children under the age of 18. We do not knowingly collect personal information from minors.</p>
+
+      <h3>Changes to this policy</h3>
+      <p>We may update this Privacy Policy from time to time. The effective date at the top of this page will reflect any changes. Continued use of the website constitutes acceptance of the updated policy.</p>
+    </div>
+
+    <!-- 3. JOBS BOARD DISCLAIMER -->
+    <div class="legal-section" id="jobs-disclaimer">
+      <h2>3. Jobs Board Disclaimer</h2>
+
+      <div class="highlight-box">
+        <strong>Important:</strong> The Jobs Board on this website is an aggregation service only. Halalisani Ngema is not a recruiter, employment agency, or labour broker as defined under South African law.
+      </div>
+
+      <h3>Nature of the service</h3>
+      <p>Job listings displayed on the <a href="jobs.html">Jobs Board</a> are sourced automatically from third-party APIs and websites, including Adzuna and CareerJunction. The listings are presented for informational purposes to assist job seekers in finding opportunities.</p>
+
+      <h3>No warranty on listings</h3>
+      <ul>
+        <li>We do not verify, endorse, or guarantee the accuracy, completeness, or current availability of any job listing.</li>
+        <li>Job titles, salaries, requirements, and closing dates may change or be removed by the original advertiser at any time.</li>
+        <li>The inclusion of a listing does not constitute an endorsement of the employer or the role.</li>
+      </ul>
+
+      <h3>Application process</h3>
+      <p>All applications must be made directly to the original advertiser via the "Apply Now" links provided. We are not a party to any recruitment process and play no role in hiring decisions.</p>
+
+      <h3>No fees</h3>
+      <p>This Jobs Board is provided entirely free of charge to job seekers. We do not charge candidates any fees whatsoever. Be cautious of any employer asking for upfront payments — this is often a scam.</p>
+
+      <h3>Limitation of liability</h3>
+      <p>To the fullest extent permitted by South African law, Halalisani Ngema accepts no liability for any loss, damage, or harm arising from reliance on job listings displayed on this website, or from interactions with employers found through this board.</p>
+
+      <h3>Labour law compliance</h3>
+      <p>All employers listed are expected to comply with applicable South African labour legislation, including the <em>Basic Conditions of Employment Act</em>, the <em>Labour Relations Act</em>, and the <em>Employment Equity Act</em>. Concerns about a specific listing may be directed to us via the contact details in Section 5.</p>
+    </div>
+
+    <!-- 4. TERMS OF USE -->
+    <div class="legal-section" id="terms">
+      <h2>4. Terms of Use</h2>
+
+      <h3>Acceptance</h3>
+      <p>By accessing or using this website you agree to these Terms of Use. If you do not agree, please do not use the site.</p>
+
+      <h3>Permitted use</h3>
+      <p>This website is provided for personal, non-commercial use. You may read blog posts, browse job listings, and follow links to external sources. You may not:</p>
+      <ul>
+        <li>Scrape, copy, or reproduce content from this site for commercial purposes without written permission.</li>
+        <li>Use automated tools to systematically download content (the jobs data is provided for personal job-seeking use only).</li>
+        <li>Attempt to interfere with the operation of the website.</li>
+      </ul>
+
+      <h3>Intellectual property</h3>
+      <p>Blog posts, written content, and design elements on this website are the intellectual property of Halalisani Ngema unless otherwise stated. Job listing data is owned by the respective advertisers and sourced under the terms of the third-party APIs used.</p>
+
+      <h3>Disclaimer of warranties</h3>
+      <p>This website is provided "as is" without any warranties of any kind, express or implied. We do not warrant that the site will be error-free, uninterrupted, or free of viruses or other harmful components.</p>
+
+      <h3>Governing law</h3>
+      <p>These Terms are governed by the laws of the Republic of South Africa. Any disputes shall be subject to the jurisdiction of the South African courts.</p>
+    </div>
+
+    <!-- 5. CONTACT -->
+    <div class="legal-section" id="contact-legal">
+      <h2>5. Contact &amp; Complaints</h2>
+      <p>For any privacy queries, POPIA requests, or concerns about a specific job listing, please reach out via the <a href="index.html#contact">Contact section</a> on the main page.</p>
+      <p>If you believe we are in breach of POPIA, you also have the right to lodge a complaint with the <strong style="color:var(--cream);">Information Regulator of South Africa</strong>:</p>
+      <ul>
+        <li>Website: <a href="https://inforegulator.org.za" target="_blank" rel="noopener">inforegulator.org.za</a></li>
+        <li>Email: inforeg@justice.gov.za</li>
+        <li>Address: JD House, 27 Stiemens Street, Braamfontein, Johannesburg, 2001</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-brand">Halalisani Ngema</div>
+    <div class="footer-copy">&copy; 2026 &nbsp;&middot;&nbsp; South Africa &nbsp;&middot;&nbsp; <a href="legal.html" style="color:var(--text-muted);text-decoration:underline;text-underline-offset:3px;">Legal &amp; Privacy</a></div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  </script>
+</body>
+</html>
