@@ -10,8 +10,8 @@ Setup:
 
 Usage:
   python3 job_scraper.py --once        # run once and exit
-  python3 job_scraper.py               # run every 3 hours
-  python3 job_scraper.py --interval 6  # run every 6 hours
+  python3 job_scraper.py               # run every 2 hours
+  python3 job_scraper.py --interval 4  # run every 4 hours
 
 Requirements: pip3 install requests beautifulsoup4 schedule
 """
