@@ -1,0 +1,4 @@
+social_config.json
+.seen_jobs.json
+__pycache__/
+*.pyc

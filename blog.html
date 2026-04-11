@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Halalisani Ngema</title>
+  <meta name="description" content="Articles and insights by Halalisani Ngema on HR, AI, banking, and career growth." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#080810; --bg2:#0f0f1a; --bg3:#13131f;
+      --gold:#c9a84c; --gold-lt:#e0c47a; --gold-dim:#7d6630;
+      --cream:#f5efe0; --text:#e8e0d0; --text-muted:#8a8070;
+      --border:rgba(201,168,76,0.18); --border-lt:rgba(201,168,76,0.35);
+      --ff-serif:'Cormorant Garamond',Georgia,serif;
+      --ff-sans:'Outfit',sans-serif;
+      --ff-mono:'DM Mono',monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--ff-sans);font-size:16px;line-height:1.7;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;background:linear-gradient(to bottom,rgba(8,8,16,.95) 0%,transparent 100%);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .4s,background .4s;}
+    nav.scrolled{border-color:var(--border);background:rgba(8,8,16,.96);}
+    .nav-logo-btn{display:flex;align-items:center;justify-content:center;flex-shrink:0;text-decoration:none;transition:opacity .3s,transform .25s;}
+    .nav-logo-btn:hover{opacity:.82;transform:scale(1.07);}
+    .nav-links{display:flex;gap:2.5rem;list-style:none;}
+    .nav-links a{font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);transition:color .3s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold-lt);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-cta{font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1.4rem;border:1px solid var(--gold-dim);color:var(--gold);border-radius:2px;transition:background .3s,color .3s,border-color .3s;}
+    .nav-cta:hover{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+    .nav-hamburger span{display:block;width:24px;height:1.5px;background:var(--gold);transition:all .3s;}
+
+    /* MOBILE NAV */
+    .mobile-nav{position:fixed;inset:0;background:rgba(8,8,16,.98);z-index:950;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .35s;}
+    .mobile-nav.open{opacity:1;pointer-events:all;}
+    .mobile-nav a{font-size:1.5rem;font-family:var(--ff-serif);color:var(--text);letter-spacing:.05em;transition:color .25s;}
+    .mobile-nav a:hover{color:var(--gold);}
+    .mobile-nav-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer;}
+
+    /* CONTAINER */
+    .container{max-width:1100px;margin:0 auto;padding:0 2rem;}
+
+    /* PAGE HEADER */
+    .page-header{padding:8rem 0 4rem;text-align:center;border-bottom:1px solid var(--border);}
+    .page-label{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+    .page-title{font-family:var(--ff-serif);font-size:clamp(2.5rem,6vw,4rem);font-weight:600;color:var(--cream);line-height:1.1;}
+    .page-title em{color:var(--gold);font-style:italic;}
+    .page-desc{margin-top:1rem;color:var(--text-muted);font-size:.9rem;max-width:500px;margin-left:auto;margin-right:auto;}
+
+    /* TAG FILTER */
+    .tag-filter{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:2rem;}
+    .tag-btn{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .8rem;border:1px solid var(--border);border-radius:2px;color:var(--text-muted);cursor:pointer;background:none;transition:border-color .25s,color .25s;}
+    .tag-btn:hover,.tag-btn.active{border-color:var(--gold-dim);color:var(--gold);}
+
+    /* BLOG GRID */
+    .blog-section{padding:4rem 0 6rem;}
+    .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
+    .blog-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:1.75rem 1.6rem;text-decoration:none;display:flex;flex-direction:column;gap:.65rem;transition:border-color .3s,transform .3s,box-shadow .3s;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s,border-color .3s,box-shadow .3s;}
+    .blog-card.visible{opacity:1;transform:translateY(0);}
+    .blog-card:hover{border-color:var(--gold-dim);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.3);}
+    .blog-card-date{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-family:var(--ff-mono);}
+    .blog-card-title{font-family:var(--ff-serif);font-size:1.25rem;font-weight:600;color:var(--cream);line-height:1.3;}
+    .blog-card-excerpt{font-size:.82rem;color:var(--text-muted);line-height:1.65;flex:1;}
+    .blog-card-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.25rem;}
+    .blog-tag{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dim);border:1px solid rgba(201,168,76,.15);padding:.15rem .5rem;border-radius:2px;}
+    .blog-card-read{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-top:.35rem;}
+    .blog-empty{color:var(--text-muted);font-size:.9rem;text-align:center;padding:4rem 0;grid-column:1/-1;}
+
+    /* FOOTER */
+    footer{padding:3rem 0;text-align:center;border-top:1px solid var(--border);}
+    .footer-brand{font-family:var(--ff-serif);font-size:1.1rem;color:var(--gold);margin-bottom:.5rem;}
+    .footer-copy{font-size:.75rem;color:var(--text-muted);}
+
+    @media(max-width:768px){
+      nav{padding:1.2rem 1.5rem;}
+      .nav-links,.nav-cta{display:none;}
+      .nav-hamburger{display:flex;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo-btn" title="Home" aria-label="Go to homepage">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18.5" stroke="#c9a84c" stroke-width="1.4" fill="#080810"/>
+        <text x="20" y="25.5" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="14" font-weight="600" fill="#c9a84c" letter-spacing="1.5">HN</text>
+        <circle cx="20" cy="20" r="15" stroke="rgba(201,168,76,0.15)" stroke-width="0.8" fill="none"/>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
+    <a href="index.html#about" onclick="toggleMobileNav()">About</a>
+    <a href="index.html#experience" onclick="toggleMobileNav()">Experience</a>
+    <a href="index.html#contact" onclick="toggleMobileNav()">Contact</a>
+    <a href="blog.html" onclick="toggleMobileNav()">Blog</a>
+  </div>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="page-label">Ideas &amp; Insights</div>
+      <h1 class="page-title">My <em>Blog</em></h1>
+      <p class="page-desc">Thoughts on HR, AI, banking, career growth, and life in South Africa.</p>
+      <div class="tag-filter" id="tagFilter"></div>
+    </div>
+  </div>
+
+  <section class="blog-section">
+    <div class="container">
+      <div class="blog-grid" id="blogGrid">
+        <div class="blog-empty">Loading posts…</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">Halalisani Ngema</div>
+    <div class="footer-copy">&copy; 2026 &nbsp;&middot;&nbsp; Johannesburg, South Africa</div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+    function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    let allPosts = [];
+    let activeTag = 'all';
+
+    function renderPosts(posts) {
+      const grid = document.getElementById('blogGrid');
+      if (!posts.length) {
+        grid.innerHTML = '<div class="blog-empty">No posts found.</div>';
+        return;
+      }
+      grid.innerHTML = posts.map(p => `
+        <a href="post.html?id=${p.id}" class="blog-card">
+          <div class="blog-card-date">${p.date}</div>
+          <div class="blog-card-title">${p.title}</div>
+          <div class="blog-card-excerpt">${p.excerpt}</div>
+          <div class="blog-card-tags">${(p.tags||[]).map(t=>`<span class="blog-tag">${t}</span>`).join('')}</div>
+          <div class="blog-card-read">Read more →</div>
+        </a>
+      `).join('');
+      document.querySelectorAll('.blog-card').forEach(el => observer.observe(el));
+    }
+
+    function filterByTag(tag) {
+      activeTag = tag;
+      document.querySelectorAll('.tag-btn').forEach(b => b.classList.toggle('active', b.dataset.tag === tag));
+      renderPosts(tag === 'all' ? allPosts : allPosts.filter(p => (p.tags||[]).includes(tag)));
+    }
+
+    fetch('posts/index.json')
+      .then(r => r.json())
+      .then(posts => {
+        allPosts = posts;
+        // Build tag list
+        const tags = ['all', ...new Set(posts.flatMap(p => p.tags||[]))];
+        document.getElementById('tagFilter').innerHTML = tags.map(t =>
+          `<button class="tag-btn${t==='all'?' active':''}" data-tag="${t}" onclick="filterByTag('${t}')">${t}</button>`
+        ).join('');
+        renderPosts(posts);
+      })
+      .catch(() => {
+        document.getElementById('blogGrid').innerHTML = '<div class="blog-empty">No posts yet — check back soon.</div>';
+      });
+  </script>
+</body>
+</html>
