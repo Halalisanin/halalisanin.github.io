@@ -46,29 +46,48 @@ ADZUNA_KEY   = config.get("adzuna_app_key", "")
 
 # ── Search terms ───────────────────────────────────────────────────────────────
 SEARCHES = [
-    "HR administrator",
-    "HR benefits consultant",
-    "payroll administrator",
-    "banking customer service",
-    "banking consultant",
     "administration clerk",
-    "HR officer",
+    "office administrator",
+    "receptionist",
+    "data capturer",
+    "customer service representative",
     "call centre agent",
+    "HR administrator",
+    "payroll administrator",
+    "banking consultant",
     "teller",
+    "sales consultant",
+    "retail sales assistant",
+    "personal assistant",
+    "secretary",
+    "switchboard operator",
+    "accounts clerk",
+    "general worker office",
+    "HR officer",
     "HR generalist",
+    "HR benefits consultant",
+    "banking customer service",
 ]
 
 KEYWORDS_INCLUDE = [
-    "hr", "human resources", "benefits", "payroll", "banking",
-    "teller", "customer service", "administration", "admin",
-    "financial services", "contact centre", "call centre",
-    "clerk", "officer", "consultant", "people",
+    "admin", "administration", "administrator", "office",
+    "receptionist", "data capture", "data capturer",
+    "customer service", "customer care", "client service",
+    "call centre", "contact centre", "call center",
+    "hr", "human resources", "benefits", "payroll",
+    "banking", "teller", "financial services",
+    "sales", "retail", "assistant", "clerk", "officer",
+    "secretary", "pa ", "personal assistant",
+    "switchboard", "accounts", "bookkeeper",
+    "consultant", "agent", "coordinator",
 ]
 
 KEYWORDS_EXCLUDE = [
     "senior manager", "head of department", "director", "executive",
+    "chief ", "vp ", "vice president", "coo", "ceo", "cfo",
     "10+ years", "15 years", "honours degree", "masters", "phd",
     "software engineer", "developer", "data scientist",
+    "machine learning", "devops", "architect",
 ]
 
 HEADERS = {

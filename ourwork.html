@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Our Work — Halalisani Ngema</title>
+  <meta name="description" content="Full professional profile of Halalisani Ngema — experience, skills, certifications, and education."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#080810;--bg2:#0f0f1a;--bg3:#13131f;--gold:#c9a84c;--gold-lt:#e0c47a;--gold-dim:#7d6630;--cream:#f5efe0;--text:#e8e0d0;--muted:#8a8070;--border:rgba(201,168,76,.18);--border-lt:rgba(201,168,76,.35);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Outfit',sans-serif;--mono:'DM Mono',monospace;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden;}
+    ::selection{background:var(--gold-dim);color:var(--cream);}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:transparent;border-bottom:1px solid transparent;transition:background .35s,border-color .35s;transform:translateZ(0);}
+    nav.scrolled{background:rgba(8,8,16,.96);border-color:var(--border);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+    .nav-logo-btn{display:flex;align-items:center;gap:.75rem;text-decoration:none;flex-shrink:0;transition:opacity .25s;}
+    .nav-logo-btn:hover{opacity:.8;}
+    .nav-logo-btn svg{height:34px;width:auto;display:block;}
+    .nav-brand{font-family:var(--serif);font-size:1rem;font-weight:600;letter-spacing:.04em;color:var(--gold);}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{font-size:.74rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);transition:color .22s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .26s ease;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold-lt);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-cta{font-size:.73rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.46rem 1.2rem;border:1px solid var(--gold-dim);color:var(--gold);border-radius:2px;transition:background .22s,color .22s,border-color .22s;}
+    .nav-cta:hover{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+    .nav-hamburger span{display:block;width:24px;height:1.5px;background:var(--gold);}
+    .mobile-nav{display:none;position:fixed;inset:0;background:var(--bg);z-index:800;flex-direction:column;align-items:center;justify-content:center;gap:2.4rem;}
+    .mobile-nav.open{display:flex;}
+    .mobile-nav a{font-family:var(--serif);font-size:2.4rem;font-weight:300;color:var(--text);transition:color .22s;}
+    .mobile-nav a:hover{color:var(--gold);}
+    .mobile-nav-close{position:absolute;top:2rem;right:2rem;background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer;}
+
+    /* PAGE HEADER */
+    .page-header{position:relative;padding:10rem 4rem 5rem;overflow:hidden;}
+    .ph-img{position:absolute;inset:0;background-image:url('posts/images/pexels-mikhail-nilov-9301866.jpg');background-size:cover;background-position:center 30%;}
+    .ph-overlay{position:absolute;inset:0;background:linear-gradient(108deg,rgba(8,8,16,.97) 0%,rgba(8,8,16,.88) 50%,rgba(8,8,16,.6) 100%);}
+    .ph-content{position:relative;max-width:700px;}
+    .ph-badge{display:inline-flex;align-items:center;gap:.7rem;font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+    .ph-badge::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+    .ph-h1{font-family:var(--serif);font-size:clamp(2.6rem,5.5vw,4.5rem);font-weight:300;line-height:1.1;color:var(--cream);margin-bottom:1.2rem;}
+    .ph-h1 em{font-style:italic;color:var(--gold-lt);}
+    .ph-sub{font-size:1rem;font-weight:300;color:var(--muted);max-width:520px;line-height:1.82;}
+
+    /* SHARED */
+    section{padding:6rem 4rem;position:relative;}
+    .container{max-width:1100px;margin:0 auto;}
+    .section-rule{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--border-lt),transparent);}
+    .section-eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-size:.67rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+    .section-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+    .section-heading{font-family:var(--serif);font-size:clamp(2rem,3.8vw,3.2rem);font-weight:300;line-height:1.18;color:var(--cream);margin-bottom:1rem;}
+    .section-heading em{font-style:italic;color:var(--gold-lt);}
+
+    /* PROFILE */
+    #profile{background:var(--bg2);}
+    .profile-grid{display:grid;grid-template-columns:260px 1fr;gap:5rem;align-items:start;}
+    .profile-photo-col{position:sticky;top:7rem;}
+    .profile-photo-frame{position:relative;width:260px;height:260px;border-radius:50%;margin:0 auto;box-shadow:0 0 0 6px rgba(201,168,76,.12),0 0 0 12px rgba(201,168,76,.05),0 24px 60px rgba(0,0,0,.55);}
+    .profile-photo-frame::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--border-lt);pointer-events:none;}
+    .profile-photo{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;border-radius:50%;border:2px solid var(--gold-dim);}
+    .profile-photo-caption{margin-top:1rem;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-align:center;}
+    .prose p{font-size:.96rem;font-weight:300;color:var(--muted);line-height:1.88;margin-bottom:1.2rem;}
+    .prose p strong{color:var(--gold-lt);font-weight:500;}
+
+    /* EXPERIENCE */
+    #experience{background:var(--bg);}
+    .timeline{margin-top:3rem;}
+    .tl-item{display:grid;grid-template-columns:180px 1fr;gap:2.5rem;padding:2.5rem 0;border-bottom:1px solid var(--border);}
+    .tl-item:last-child{border-bottom:none;}
+    .tl-date{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--gold);line-height:1.6;}
+    .tl-company{font-size:.74rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;}
+    .tl-role{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--cream);margin-bottom:.55rem;line-height:1.25;}
+    .tl-body{font-size:.88rem;font-weight:300;color:var(--muted);line-height:1.75;}
+    .tl-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem;}
+    .tl-tag{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);}
+
+    /* SKILLS */
+    #skills{background:var(--bg2);}
+    .skills-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;}
+    .skills-group h3{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:var(--cream);margin-bottom:1.2rem;}
+    .skill-list{display:flex;flex-wrap:wrap;gap:.65rem;}
+    .skill-tag{padding:.38rem .95rem;background:rgba(201,168,76,.06);border:1px solid var(--border);border-radius:2px;font-size:.8rem;color:var(--text);letter-spacing:.04em;}
+    .skill-tag.hi{background:rgba(201,168,76,.11);border-color:var(--gold-dim);color:var(--gold);}
+
+    /* CERTIFICATIONS */
+    #certifications{background:var(--bg);}
+    .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.5rem;margin-top:3rem;}
+    .cert-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:1.75rem 1.6rem;transition:border-color .25s,transform .25s;}
+    .cert-card:hover{border-color:var(--gold-dim);transform:translateY(-3px);}
+    .cert-year{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
+    .cert-title{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:var(--cream);line-height:1.35;margin-bottom:.4rem;}
+    .cert-issuer{font-size:.78rem;color:var(--muted);}
+
+    /* EDUCATION */
+    #education{background:var(--bg2);}
+    .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
+    .edu-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:2rem 1.75rem;transition:border-color .25s;}
+    .edu-card:hover{border-color:var(--gold-dim);}
+    .edu-year{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
+    .edu-degree{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--cream);line-height:1.3;margin-bottom:.35rem;}
+    .edu-institution{font-size:.82rem;color:var(--muted);}
+
+    /* FOOTER */
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-brand{font-family:var(--serif);font-size:1rem;color:var(--gold);}
+    .footer-socials{display:flex;gap:1.1rem;}
+    .footer-socials a{color:var(--muted);transition:color .22s;}
+    .footer-socials a:hover{color:var(--gold);}
+    .footer-copy{font-size:.72rem;color:var(--muted);}
+
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+
+    @media(max-width:900px){
+      nav{padding:1rem 1.5rem;}.nav-links,.nav-cta,.nav-brand{display:none;}.nav-hamburger{display:flex;}
+      .page-header{padding:8rem 1.5rem 4rem;}
+      section{padding:4rem 1.5rem;}
+      .profile-grid{grid-template-columns:1fr;gap:3rem;}
+      .profile-photo-col{position:static;}
+      .tl-item{grid-template-columns:1fr;gap:.4rem;}
+      .skills-split{grid-template-columns:1fr;}
+      .edu-grid{grid-template-columns:1fr;}
+      footer{padding:1.5rem;flex-direction:column;align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo-btn" title="Home">
+    <svg viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="el" cx="35%" cy="28%" r="68%"><stop offset="0%" stop-color="#f2d874"/><stop offset="50%" stop-color="#c9a84c"/><stop offset="100%" stop-color="#6e5018"/></radialGradient>
+        <radialGradient id="em" cx="33%" cy="26%" r="68%"><stop offset="0%" stop-color="#f8e080"/><stop offset="48%" stop-color="#d4b255"/><stop offset="100%" stop-color="#7a5a1c"/></radialGradient>
+        <radialGradient id="er" cx="35%" cy="28%" r="68%"><stop offset="0%" stop-color="#f2d874"/><stop offset="50%" stop-color="#c9a84c"/><stop offset="100%" stop-color="#6e5018"/></radialGradient>
+      </defs>
+      <g transform="translate(13,22) rotate(-17)"><path d="M0,-10.5C6,-10.5 8.5,-3 8.5,2.5C8.5,8 5,11 0,11C-5,11-8.5,8-8.5,2.5C-8.5,-3-6,-10.5 0,-10.5Z" fill="url(#el)" opacity=".86"/><ellipse cx="-2.5" cy="-6" rx="2" ry="2.8" fill="rgba(255,255,255,.2)" transform="rotate(-12,-2.5,-6)"/></g>
+      <g transform="translate(51,22) rotate(17)"><path d="M0,-10.5C6,-10.5 8.5,-3 8.5,2.5C8.5,8 5,11 0,11C-5,11-8.5,8-8.5,2.5C-8.5,-3-6,-10.5 0,-10.5Z" fill="url(#er)" opacity=".86"/><ellipse cx="-2.5" cy="-6" rx="2" ry="2.8" fill="rgba(255,255,255,.2)" transform="rotate(-12,-2.5,-6)"/></g>
+      <g transform="translate(32,20)"><path d="M0,-12C7,-12 10,-3.5 10,2.8C10,9 6,12.5 0,12.5C-6,12.5-10,9-10,2.8C-10,-3.5-7,-12 0,-12Z" fill="url(#em)"/><ellipse cx="-3" cy="-7" rx="2.4" ry="3.2" fill="rgba(255,255,255,.24)" transform="rotate(-12,-3,-7)"/></g>
+    </svg>
+    <span class="nav-brand">Halalisani Ngema</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="jobs.html">Jobs</a></li>
+    <li><a href="ourwork.html" class="active">Our Work</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
+  <a href="about.html"    onclick="toggleMobileNav()">About</a>
+  <a href="services.html" onclick="toggleMobileNav()">Services</a>
+  <a href="blog.html"     onclick="toggleMobileNav()">Blog</a>
+  <a href="jobs.html"     onclick="toggleMobileNav()">Jobs</a>
+  <a href="ourwork.html"  onclick="toggleMobileNav()">Our Work</a>
+  <a href="index.html#contact" onclick="toggleMobileNav()">Get in Touch</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="ph-img"></div>
+  <div class="ph-overlay"></div>
+  <div class="ph-content">
+    <div class="ph-badge">The Full Picture</div>
+    <h1 class="ph-h1">Experience,<br><em>credentials &amp; skills.</em></h1>
+    <p class="ph-sub">Thirteen years across banking, HR administration, and sales. Every role, every skill, every qualification — laid out plainly.</p>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<section id="profile">
+  <div class="section-rule"></div>
+  <div class="container">
+    <div class="profile-grid">
+      <div class="profile-photo-col fade-in">
+        <div class="profile-photo-frame">
+          <img class="profile-photo" src="assets/picture/profile.jpg" alt="Halalisani Ngema" loading="lazy"/>
+        </div>
+        <p class="profile-photo-caption">Halalisani Ngema &nbsp;·&nbsp; South Africa</p>
+      </div>
+      <div class="fade-in">
+        <div class="section-eyebrow">Who I Am</div>
+        <h2 class="section-heading">Office professional.<br><em>Customer service veteran.</em></h2>
+        <div class="prose">
+          <p>
+            My name is Halalisani Ngema. I am an <strong>office administrator and customer service professional</strong> with over 13 years of hands-on experience across banking, HR administration, and sales.
+          </p>
+          <p>
+            I answer phones, manage paperwork, process benefits enrolments, handle cash, cross-sell financial products, and keep records in order. That is the work I have done — in real offices, with real clients, every day for over a decade.
+          </p>
+          <p>
+            I am not a specialist. I am someone who has done the work at every level, across a wide range of office and service environments. That practical experience is what I bring to this platform — and what makes the career guidance here worth trusting.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-rule"></div>
+  <div class="container fade-in">
+    <div class="section-eyebrow">Work History</div>
+    <h2 class="section-heading">Where I have worked<br><em>and what I did.</em></h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div>
+          <div class="tl-date">Oct 2013 – Sep 2020</div>
+          <div class="tl-company">Nedbank</div>
+        </div>
+        <div>
+          <div class="tl-role">Multifunctional Consultant</div>
+          <div class="tl-body">Teller duties, walk-in and telephonic customer service, fraud prevention, ATM management, and cross-selling of banking products. High-volume, face-to-face work every day — processing hundreds of transactions, resolving account queries, and referring clients to the right banking solutions.</div>
+          <div class="tl-tags">
+            <span class="tl-tag">Teller</span>
+            <span class="tl-tag">Customer Service</span>
+            <span class="tl-tag">Banking</span>
+            <span class="tl-tag">Fraud Prevention</span>
+            <span class="tl-tag">ATM Management</span>
+            <span class="tl-tag">Cross-Selling</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div>
+          <div class="tl-date">May 2007 – Sep 2013</div>
+          <div class="tl-company">Nedbank</div>
+        </div>
+        <div>
+          <div class="tl-role">HR Benefits Consultant</div>
+          <div class="tl-body">Processing payroll adjustments, managing employee benefits enrolments and exits, handling telephonic advisory for thousands of staff, and maintaining compliance records. Six years answering real questions from employees and making sure the paperwork was right — pension, medical aid, group life, disability claims.</div>
+          <div class="tl-tags">
+            <span class="tl-tag">HR Administration</span>
+            <span class="tl-tag">Benefits</span>
+            <span class="tl-tag">Payroll</span>
+            <span class="tl-tag">Compliance</span>
+            <span class="tl-tag">Telephonic Advisory</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div>
+          <div class="tl-date">Earlier</div>
+          <div class="tl-company">Leza Legalwise</div>
+        </div>
+        <div>
+          <div class="tl-role">Sales Consultant</div>
+          <div class="tl-body">Telephonic sales of legal cover products. Needs-based consultations, objection handling, and building client trust. Explaining complex cover terms in plain language so clients could make informed decisions.</div>
+          <div class="tl-tags">
+            <span class="tl-tag">Telephonic Sales</span>
+            <span class="tl-tag">Legal Cover</span>
+            <span class="tl-tag">Client Advisory</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div>
+          <div class="tl-date">Earlier</div>
+          <div class="tl-company">Metropolitan</div>
+        </div>
+        <div>
+          <div class="tl-role">Sales Consultant</div>
+          <div class="tl-body">Selling financial products to clients, conducting needs-based financial consultations, and managing a client book. Building long-term relationships and following up consistently to retain and grow the client base.</div>
+          <div class="tl-tags">
+            <span class="tl-tag">Financial Services</span>
+            <span class="tl-tag">Sales</span>
+            <span class="tl-tag">Client Retention</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-rule"></div>
+  <div class="container fade-in">
+    <div class="section-eyebrow">Capabilities</div>
+    <h2 class="section-heading">What I bring<br><em>to the table.</em></h2>
+    <div class="skills-split">
+      <div class="skills-group">
+        <h3>Customer &amp; Client Service</h3>
+        <div class="skill-list">
+          <span class="skill-tag hi">Telephonic Customer Service</span>
+          <span class="skill-tag hi">Face-to-Face Client Service</span>
+          <span class="skill-tag hi">Complaints Handling</span>
+          <span class="skill-tag">Objection Handling</span>
+          <span class="skill-tag">Needs-Based Consultation</span>
+          <span class="skill-tag">Client Retention</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <h3>Office &amp; Administration</h3>
+        <div class="skill-list">
+          <span class="skill-tag hi">Office Administration</span>
+          <span class="skill-tag hi">Data Capturing</span>
+          <span class="skill-tag hi">Record Keeping</span>
+          <span class="skill-tag">Benefits Administration</span>
+          <span class="skill-tag">Payroll Processing</span>
+          <span class="skill-tag">Compliance Documentation</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <h3>Tools &amp; Systems</h3>
+        <div class="skill-list">
+          <span class="skill-tag hi">Microsoft Word</span>
+          <span class="skill-tag hi">Microsoft Excel</span>
+          <span class="skill-tag">Microsoft Outlook</span>
+          <span class="skill-tag">Email Management</span>
+          <span class="skill-tag">Banking Systems</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <h3>Personal Strengths</h3>
+        <div class="skill-list">
+          <span class="skill-tag hi">Attention to Detail</span>
+          <span class="skill-tag hi">Communication</span>
+          <span class="skill-tag">Reliability</span>
+          <span class="skill-tag">Time Management</span>
+          <span class="skill-tag">Professionalism</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-rule"></div>
+  <div class="container fade-in">
+    <div class="section-eyebrow">Certifications</div>
+    <h2 class="section-heading">Courses &amp;<br><em>qualifications earned.</em></h2>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-year">May 2025</div>
+        <div class="cert-title">AI Career Essentials</div>
+        <div class="cert-issuer">ALX Africa</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-year">March 2025</div>
+        <div class="cert-title">AI Starter Kit</div>
+        <div class="cert-issuer">ALX Africa</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-year">2016</div>
+        <div class="cert-title">Business Writing</div>
+        <div class="cert-issuer">Professional Development</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-year">2011</div>
+        <div class="cert-title">Microsoft Excel</div>
+        <div class="cert-issuer">Computer Training</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-rule"></div>
+  <div class="container fade-in">
+    <div class="section-eyebrow">Education</div>
+    <h2 class="section-heading">Academic<br><em>background.</em></h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-year">2007</div>
+        <div class="edu-degree">National Diploma — Office Management</div>
+        <div class="edu-institution">Durban University of Technology</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-year">2003</div>
+        <div class="edu-degree">National Senior Certificate (Matric)</div>
+        <div class="edu-institution">Secondary School</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Halalisani Ngema</div>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/halalisaningema/" target="_blank" rel="noopener" title="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    <a href="https://github.com/halalisanin" target="_blank" rel="noopener" title="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+    <a href="https://ehub.alxafrica.com/profile/7c2fd094-0c32-4b88-bca5-ea25b81ffa7d" target="_blank" rel="noopener" title="ALX Africa"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></a>
+  </div>
+  <div class="footer-copy">&copy; 2026 &nbsp;·&nbsp; <a href="legal.html" style="color:var(--muted);text-decoration:underline;text-underline-offset:3px;">Legal &amp; Privacy</a></div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => { navbar.classList.toggle('scrolled', window.scrollY > 60); ticking = false; });
+      ticking = true;
+    }
+  }, {passive:true});
+
+  function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, {threshold:.1});
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

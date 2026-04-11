@@ -27,11 +27,10 @@
     /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 4rem;background:linear-gradient(to bottom,rgba(8,8,16,.95) 0%,transparent 100%);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .4s,background .4s;}
     nav.scrolled{border-color:var(--border);background:rgba(8,8,16,.96);}
-    .nav-logo-btn{display:flex;align-items:center;justify-content:center;flex-shrink:0;text-decoration:none;transition:opacity .3s,transform .25s;}
-    .nav-logo-btn:hover{opacity:.82;transform:scale(1.07);}
-    .nav-logo-circle{width:40px;height:40px;border-radius:50%;border:1.4px solid var(--gold);background:var(--bg);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(201,168,76,.08);position:relative;}
-    .nav-logo-circle::after{content:'';position:absolute;inset:4px;border-radius:50%;border:.8px solid rgba(201,168,76,.18);}
-    .nav-logo-initials{font-family:var(--ff-serif);font-size:13px;font-weight:600;color:var(--gold);letter-spacing:2px;line-height:1;padding-left:2px;}
+    .nav-logo-btn{display:flex;align-items:center;gap:.75rem;text-decoration:none;flex-shrink:0;transition:opacity .25s;}
+    .nav-logo-btn:hover{opacity:.8;}
+    .nav-logo-btn svg{height:34px;width:auto;display:block;}
+    .nav-brand{font-family:var(--ff-serif);font-size:1rem;font-weight:600;letter-spacing:.04em;color:var(--gold);}
     .nav-links{display:flex;gap:2.5rem;list-style:none;}
     .nav-links a{font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);transition:color .3s;position:relative;}
     .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
@@ -113,14 +112,25 @@
 <body>
 
   <nav id="navbar">
-    <a href="index.html" class="nav-logo-btn" title="Home" aria-label="Go to homepage">
-      <div class="nav-logo-circle"><span class="nav-logo-initials">HN</span></div>
+    <a href="index.html" class="nav-logo-btn" title="Home">
+      <svg viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <radialGradient id="el" cx="35%" cy="28%" r="68%"><stop offset="0%" stop-color="#f2d874"/><stop offset="50%" stop-color="#c9a84c"/><stop offset="100%" stop-color="#6e5018"/></radialGradient>
+          <radialGradient id="em" cx="33%" cy="26%" r="68%"><stop offset="0%" stop-color="#f8e080"/><stop offset="48%" stop-color="#d4b255"/><stop offset="100%" stop-color="#7a5a1c"/></radialGradient>
+          <radialGradient id="er" cx="35%" cy="28%" r="68%"><stop offset="0%" stop-color="#f2d874"/><stop offset="50%" stop-color="#c9a84c"/><stop offset="100%" stop-color="#6e5018"/></radialGradient>
+        </defs>
+        <g transform="translate(13,22) rotate(-17)"><path d="M0,-10.5C6,-10.5 8.5,-3 8.5,2.5C8.5,8 5,11 0,11C-5,11-8.5,8-8.5,2.5C-8.5,-3-6,-10.5 0,-10.5Z" fill="url(#el)" opacity=".86"/><ellipse cx="-2.5" cy="-6" rx="2" ry="2.8" fill="rgba(255,255,255,.2)" transform="rotate(-12,-2.5,-6)"/></g>
+        <g transform="translate(51,22) rotate(17)"><path d="M0,-10.5C6,-10.5 8.5,-3 8.5,2.5C8.5,8 5,11 0,11C-5,11-8.5,8-8.5,2.5C-8.5,-3-6,-10.5 0,-10.5Z" fill="url(#er)" opacity=".86"/><ellipse cx="-2.5" cy="-6" rx="2" ry="2.8" fill="rgba(255,255,255,.2)" transform="rotate(-12,-2.5,-6)"/></g>
+        <g transform="translate(32,20)"><path d="M0,-12C7,-12 10,-3.5 10,2.8C10,9 6,12.5 0,12.5C-6,12.5-10,9-10,2.8C-10,-3.5-7,-12 0,-12Z" fill="url(#em)"/><ellipse cx="-3" cy="-7" rx="2.4" ry="3.2" fill="rgba(255,255,255,.24)" transform="rotate(-12,-3,-7)"/></g>
+      </svg>
+      <span class="nav-brand">Halalisani Ngema</span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="jobs.html" class="active">Jobs</a></li>
+      <li><a href="ourwork.html">Our Work</a></li>
     </ul>
     <a href="index.html#contact" class="nav-cta">Get in Touch</a>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()">
@@ -130,10 +140,12 @@
 
   <div class="mobile-nav" id="mobileNav">
     <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
-    <a href="index.html" onclick="toggleMobileNav()">Home</a>
-    <a href="blog.html" onclick="toggleMobileNav()">Blog</a>
-    <a href="jobs.html" onclick="toggleMobileNav()">Jobs</a>
-    <a href="index.html#contact" onclick="toggleMobileNav()">Contact</a>
+    <a href="about.html"    onclick="toggleMobileNav()">About</a>
+    <a href="services.html" onclick="toggleMobileNav()">Services</a>
+    <a href="blog.html"     onclick="toggleMobileNav()">Blog</a>
+    <a href="jobs.html"     onclick="toggleMobileNav()">Jobs</a>
+    <a href="ourwork.html"  onclick="toggleMobileNav()">Our Work</a>
+    <a href="index.html#contact" onclick="toggleMobileNav()">Get in Touch</a>
   </div>
 
   <div class="page-header">
