@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jobs Board — Halalisani Ngema</title>
-  <meta name="description" content="Live HR, banking, and admin job listings in Johannesburg and Gauteng, updated every few hours." />
+  <meta name="description" content="Live HR, banking, and admin job listings in Johannesburg and Gauteng, updated every few hours. Browse 20 jobs per page with easy navigation." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
@@ -72,7 +72,7 @@
     .results-count{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;}
 
     /* JOB GRID */
-    .jobs-section{padding:1rem 0 6rem;}
+    .jobs-section{padding:1rem 0 3rem;}
     .jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem;}
     .job-card{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:1.5rem;display:flex;flex-direction:column;gap:.6rem;opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s,border-color .3s,box-shadow .3s;}
     .job-card.visible{opacity:1;transform:translateY(0);}
@@ -97,6 +97,18 @@
     .no-jobs{text-align:center;padding:5rem 0;color:var(--text-muted);grid-column:1/-1;}
     .no-jobs-title{font-family:var(--ff-serif);font-size:1.5rem;color:var(--text);margin-bottom:.5rem;}
 
+    /* PAGINATION */
+    .pagination{display:flex;justify-content:center;align-items:center;gap:0.5rem;margin:3rem 0 2rem;flex-wrap:wrap;}
+    .page-btn{background:var(--bg3);border:1px solid var(--border);border-radius:2px;padding:0.5rem 1rem;font-family:var(--ff-mono);font-size:.75rem;font-weight:500;color:var(--text-muted);cursor:pointer;transition:all .2s;min-width:70px;text-align:center;}
+    .page-btn:hover:not(:disabled){border-color:var(--gold-dim);color:var(--gold);background:rgba(201,168,76,.05);}
+    .page-btn.active{background:var(--gold);border-color:var(--gold);color:var(--bg);cursor:default;}
+    .page-btn:disabled{opacity:0.4;cursor:not-allowed;}
+    .page-numbers{display:flex;gap:0.4rem;flex-wrap:wrap;}
+    .page-number{background:var(--bg3);border:1px solid var(--border);border-radius:2px;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;font-family:var(--ff-mono);font-size:.8rem;cursor:pointer;transition:all .2s;}
+    .page-number:hover{background:rgba(201,168,76,.1);border-color:var(--gold-dim);color:var(--gold);}
+    .page-number.active{background:var(--gold);border-color:var(--gold);color:var(--bg);cursor:default;}
+    .ellipsis{color:var(--text-muted);font-family:var(--ff-mono);padding:0 0.25rem;}
+
     /* FOOTER */
     footer{padding:3rem 0;text-align:center;border-top:1px solid var(--border);}
     .footer-brand{font-family:var(--ff-serif);font-size:1.1rem;color:var(--gold);margin-bottom:.5rem;}
@@ -111,6 +123,8 @@
       .nav-hamburger{display:flex;}
       .controls{flex-direction:column;align-items:flex-start;}
       .search-wrap{max-width:100%;}
+      .pagination{gap:0.3rem;}
+      .page-number{width:32px;height:32px;font-size:.7rem;}
     }
   </style>
 </head>
@@ -158,7 +172,7 @@
     <div class="container">
       <div class="page-label">South Africa</div>
       <h1 class="page-title">Live <em>Jobs Board</em></h1>
-      <p class="page-desc">HR, banking, administration, and customer service roles updated automatically every few hours. All listings link directly to the original source.</p>
+      <p class="page-desc">HR, banking, administration, and customer service roles updated automatically every few hours. 20 jobs per page — browse, rate, and apply directly.</p>
       <div class="last-updated">
         <span class="live-dot"></span>
         <span id="lastUpdatedText">Loading…</span>
@@ -170,7 +184,7 @@
     <div class="controls">
       <div class="search-wrap">
         <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input class="search-input" id="searchInput" type="text" placeholder="Search jobs, companies…" oninput="filterJobs()" />
+        <input class="search-input" id="searchInput" type="text" placeholder="Search jobs, companies…" oninput="onSearchInput()" />
       </div>
       <div class="cat-tabs" id="catTabs">
         <button class="cat-btn active" data-cat="all" onclick="setCategory('all')">All</button>
@@ -197,6 +211,8 @@
           <div class="no-jobs-title">Loading jobs…</div>
         </div>
       </div>
+      <!-- PAGINATION CONTROLS -->
+      <div id="paginationContainer" class="pagination"></div>
     </div>
   </section>
 
@@ -212,10 +228,19 @@
   </footer>
 
   <script>
+    // Global state
+    let allJobs = [];          // full list with categories
+    let filteredJobs = [];     // filtered by category + search
+    let activeCategory = 'all';
+    let currentPage = 1;
+    const ITEMS_PER_PAGE = 20;
+    let searchDebounceTimer = null;
+
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
     function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('open'); }
 
+    // Intersection Observer for fade-in
     const observer = new IntersectionObserver(entries => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
@@ -225,9 +250,7 @@
       });
     }, { threshold: 0.05 });
 
-    let allJobs = [];
-    let activeCategory = 'all';
-
+    // Category mapping
     function categorise(job) {
       const t = (job.title + ' ' + (job.snippet || '')).toLowerCase();
       if (/payroll/.test(t)) return 'payroll';
@@ -253,14 +276,23 @@
       return src.toLowerCase().includes('career') ? 'source-careerjunction' : 'source-adzuna';
     }
 
-    function renderJobs(jobs) {
+    // Render jobs for current page (using filteredJobs)
+    function renderCurrentPage() {
+      const start = (currentPage - 1) * ITEMS_PER_PAGE;
+      const end = start + ITEMS_PER_PAGE;
+      const pageJobs = filteredJobs.slice(start, end);
+      renderJobs(pageJobs);
+      renderPaginationControls();
+      updateResultsCount();
+    }
+
+    function renderJobs(jobsArray) {
       const grid = document.getElementById('jobsGrid');
-      document.getElementById('resultsCount').textContent = `${jobs.length} listing${jobs.length !== 1 ? 's' : ''}`;
-      if (!jobs.length) {
+      if (!jobsArray.length) {
         grid.innerHTML = '<div class="no-jobs"><div class="no-jobs-title">No jobs found</div><p>Try a different search or category.</p></div>';
         return;
       }
-      grid.innerHTML = jobs.map(j => {
+      grid.innerHTML = jobsArray.map(j => {
         const rid = 'jr_' + btoa(j.url || j.title || Math.random()).replace(/[^a-z0-9]/gi,'').slice(0,16);
         const myR = parseInt(localStorage.getItem('job_rating_' + rid) || '0');
         const stars = [1,2,3,4,5].map(v =>
@@ -272,33 +304,39 @@
             <span class="job-source ${sourceClass(j.source)}">${j.source || 'Adzuna'}</span>
             <span class="job-date">${timeAgo(j.date_found)}</span>
           </div>
-          <div class="job-title">${j.title}</div>
-          <div class="job-company">${j.company || ''}</div>
-          ${j.snippet ? `<div class="job-snippet">${j.snippet}</div>` : ''}
+          <div class="job-title">${escapeHtml(j.title)}</div>
+          <div class="job-company">${escapeHtml(j.company || '')}</div>
+          ${j.snippet ? `<div class="job-snippet">${escapeHtml(j.snippet)}</div>` : ''}
           <div><span class="job-cat-tag">${j.category || 'general'}</span></div>
           <div class="job-rating">
             <div class="job-stars">${stars}</div>
             <span class="job-rating-label">${myR ? myR+'/5' : 'Rate'}</span>
           </div>
-          <a href="${j.url}" target="_blank" rel="noopener" class="job-apply">
+          <a href="${escapeHtml(j.url)}" target="_blank" rel="noopener" class="job-apply">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Apply Now
           </a>
         </div>`;
       }).join('');
 
-      // Wire up job star clicks
+      // Attach star rating events after DOM update
       document.querySelectorAll('.job-star').forEach(s => {
         s.addEventListener('mouseenter', () => {
           const rid = s.dataset.rid, v = parseInt(s.dataset.v);
-          s.closest('.job-stars').querySelectorAll('.job-star').forEach(x =>
-            x.classList.toggle('on', parseInt(x.dataset.v) <= v));
+          const starsContainer = s.closest('.job-stars');
+          if (starsContainer) {
+            starsContainer.querySelectorAll('.job-star').forEach(x =>
+              x.classList.toggle('on', parseInt(x.dataset.v) <= v));
+          }
         });
         s.addEventListener('mouseleave', () => {
           const rid = s.dataset.rid;
           const saved = parseInt(localStorage.getItem('job_rating_' + rid) || '0');
-          s.closest('.job-stars').querySelectorAll('.job-star').forEach(x =>
-            x.classList.toggle('on', parseInt(x.dataset.v) <= saved));
+          const starsContainer = s.closest('.job-stars');
+          if (starsContainer) {
+            starsContainer.querySelectorAll('.job-star').forEach(x =>
+              x.classList.toggle('on', parseInt(x.dataset.v) <= saved));
+          }
         });
         s.addEventListener('click', () => {
           const rid = s.dataset.rid, v = parseInt(s.dataset.v);
@@ -313,41 +351,128 @@
       document.querySelectorAll('.job-card').forEach(el => observer.observe(el));
     }
 
-    function filterJobs() {
-      const q = document.getElementById('searchInput').value.toLowerCase();
-      let jobs = allJobs;
-      if (activeCategory !== 'all') jobs = jobs.filter(j => j.category === activeCategory);
-      if (q) jobs = jobs.filter(j =>
-        (j.title || '').toLowerCase().includes(q) ||
-        (j.company || '').toLowerCase().includes(q) ||
-        (j.snippet || '').toLowerCase().includes(q)
-      );
-      renderJobs(jobs);
+    function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
+
+    function updateResultsCount() {
+      const total = filteredJobs.length;
+      const start = (currentPage - 1) * ITEMS_PER_PAGE + 1;
+      const end = Math.min(currentPage * ITEMS_PER_PAGE, total);
+      const countSpan = document.getElementById('resultsCount');
+      if (total === 0) {
+        countSpan.textContent = `0 listings`;
+      } else {
+        countSpan.textContent = `Showing ${start}–${end} of ${total} listing${total !== 1 ? 's' : ''}`;
+      }
+    }
+
+    function renderPaginationControls() {
+      const totalPages = Math.ceil(filteredJobs.length / ITEMS_PER_PAGE);
+      const container = document.getElementById('paginationContainer');
+      if (totalPages <= 1) {
+        container.innerHTML = '';
+        return;
+      }
+
+      let html = `
+        <button class="page-btn" onclick="goToPage(1)" ${currentPage === 1 ? 'disabled' : ''}>« First</button>
+        <button class="page-btn" onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>‹ Prev</button>
+        <div class="page-numbers">
+      `;
+      
+      // Show limited page numbers with ellipsis
+      const maxVisible = 5;
+      let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+      let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+      if (endPage - startPage + 1 < maxVisible) {
+        startPage = Math.max(1, endPage - maxVisible + 1);
+      }
+      
+      if (startPage > 1) {
+        html += `<div class="page-number" onclick="goToPage(1)">1</div>`;
+        if (startPage > 2) html += `<div class="ellipsis">…</div>`;
+      }
+      for (let i = startPage; i <= endPage; i++) {
+        html += `<div class="page-number ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</div>`;
+      }
+      if (endPage < totalPages) {
+        if (endPage < totalPages - 1) html += `<div class="ellipsis">…</div>`;
+        html += `<div class="page-number" onclick="goToPage(${totalPages})">${totalPages}</div>`;
+      }
+      
+      html += `
+        </div>
+        <button class="page-btn" onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Next ›</button>
+        <button class="page-btn" onclick="goToPage(${totalPages})" ${currentPage === totalPages ? 'disabled' : ''}>Last »</button>
+      `;
+      container.innerHTML = html;
+    }
+
+    function goToPage(page) {
+      const totalPages = Math.ceil(filteredJobs.length / ITEMS_PER_PAGE);
+      if (page < 1 || page > totalPages) return;
+      currentPage = page;
+      renderCurrentPage();
+      // Smooth scroll to top of jobs section
+      document.querySelector('.jobs-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Apply category + search filter, reset to page 1
+    function applyFilters() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      let filtered = [...allJobs];
+      
+      if (activeCategory !== 'all') {
+        filtered = filtered.filter(job => job.category === activeCategory);
+      }
+      
+      if (searchTerm) {
+        filtered = filtered.filter(job =>
+          (job.title || '').toLowerCase().includes(searchTerm) ||
+          (job.company || '').toLowerCase().includes(searchTerm) ||
+          (job.snippet || '').toLowerCase().includes(searchTerm)
+        );
+      }
+      
+      filteredJobs = filtered;
+      currentPage = 1;
+      renderCurrentPage();
     }
 
     function setCategory(cat) {
       activeCategory = cat;
-      document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
-      filterJobs();
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.cat === cat);
+      });
+      applyFilters();
     }
 
+    function onSearchInput() {
+      if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(() => {
+        applyFilters();
+      }, 300);
+    }
+
+    // Load data from jobs.json
     fetch('jobs.json')
       .then(r => r.json())
       .then(data => {
-        // Attach category to each job
-        allJobs = (data.jobs || []).map(j => ({ ...j, category: categorise(j) }));
-
-        // Last updated
+        const rawJobs = data.jobs || [];
+        // attach category and ensure date_found exists
+        allJobs = rawJobs.map(j => ({ ...j, category: categorise(j), date_found: j.date_found || '2026-04-12' }));
+        filteredJobs = [...allJobs];
+        
         const upd = data.updated || '';
-        document.getElementById('lastUpdatedText').textContent =
-          upd ? `Updated ${timeAgo(upd)}  ·  ${allJobs.length} listings` : `${allJobs.length} listings`;
-
-        renderJobs(allJobs);
+        document.getElementById('lastUpdatedText').textContent = upd ? `Updated ${timeAgo(upd)}  ·  ${allJobs.length} listings` : `${allJobs.length} listings`;
+        
+        renderCurrentPage();
       })
-      .catch(() => {
+      .catch(err => {
+        console.error(err);
         document.getElementById('jobsGrid').innerHTML =
           '<div class="no-jobs"><div class="no-jobs-title">Jobs loading soon</div><p>The job board refreshes every few hours. Check back shortly.</p></div>';
         document.getElementById('lastUpdatedText').textContent = 'Not yet loaded';
+        document.getElementById('paginationContainer').innerHTML = '';
       });
   </script>
 </body>
