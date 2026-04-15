@@ -1,7 +1,495 @@
 {
-  "updated": "2026-04-15 18:14",
+  "updated": "2026-04-15 18:29",
   "count": 300,
   "jobs": [
+    {
+      "title": "Passenger Vehicle Administration Clerk - Northern Suburbs",
+      "company": "Select Motor Recruitment",
+      "url": "https://www.adzuna.co.za/details/5695282984?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Remuneration: Negotiable, dependent on skill set, knowledge, and experience Note: To start as soon as possible Purpose Of The Job: Our client is seeking a highly organized and detail-oriented Administ",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "INVOICING CLERK - AUTOMOTIVE (GERMISTON)",
+      "company": "Mpumalanga Personnel",
+      "url": "https://www.adzuna.co.za/details/5694165640?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "We are looking for a detail-oriented Invoicing Clerk to support administrative and financial processes within a fast-paced environment. The role requires strong system knowledge, accuracy, and the abi",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Igaming Recons Administrator / Clerk Analytical -",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5690901844?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "A driven-orientated Company is looking for a detail-oriented and analytical Reconciliations Administrator/Clerk to join a dynamic Finance team. This role is ideal for someone who thrives on accuracy,",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Administration Clerk (SYSPRO) - Roodepoort",
+      "company": "Techbridge Recruitment",
+      "url": "https://www.adzuna.co.za/details/5686367485?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "About the Role (SYSPRO (essential requirement)) Our client in the building materials manufacturing and distribution sector is seeking a detail-driven Administration Clerk with strong logistics and man",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Invoicing and Financial Clerk (Telecoms)",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5591724700?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Our client in the Telecoms Industry is looking to hire an Invoicing and Financial Clerk. Duties and Responsibilities \u2022 Verify quotations received by Partners according to a pricelist. \u2022 Add the quotat",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Administration Clerk \u2013 Tokai, Cape Town",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/administration-clerk-tokai-cape-town-job-2635611.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Administrator",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/administrator-job-2635614.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Rentals Administrator",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/rentals-administrator-job-2635622.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Administration and Quality Assurance Officer",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/administration-and-quality-assurance-officer-job-2635437.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Administrator (Purchase Orders)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/administrator-purchase-orders-job-2636384.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Administrator: Projects",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/administrator-projects-job-2636727.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Verification Clerk",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/verification-clerk-job-2635094.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Reception and Admin Clerk: Bashewa (Ref: 24043-B)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/reception-and-admin-clerk-bashewa-ref-24043-b-job-2631723.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Operations Administrator (JHB)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/operations-administrator-jhb-job-2637205.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Wealth/Financial Administrator",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/wealth-financial-administrator-job-2637154.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Bookkeeper / Office Administrator",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/bookkeeper-office-administrator-job-2635886.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Finance Office Administrator/Bookkeeper (Maitland Onsite)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/finance-office-administrator-bookkeeper-maitland-onsite-job-2631033.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Operations Administrator",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/operations-administrator-job-2636079.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Reception / Booking Consultant - Ballito",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/reception-booking-consultant-ballito-job-2635768.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "French International Call Centre Agent",
+      "company": "Merchants SA Pty Ltd",
+      "url": "https://www.adzuna.co.za/land/ad/5695496198?se=-o4Szuc48RGyK70cOvv1NQ&utm_medium=api&utm_source=a89ba671&v=14C3E8E981C0CE5855316853B3EBF3FD6635ED7B",
+      "source": "Adzuna",
+      "snippet": "Bilingual Customer Service Representative \u00cates-vous parfaitement francophone et passionn\u00e9 par lexcellence du service client? Rejoignez notre \u00e9quipe qui soutient une grande marque canadienne de service",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "French International Call Centre Agent",
+      "company": "Merchants SA Pty Ltd",
+      "url": "https://www.adzuna.co.za/land/ad/5655064803?se=-o4Szuc48RGyK70cOvv1NQ&utm_medium=api&utm_source=a89ba671&v=9CF7E6B83B205E6DA7CBDD47E37AD5BF67706054",
+      "source": "Adzuna",
+      "snippet": "Bilingual Customer Service Representative Now Hiring: French-Speaking Agents Banking, Fraud & Disputes Parlez-vous couramment fran\u00e7ais et \u00eates-vous passionn\u00e9(e) par la prestation dexp\u00e9riences client e",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "External Sales Consultant",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/external-sales-consultant-job-2636827.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "French International Call Centre Agent",
+      "company": "Merchants SA Pty Ltd",
+      "url": "https://www.adzuna.co.za/land/ad/5695496198?se=5J500ec48RGyK70cOvv1NQ&utm_medium=api&utm_source=a89ba671&v=14C3E8E981C0CE5855316853B3EBF3FD6635ED7B",
+      "source": "Adzuna",
+      "snippet": "Bilingual Customer Service Representative \u00cates-vous parfaitement francophone et passionn\u00e9 par lexcellence du service client? Rejoignez notre \u00e9quipe qui soutient une grande marque canadienne de service",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Call Centre Supervisor",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5689349195?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "To oversee the daily operations of the call centre team, ensuring high levels of customer service, operational efficiency, and team performance. The Call Centre Supervisor is responsible for managing",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "HR Intern",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5688042392?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "I am looking for an HR Intern that has a passion to help people. Fully remote positionQualifications:MatricHR Degree or DiplomaSkills and experience:Must have worked in an HR environment before - at l",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Call Centre Agent",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5686499909?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "What Youll DoAnswer incoming calls and respond to customer queries in a professional mannerMake outbound calls to follow up on leads or payments (where required)Maintain accurate records of all custom",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Passenger Vehicle Call Centre Agent - Northern Suburbs",
+      "company": "Select Motor Recruitment",
+      "url": "https://www.adzuna.co.za/details/5669157704?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Remuneration: R10 000.00 Purpose Of The Job: Our client a well-established passenger vehicle dealership in the Northern Suburbs is looking for a professional and customer-focused Call Centre Agent to",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "French International Call Centre Agent",
+      "company": "Merchants SA Pty Ltd",
+      "url": "https://www.adzuna.co.za/land/ad/5655064803?se=5J500ec48RGyK70cOvv1NQ&utm_medium=api&utm_source=a89ba671&v=9CF7E6B83B205E6DA7CBDD47E37AD5BF67706054",
+      "source": "Adzuna",
+      "snippet": "Bilingual Customer Service Representative Now Hiring: French-Speaking Agents Banking, Fraud & Disputes Parlez-vous couramment fran\u00e7ais et \u00eates-vous passionn\u00e9(e) par la prestation dexp\u00e9riences client e",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "CALL CENTRE SALES AGENTS",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5645550456?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Corner Life is a fast-growing insurance company offering innovative short- and long-term cover. We focus on accessible, client-first solutions with a strong culture of professionalism and service exce",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Senior Sales Consultant",
+      "company": "Sharemont investments",
+      "url": "https://www.adzuna.co.za/details/4802260309?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Job Brief: Our company is continuously evolving and growing thanks to the dynamic individuals we have in our organisation. We are constantly on the outlook for extraordinary people to join our young c",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "HR Lead",
+      "company": "Cardilogix Talent Specialists",
+      "url": "https://www.adzuna.co.za/land/ad/5698156859?se=pkCJ1uc48RGSK-DczOwv6A&utm_medium=api&utm_source=a89ba671&v=F044B542003E6D8E59EEB364AB87376E31411DF1",
+      "source": "Adzuna",
+      "snippet": "HR Lead job vacancy in Johannesburg. Calling all HR Superstars \u2014 are you ready to wrangle a herd of creative unicorns? Our award\u2011winning creative agency in Johannesburg is on the hunt for an HR Lead E",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Payroll Administrator Vip",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/payroll-administrator-vip-job-2635285.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Senior Payroll Specialist",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/senior-payroll-specialist-job-2636498.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Payroll Administrator",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5693926803?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Payroll Administrator Position OverviewWe require a Payroll Administrator to manage payroll processes for our group of 5 companies. This full-time role is based on-site in Edenvale, Johannesburg. The",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Payroll Administrator",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5692481576?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Duties Will Include, But Are Not Limited To:Full payroll functionApplications for tax directivesCompleting statutory returns and handling statutory payments https://www.jobplacements.com/Jobs/P/Payrol",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Global Payroll Tax Administrator",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5691606913?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Key Responsibilities: Manage payroll tax calculations across multiple jurisdictions ensuring accurate gross-to-net processing within country-specific frameworksPrepare and review monthly and annual pa",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Payroll Administrator (SAGE 300)",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5690901772?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Duties will include, but are not limited to:Full payroll functionApplications for tax directivesCompleting statutory returns and handling statutory payments https://www.jobplacements.com/Jobs/P/Payrol",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "PAYROLL & CREDITORS ADMINISTRATOR",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5690901692?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "?? PAYROLL & CREDITORS ADMINISTRATOR?? Location: Kew, Johannesburg ?? Salary: R 20 000 R 25 000 ?? Start Date: ASAPKey ResponsibilitiesPayrollProcess monthly payroll accurately and on timeCapture and",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Payroll Administrator",
+      "company": "ARCS",
+      "url": "https://www.adzuna.co.za/details/5688255750?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Payroll Administrator Location : JHB East Rand Employment : Permanent | on-site Closing Date for CVs : 07 April 2026 Salary: R22,000 \u2013 R25,000 per month, plus incentives Introduction A well-establishe",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Payroll Administrator",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/payroll-administrator-job-2636808.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Payroll Assistant",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/payroll-assistant-job-2636324.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Payroll Specialist - contract position (Construction Projects)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/payroll-specialist-contract-position-construction-projects-job-2636713.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Senior Investment Officer",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/senior-investment-officer-job-2636911.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Debtors Clerk at Resourgenix",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/debtors-clerk-at-resourgenix-job-2636873.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Debtors Clerk",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/debtors-clerk-job-2635785.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Casual Sales Consultant - iStore Maponya, Gauteng",
+      "company": "Core Group",
+      "url": "https://www.adzuna.co.za/land/ad/5699561352?se=5ib06uc48RGz97cGWvCzNg&utm_medium=api&utm_source=a89ba671&v=1E881CB991D3BFD290827F5768455E67576BC567",
+      "source": "Adzuna",
+      "snippet": "iStore is the home of everything Apple, and Africas largest Apple Premium Reseller. With a retail footprint of more than 41 physical and online stores across Africa, we provide expert advice, Apple Au",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Sales Consultant",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/sales-consultant-job-2635454.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Hardware and Tools sales Specialist",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/hardware-and-tools-sales-specialist-job-2636666.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Costing & Warranty Administrator - Sandton",
+      "company": "Bonafide Human Capital  Ltd",
+      "url": "https://www.adzuna.co.za/land/ad/5697219229?se=ICcD8uc48RGz97cGWvCzNg&utm_medium=api&utm_source=a89ba671&v=EC0C365A4DC32A410612B4E79BE510F7942A7025",
+      "source": "Adzuna",
+      "snippet": "MAIN JOB FUNCTIONS: \u2022 To ensure that the warranty administration related to the service department is updated and accurate. \u2022 Directly responsible to the Service Manager. \u2022 Relationships with Customer",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Costing & Warranty Administrator - Sandton",
+      "company": "Bonafide Human Capital  Ltd",
+      "url": "https://www.adzuna.co.za/land/ad/5697219229?se=VL599-c48RGf_NFP3ebnrQ&utm_medium=api&utm_source=a89ba671&v=EC0C365A4DC32A410612B4E79BE510F7942A7025",
+      "source": "Adzuna",
+      "snippet": "MAIN JOB FUNCTIONS: \u2022 To ensure that the warranty administration related to the service department is updated and accurate. \u2022 Directly responsible to the Service Manager. \u2022 Relationships with Customer",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "HR Manager",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5696157922?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Manage staff recruitment and selection in strict accordance with HR legislation and company policies and proceduresOversee disciplinary proceedings and advise management on industrial relations issues",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "People Officer",
+      "company": "SYSPRO",
+      "url": "https://www.adzuna.co.za/details/5695356923?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Job Description The People Officer plays a key role in delivering a seamless and employee\u2011centered People experience for South African employees. The role supports the effective implementation of Peop",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Junior HR Officer & Office Administrator",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5672571679?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Job Responsibilities: Human Resources Support: Assisting with day-to-day operations of the HR and administrative functions within the organisation. Process documentation and prepare reports relating t",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Automotive Human Resources Administrator - OEM Level - Gauteng, Midrand",
+      "company": "Select Motor Recruitment",
+      "url": "https://www.adzuna.co.za/details/5663153243?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Remuneration: Market Related dependent on skill set, knowledge, and experience Purpose Of The Job: Our client is looking for an experienced and qualified HR Administrator to join the team. To support",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Senior HR Officer",
+      "company": "Boneo Placement Services",
+      "url": "https://www.adzuna.co.za/land/ad/5659141191?se=RE_VCug48RGyK70cOvv1NQ&utm_medium=api&utm_source=a89ba671&v=0F2D35ABC73B24AC9F09243D6BBC900D5BFA42B7",
+      "source": "Adzuna",
+      "snippet": "Senior HR Officer Role Overview We are seeking a dynamic and experienced Senior HR Officer to play a strategic and hands-on role in managing and advancing HR functions across our global business. The",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "HR and Payroll Generalist",
+      "company": "Techbridge Recruitment",
+      "url": "https://www.adzuna.co.za/details/5651950852?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Main Purpose of the Role Our client within the freight forwarding and logistics sector is seeking a dynamic and detail-driven HR & Payroll Generalist to take full responsibility for the end-to-end HR",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Junior HR Officer & Office Administrator",
+      "company": "Staff Solutions",
+      "url": "https://www.adzuna.co.za/details/5613035889?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "New Opportunity Available Our leading client in the Manufacturing Sector is looking to employ a Junior HR Officer & Office Administrator to join their dynamic team in Johannesburg (Sandton) Job Respon",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "HR Officer",
+      "company": "Unknown",
+      "url": "https://www.adzuna.co.za/details/5344086156?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "Requirements:- Matric certificate, with a bachelors degree in human resource management preferred.- 3-5 years of experience in an HR role.- Knowledge of labour laws and employment regulations.- Solid",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Senior HR Officer",
+      "company": "Boneo Placement Services",
+      "url": "https://www.adzuna.co.za/land/ad/5659141191?se=CmLyD-g48RGSK-DczOwv6A&utm_medium=api&utm_source=a89ba671&v=0F2D35ABC73B24AC9F09243D6BBC900D5BFA42B7",
+      "source": "Adzuna",
+      "snippet": "Senior HR Officer Role Overview We are seeking a dynamic and experienced Senior HR Officer to play a strategic and hands-on role in managing and advancing HR functions across our global business. The",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "Customer Service Intern - Banking (DIS)",
+      "company": "Thales",
+      "url": "https://www.adzuna.co.za/details/5520454101?utm_medium=api&utm_source=a89ba671",
+      "source": "Adzuna",
+      "snippet": "In fast changing markets, customers worldwide rely on Thales. Thales is a business where brilliant people from all over the world come together to share ideas and inspire each other. In aerospace, tra",
+      "date_found": "2026-04-15"
+    },
+    {
+      "title": "MANAGER: BANKING PAYABLES & RECEIVABLES",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/manager-banking-payables-%26amp-receivables-job-2636844.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-15"
+    },
     {
       "title": "Receptionist",
       "company": "Legal Careers  Ltd",
@@ -1913,494 +2401,6 @@
       "source": "CareerJunction",
       "snippet": "",
       "date_found": "2026-04-12"
-    },
-    {
-      "title": "Foreclosure Secretary",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/foreclosure-secretary-job-2635953.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Junior Conveyancing Secretary",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/junior-conveyancing-secretary-job-2636311.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Trust Company Secretary",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/trust-company-secretary-job-2636670.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Company Secretary",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/company-secretary-job-2636669.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Committee Secretary Advanced",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/committee-secretary-advanced-job-2634930.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Committee Secretary Intermediate Level",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/committee-secretary-intermediate-level-job-2634932.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Group & Subsidiary Boards Committees Secretary x2",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/group-%26amp-subsidiary-boards-committees-secretary-x2-job-2634853.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Account Administrator at Adcorp",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/account-administrator-at-adcorp-job-2636503.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Receptionist",
-      "company": "ADvTECH",
-      "url": "https://www.adzuna.co.za/details/5687656735?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "OVERALL PURPOSE OF THE JOB: The Receptionist is the first internal point of face-to-face or telephonic contact for the campus and is responsible for welcoming guests and greeting people who visit the",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Accounts Clerk/Cashbook Clerk",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5688042455?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Minimum requirementsMinimum 5 years Cashbook experience & finance qualificationExcellent analytical and numerical abilities with sound business knowledge.Accuracy and an eye for detail.Excellent in Wo",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Accounts Payable Clerk",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5681774510?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "This role will be responsible for managing supplier accounts, processing invoices and payments, maintaining accurate financial records, and supporting procurement and banking processes.The successful",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Junior Accounts Payable Clerk",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5676397391?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Posting of daily financial transactionsManagement of creditorsBalancing and reconciliation of accountsPreparation and posting of journal entriesPreparation of monthly working paper filesHandling and r",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Debtors Clerk",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5673663794?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Job Title: Debtors ClerkA company based in Lanseria is seeking a reliable and detail-oriented Debtors Clerk to manage and maintain the accounts receivable function.Key Duties & Responsibilities:Mainta",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Accounts Receivable / Credit Control Clerk",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5673663790?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Job Title: Accounts Receivable / Credit Control ClerkReporting To: OperationsSeniority Level: Mid-Career (3- 5yrs experience)Type: TemporaryRegion: GautengLocation: LanseriaDuties and Responsibilities",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Accounts Payable Clerk (Creditors)",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5673663789?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Accounts Payable Clerk (Creditors)Report to: OperationsSeniority Level: Mid Career (4 - 6 yrs exp)Region: GautengLocation: LanseriaType: TempRole SummaryThe Accounts Payable Clerk is responsible for p",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Senior Accounts Payable Clerk",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5673663513?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Key Responsibilities:Reconciling Intercompany accounts, verifying and investigating discrepanciesProcessing missing intercompany invoicesSupport regional Operations with intercompany queriesPerforming",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Senior Accounts Payable Clerk",
-      "company": "STAFF FOCUS",
-      "url": "https://www.adzuna.co.za/details/5663153361?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Our client is looking for an Intercompany Accounts Payable Clerk to ensure the Intercompany accounts are reconciled, all invoices processed, and payment settlements initiated. Key Responsibilities: Re",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Accounts Receiveable Controller - Kempton Park",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5316758320?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Main accountabilities include:? Reconciliation of allocated Balance Sheet accounts (Assets, Debtors and Revenue).? Maintain fixed asset register.? Ensuring assets are captured timeously and accurately",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Accounts Receivable Clerk",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5299697505?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Our client is seeking a proactive Accounts Receivable Clerk to join their finance team. This role is ideal for someone who thrives in a structured environment, is customer-focused, and enjoys working",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Senior Creditors Clerk",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5269768760?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Key responsibilities:Manage the end-to-end accounts payable process, including invoice verification, coding, and processing, ensuring adherence to company policies and proceduresReconcile supplier sta",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Senior HR Officer",
-      "company": "Boneo Placement Services",
-      "url": "https://www.adzuna.co.za/land/ad/5659141191?se=3o0SGp028RG_J8d0bkVF5A&utm_medium=api&utm_source=a89ba671&v=0F2D35ABC73B24AC9F09243D6BBC900D5BFA42B7",
-      "source": "Adzuna",
-      "snippet": "Senior HR Officer Role Overview We are seeking a dynamic and experienced Senior HR Officer to play a strategic and hands-on role in managing and advancing HR functions across our global business. The",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Branch External Sales and Service Advisor OBR",
-      "company": "FirstRand Bank",
-      "url": "https://www.adzuna.co.za/details/5697038582?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Job Description To deliver an exceptional customer experience by understanding and responding to individual needs and aspirations. Provide tailored, value-adding solutions in a fast-paced environment,",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Inland Sales Manager (Sim Card) (Polokwane/Nelspruit)",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/inland-sales-manager-sim-card-polokwane-nelspruit-job-2635618.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-12"
-    },
-    {
-      "title": "Payroll Team Leader",
-      "company": "Red Ember Recruitment  Ltd",
-      "url": "https://www.adzuna.co.za/details/5695355643?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Red Ember is seeking a Payroll Team Leader, based in Johannesburg, Gauteng, to join our client\u2019s team. The successful candidate will lead the Payroll Team in delivering a professional and responsive p",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "HR and Payroll Administrator",
-      "company": "Houss Pty Ltd",
-      "url": "https://www.adzuna.co.za/details/5694431971?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Key Responsibilities 1. Employee Record Management \u00b7 Maintain accurate and confidential employee records for all property management staff. \u00b7 Ensure compliance with the Basic Conditions of Employment",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Bookkeeper / Creditors Clerk / HR Administrator",
-      "company": "Human Resource Solutions",
-      "url": "https://www.adzuna.co.za/details/5694165405?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Seeking a versatile professional to join our team as Bookkeeper / Creditors Clerk / HR Administrator reporting directly to the Branch Manager in JHB - Eastern Suburbs. About the role We are looking fo",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Business Support Coordinator",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5692481744?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Business & HR Support CoordinatorLocation: Selby JohannesburgMID636 Responsibilities:To provide business coordination support by ensuring accurate administration, compliance, and effective stakeholder",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Junior Administrator",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5690901995?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Junior AdministratorSupport administrative operations and internal processes Mondeor, Johannesburg | R9,000 R13,000  benefitsAbout Our Client Our client operates within a structured environment requir",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Payroll Operations Partner",
-      "company": "Glencore",
-      "url": "https://www.adzuna.co.za/details/5689267176?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Job highlights Full time Johannesburg, Gauteng, South Africa HR Specialists Job ID R200001532 Closing date 10/04/2026 Last Updated 02/04/2026 Payroll Operations Partner Global HR & Payroll Services, t",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "HR Services Partner \u2013 Fixed Term Contract (12 Months)",
-      "company": "Glencore",
-      "url": "https://www.adzuna.co.za/details/5689266940?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Job highlights Full time Johannesburg, Gauteng, South Africa HR Generalists Job ID R200001533 Closing date 10/04/2026 Last Updated 02/04/2026 We are seeking a detail-orientated, proactive and highly m",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "HR Administrator",
-      "company": "Objective Personnel",
-      "url": "https://www.adzuna.co.za/details/5688256193?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "HR Administrator Qualification Matric Tertiary Qualification in Human Resources, Industrial Psychology, or related field will be an advantage Requirements Minimum of 3\u20135 years\u2019 HR administrative exper",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Payroll Administrator",
-      "company": "Flair TM",
-      "url": "https://www.adzuna.co.za/details/5688255900?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "WE\u2019RE HIRING: Payroll Administrator | Hospitality Sector | Sandton & Centurion | Sage VIP / Sage 300 People Are you a detail-driven Payroll Administrator with experience in high-volume, fast-paced env",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Human Resources (HR) Manager \u2013 Renewable Energy Pr",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5688042633?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Location: North West Province, South AfricaEmployment Type: Project-Based \u2013 Fixed Term (17 months)Position OverviewWe are seeking a highly experienced and proactive HR Manager to join a renewableenerg",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "HR Manager",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5686500409?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Senior role with reputable hospitality companyBe responsible for strategically leading and managing the Human Resourcesfunction across a group of hotels and lodges, ensuring full legal compliance, eff",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "HR Generalist/Business Partner M/F",
-      "company": "AGL transport & logistics",
-      "url": "https://www.adzuna.co.za/details/5686367401?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "General information HR Generalist/Business Partner M/F General informations White Horse Carriers (Zalawi / Whitehorse), based in South Africa, is company of Africa Global Logistics, a division of the",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Hospitality HR Manager",
-      "company": "Bright Placements",
-      "url": "https://www.adzuna.co.za/details/5683826008?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "1. Job Purpose The HR Manager is responsible for strategically leading and managing the Human Resources function across a group of hotels and lodges, ensuring full legal compliance, effective HR opera",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "HR Administrator",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5682506701?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Position OverviewWe are seeking a HR Administrator with strong hands-on recruitment experience to support talent acquisition and general HR administration within a fast-paced OEM environment. The prim",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Human Resources Administration Officer",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5682506537?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "My client is seeking a proactive HR Administrator Officer to support the full HR function and ensure smooth, efficient people operations across the business.This role is based in Kempton Park.Key Resp",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "HR Intern",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5682506501?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "About the roleSupports HR with admin tasks like record keeping, recruitment, onboarding, attendance tracking, and payroll support, requiring strong organization, confidentiality, and communication ski",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "An Accountant",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5681774862?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Accountant , Modderfontein A well-established company is looking for a hands-on Senior Accountant / Bookkeeper to take full ownership of the finance function, including payroll, month-end processing,",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "HR Manager",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5681774713?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Job Title:Human Resources Manager Group HotelsLocation:Johannesburg based, Multi-property (various hotel and lodge locations)Reports To:Group General Manager1. Job PurposeThe HR Manager is responsible",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "HR Manager 3\u00e2??6-month Temp",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5681774785?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Duties and ResponsibilitiesProvide general HR operational support to the department.Manage the Human Resources function for the assigned department.Provide guidance and support to management on HR pol",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Payroll & HR Administrator",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/payroll-%26amp-hr-administrator-job-2635751.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Personal Assistant (with HR Admin)",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/personal-assistant-with-hr-admin-job-2635278.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Project Administrator SAP HR & Payroll",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/project-administrator-sap-hr-%26amp-payroll-job-2636745.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "PROJECT ADMINISTRATOR \u2013 SAP HR & PAYROLL IMPLEMENTATION",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/project-administrator-sap-hr-%26amp-payroll-implementation-job-2636744.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "HR Generalist",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/hr-generalist-job-2636860.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "HR Generalist (EE)",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/hr-generalist-ee-job-2636846.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "HR Learning and Development Coordinator",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/hr-learning-and-development-coordinator-job-2636708.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Human Resources Specialist",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/human-resources-specialist-job-2636549.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Legal Secretary/ Paralegal/ HR",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/legal-secretary-paralegal-hr-job-2636788.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Human Resources Business Partner",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/human-resources-business-partner-job-2636917.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Store Manager (45 hr) - Foschini - Chatsworth at The Foschini Group",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/store-manager-45-hr-foschini-chatsworth-at-the-foschini-group-job-2635256.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Senior Payroll Specialist",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/senior-payroll-specialist-job-2636369.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Payroll Specialist - contract position (Construction Projects)",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/payroll-specialist-contract-position-construction-projects-job-2636829.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Store Manager (45 hr) - Sneaker Factory _ Kunjani Mall at The Foschini Group",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/store-manager-45-hr-sneaker-factory-kunjani-mall-at-the-foschini-group-job-2636344.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Expat Mining HR Business Partner - 2yr Contract at Ntice Sourcing Solutions (Pty) Ltd.",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/expat-mining-hr-business-partner-2yr-contract-at-ntice-sourcing-solutions-pty-ltd-job-2636181.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Senior Human Resources Officer",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/senior-human-resources-officer-job-2635801.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Workday Integration Consultant",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/workday-integration-consultant-job-2635446.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Workday Integration Consultant",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/workday-integration-consultant-job-2635445.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
-    },
-    {
-      "title": "Senior Internal Sales Consultant",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/senior-internal-sales-consultant-job-2635838.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
-      "date_found": "2026-04-11"
     }
   ]
 }
