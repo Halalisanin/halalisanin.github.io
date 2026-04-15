@@ -1,0 +1,56 @@
+name: Scrape Jobs
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"   # every 4 hours
+  workflow_dispatch:          # allow manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 schedule
+
+      - name: Write social_config.json from secrets
+        run: |
+          cat > social_config.json <<EOF
+          {
+            "github_token": "",
+            "telegram_bot_token": "${{ secrets.TELEGRAM_BOT_TOKEN }}",
+            "telegram_chat_id": "${{ secrets.TELEGRAM_CHAT_ID }}",
+            "adzuna_app_id": "${{ secrets.ADZUNA_APP_ID }}",
+            "adzuna_app_key": "${{ secrets.ADZUNA_APP_KEY }}",
+            "twitter": {
+              "api_key": "",
+              "api_secret": "",
+              "access_token": "",
+              "access_token_secret": ""
+            }
+          }
+          EOF
+
+      - name: Run scraper
+        run: python3 job_scraper.py --once
+
+      - name: Commit and push jobs.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add jobs.json
+          git diff --cached --quiet && echo "No changes to commit" || \
+            git commit -m "Update jobs board $(date +'%Y-%m-%d %H:%M')" && git push
