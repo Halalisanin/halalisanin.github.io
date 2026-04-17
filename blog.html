@@ -119,6 +119,11 @@
     .drawer-body ul,.drawer-body ol{margin:0 0 1.25rem 1.5rem;}
     .drawer-body li{margin-bottom:.4rem;}
     .drawer-body blockquote{border-left:3px solid var(--gold-dim);padding:.75rem 1.25rem;margin:1.5rem 0;color:var(--text-muted);font-style:italic;background:var(--bg3);}
+    .drawer-share{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+    .drawer-share-label{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:.75rem;}
+    .drawer-share-btns{display:flex;flex-wrap:wrap;gap:.5rem;}
+    .drawer-share-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.38rem .85rem;border:1px solid var(--border);border-radius:2px;font-size:.72rem;font-weight:500;letter-spacing:.06em;color:var(--text-muted);background:none;transition:border-color .22s,color .22s;text-decoration:none;font-family:var(--ff-sans);}
+    .drawer-share-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
 
     @media(max-width:768px){
       nav{padding:1.2rem 1.5rem;}
@@ -212,6 +217,7 @@
     <div class="footer-copy">&copy; 2026 &nbsp;&middot;&nbsp; South Africa &nbsp;&middot;&nbsp; <a href="legal.html" style="color:var(--text-muted);text-decoration:underline;text-underline-offset:3px;">Legal &amp; Privacy</a></div>
   </footer>
 
+  <script src="posts/posts-data.js"></script>
   <script>
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
@@ -230,71 +236,70 @@
     let activeTag = 'all';
     let activeCardId = null;
 
-    // --- FRONTMATTER PARSER ---
-    function parseFrontmatter(text) {
-      const fm = {};
-      if (!text.startsWith('---')) return { fm, body: text };
-      const end = text.indexOf('---', 3);
-      if (end === -1) return { fm, body: text };
-      const block = text.slice(3, end).trim();
-      const body = text.slice(end + 3).trim();
-      block.split('\n').forEach(line => {
-        const colon = line.indexOf(':');
-        if (colon === -1) return;
-        const key = line.slice(0, colon).trim();
-        const val = line.slice(colon + 1).trim();
-        if (key === 'tags') fm.tags = val.split(',').map(t => t.trim());
-        else fm[key] = val;
-      });
-      return { fm, body };
+    function escAttr(s) {
+      return String(s).replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
     // --- DRAWER ---
     function openPost(id) {
-      // Toggle off if same card clicked again
       if (activeCardId === id) { closeDrawer(); return; }
       activeCardId = id;
 
-      // Highlight active card
       document.querySelectorAll('.blog-card').forEach(c =>
         c.classList.toggle('active', c.dataset.id === id));
 
-      const drawer = document.getElementById('articleDrawer');
+      const drawer  = document.getElementById('articleDrawer');
       const content = document.getElementById('drawerContent');
-      content.innerHTML = '<p style="color:var(--text-muted);padding:2rem 0;">Loading…</p>';
       drawer.classList.add('open');
-
-      // Set full-post link
       document.getElementById('drawerFullLink').href = `post.html?id=${id}`;
-
-      // Scroll drawer into view
       setTimeout(() => drawer.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
 
-      fetch(`posts/${id}.md`)
-        .then(r => { if (!r.ok) throw new Error(); return r.text(); })
-        .then(text => {
-          const { fm, body } = parseFrontmatter(text);
-          const html = marked.parse(body);
-          const tags = (fm.tags || []).map(t => `<span class="drawer-tag">${t}</span>`).join('');
-          content.innerHTML = `
-            ${fm.image ? `<img class="drawer-hero" src="${fm.image}" alt="${fm.title || ''}" loading="lazy"/>` : ''}
-            <div class="drawer-date">${fm.date || ''}</div>
-            <div class="drawer-title">${fm.title || ''}</div>
-            <div class="drawer-tags">${tags}</div>
-            <div class="drawer-divider"></div>
-            <div class="drawer-body">${html}</div>
-          `;
-        })
-        .catch(() => {
-          content.innerHTML = '<p style="color:var(--text-muted)">Could not load post.</p>';
-        });
+      const post = window.POSTS_DATA && window.POSTS_DATA[id];
+      if (!post) {
+        content.innerHTML = '<p style="color:var(--text-muted);padding:2rem 0;">Post not found.</p>';
+        return;
+      }
+
+      const { fm, body } = post;
+      const html  = marked.parse(body);
+      const tags  = (fm.tags || []).map(t => `<span class="drawer-tag">${t}</span>`).join('');
+      const title = fm.title || '';
+      const enc   = encodeURIComponent;
+      // Build a shareable URL pointing to the dedicated post page
+      const base  = window.location.href.split('blog.html')[0];
+      const postUrl = base + 'post.html?id=' + id;
+
+      content.innerHTML = `
+        ${fm.image ? `<img class="drawer-hero" src="${fm.image}" alt="${escAttr(title)}" loading="lazy"/>` : ''}
+        <div class="drawer-date">${fm.date || ''}</div>
+        <div class="drawer-title">${title}</div>
+        <div class="drawer-tags">${tags}</div>
+        <div class="drawer-divider"></div>
+        <div class="drawer-body">${html}</div>
+        <div class="drawer-share">
+          <div class="drawer-share-label">Share this post</div>
+          <div class="drawer-share-btns">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=${enc(postUrl)}" target="_blank" rel="noopener" class="drawer-share-btn">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=${enc(postUrl)}&text=${enc(title)}" target="_blank" rel="noopener" class="drawer-share-btn">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              X / Twitter
+            </a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=${enc(postUrl)}" target="_blank" rel="noopener" class="drawer-share-btn">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      `;
     }
 
     function closeDrawer() {
       activeCardId = null;
       document.querySelectorAll('.blog-card').forEach(c => c.classList.remove('active'));
-      const drawer = document.getElementById('articleDrawer');
-      drawer.classList.remove('open');
+      document.getElementById('articleDrawer').classList.remove('open');
     }
 
     // --- RENDER CARDS ---
@@ -307,13 +312,13 @@
       }
       grid.innerHTML = posts.map(p => `
         <div class="blog-card" data-id="${p.id}" onclick="openPost('${p.id}')">
-          ${p.image ? `<img class="blog-card-img" src="${p.image}" alt="${p.title}" loading="lazy"/>` : ''}
+          ${p.image ? `<img class="blog-card-img" src="${p.image}" alt="${escAttr(p.title)}" loading="lazy"/>` : ''}
           <div class="blog-card-body">
             <div class="blog-card-date">${p.date}</div>
             <div class="blog-card-title">${p.title}</div>
             <div class="blog-card-excerpt">${p.excerpt}</div>
             <div class="blog-card-tags">${(p.tags||[]).map(t=>`<span class="blog-tag">${t}</span>`).join('')}</div>
-            <button class="blog-card-read-btn" aria-label="Learn more about ${p.title}">Learn more →</button>
+            <button class="blog-card-read-btn">Learn more →</button>
           </div>
         </div>
       `).join('');
