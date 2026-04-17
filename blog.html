@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {
       --bg:#080810; --bg2:#0f0f1a; --bg3:#13131f;
@@ -87,6 +88,38 @@
     .footer-socials a:hover{color:var(--gold);}
     .footer-copy{font-size:.75rem;color:var(--text-muted);}
 
+    /* BLOG CARD — non-link version */
+    .blog-card{cursor:default;}
+    .blog-card.active{border-color:var(--gold-dim);box-shadow:0 0 0 1px var(--gold-dim);}
+    .blog-card-read-btn{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-top:.2rem;background:none;border:none;cursor:pointer;font-family:var(--ff-sans);padding:0;transition:color .25s;text-align:left;}
+    .blog-card-read-btn:hover{color:var(--gold-lt);}
+
+    /* ARTICLE DRAWER */
+    .article-drawer{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3.5rem 0 4rem;margin-top:2rem;display:none;animation:drawerIn .35s ease;}
+    .article-drawer.open{display:block;}
+    @keyframes drawerIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+    .drawer-inner{max-width:720px;margin:0 auto;padding:0 2rem;}
+    .drawer-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:.75rem;}
+    .drawer-close-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);background:none;border:1px solid var(--border);border-radius:2px;padding:.4rem .9rem;cursor:pointer;font-family:var(--ff-sans);transition:color .25s,border-color .25s;}
+    .drawer-close-btn:hover{color:var(--gold);border-color:var(--gold-dim);}
+    .drawer-full-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-dim);padding:.4rem .9rem;border-radius:2px;transition:background .22s,color .22s;text-decoration:none;}
+    .drawer-full-link:hover{background:var(--gold);color:var(--bg);}
+    .drawer-hero{width:100%;max-height:320px;object-fit:cover;border-radius:4px;margin-bottom:2rem;}
+    .drawer-date{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;}
+    .drawer-title{font-family:var(--ff-serif);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:600;color:var(--cream);line-height:1.15;margin-bottom:.75rem;}
+    .drawer-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem;}
+    .drawer-tag{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dim);border:1px solid rgba(201,168,76,.15);padding:.15rem .5rem;border-radius:2px;}
+    .drawer-divider{width:40px;height:1px;background:var(--gold-dim);margin:1.5rem 0 2rem;}
+    .drawer-body{font-size:1rem;line-height:1.82;color:var(--text);}
+    .drawer-body h2{font-family:var(--ff-serif);font-size:1.5rem;color:var(--cream);border-bottom:1px solid var(--border);padding-bottom:.5rem;margin:2.5rem 0 1rem;line-height:1.2;}
+    .drawer-body h3{font-family:var(--ff-serif);font-size:1.2rem;color:var(--gold-lt);margin:2rem 0 .75rem;}
+    .drawer-body p{margin-bottom:1.25rem;}
+    .drawer-body strong{color:var(--cream);font-weight:600;}
+    .drawer-body em{color:var(--gold-lt);font-style:italic;}
+    .drawer-body ul,.drawer-body ol{margin:0 0 1.25rem 1.5rem;}
+    .drawer-body li{margin-bottom:.4rem;}
+    .drawer-body blockquote{border-left:3px solid var(--gold-dim);padding:.75rem 1.25rem;margin:1.5rem 0;color:var(--text-muted);font-style:italic;background:var(--bg3);}
+
     @media(max-width:768px){
       nav{padding:1.2rem 1.5rem;}
       .nav-links,.nav-cta{display:none;}
@@ -151,6 +184,23 @@
     </div>
   </section>
 
+  <!-- INLINE ARTICLE DRAWER -->
+  <div class="article-drawer" id="articleDrawer">
+    <div class="drawer-inner">
+      <div class="drawer-topbar">
+        <button class="drawer-close-btn" onclick="closeDrawer()">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Close
+        </button>
+        <a id="drawerFullLink" href="#" class="drawer-full-link">
+          Open full post
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+      <div id="drawerContent"></div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-brand">Halalisani Ngema</div>
     <div class="footer-socials">
@@ -178,30 +228,101 @@
 
     let allPosts = [];
     let activeTag = 'all';
+    let activeCardId = null;
 
+    // --- FRONTMATTER PARSER ---
+    function parseFrontmatter(text) {
+      const fm = {};
+      if (!text.startsWith('---')) return { fm, body: text };
+      const end = text.indexOf('---', 3);
+      if (end === -1) return { fm, body: text };
+      const block = text.slice(3, end).trim();
+      const body = text.slice(end + 3).trim();
+      block.split('\n').forEach(line => {
+        const colon = line.indexOf(':');
+        if (colon === -1) return;
+        const key = line.slice(0, colon).trim();
+        const val = line.slice(colon + 1).trim();
+        if (key === 'tags') fm.tags = val.split(',').map(t => t.trim());
+        else fm[key] = val;
+      });
+      return { fm, body };
+    }
+
+    // --- DRAWER ---
+    function openPost(id) {
+      // Toggle off if same card clicked again
+      if (activeCardId === id) { closeDrawer(); return; }
+      activeCardId = id;
+
+      // Highlight active card
+      document.querySelectorAll('.blog-card').forEach(c =>
+        c.classList.toggle('active', c.dataset.id === id));
+
+      const drawer = document.getElementById('articleDrawer');
+      const content = document.getElementById('drawerContent');
+      content.innerHTML = '<p style="color:var(--text-muted);padding:2rem 0;">Loading…</p>';
+      drawer.classList.add('open');
+
+      // Set full-post link
+      document.getElementById('drawerFullLink').href = `post.html?id=${id}`;
+
+      // Scroll drawer into view
+      setTimeout(() => drawer.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+
+      fetch(`posts/${id}.md`)
+        .then(r => { if (!r.ok) throw new Error(); return r.text(); })
+        .then(text => {
+          const { fm, body } = parseFrontmatter(text);
+          const html = marked.parse(body);
+          const tags = (fm.tags || []).map(t => `<span class="drawer-tag">${t}</span>`).join('');
+          content.innerHTML = `
+            ${fm.image ? `<img class="drawer-hero" src="${fm.image}" alt="${fm.title || ''}" loading="lazy"/>` : ''}
+            <div class="drawer-date">${fm.date || ''}</div>
+            <div class="drawer-title">${fm.title || ''}</div>
+            <div class="drawer-tags">${tags}</div>
+            <div class="drawer-divider"></div>
+            <div class="drawer-body">${html}</div>
+          `;
+        })
+        .catch(() => {
+          content.innerHTML = '<p style="color:var(--text-muted)">Could not load post.</p>';
+        });
+    }
+
+    function closeDrawer() {
+      activeCardId = null;
+      document.querySelectorAll('.blog-card').forEach(c => c.classList.remove('active'));
+      const drawer = document.getElementById('articleDrawer');
+      drawer.classList.remove('open');
+    }
+
+    // --- RENDER CARDS ---
     function renderPosts(posts) {
       const grid = document.getElementById('blogGrid');
       if (!posts.length) {
         grid.innerHTML = '<div class="blog-empty">No posts found.</div>';
+        closeDrawer();
         return;
       }
       grid.innerHTML = posts.map(p => `
-        <a href="post.html?id=${p.id}" class="blog-card">
+        <div class="blog-card" data-id="${p.id}" onclick="openPost('${p.id}')">
           ${p.image ? `<img class="blog-card-img" src="${p.image}" alt="${p.title}" loading="lazy"/>` : ''}
           <div class="blog-card-body">
             <div class="blog-card-date">${p.date}</div>
             <div class="blog-card-title">${p.title}</div>
             <div class="blog-card-excerpt">${p.excerpt}</div>
             <div class="blog-card-tags">${(p.tags||[]).map(t=>`<span class="blog-tag">${t}</span>`).join('')}</div>
-            <div class="blog-card-read">Read more →</div>
+            <button class="blog-card-read-btn" aria-label="Learn more about ${p.title}">Learn more →</button>
           </div>
-        </a>
+        </div>
       `).join('');
       document.querySelectorAll('.blog-card').forEach(el => observer.observe(el));
     }
 
     function filterByTag(tag) {
       activeTag = tag;
+      closeDrawer();
       document.querySelectorAll('.tag-btn').forEach(b => b.classList.toggle('active', b.dataset.tag === tag));
       renderPosts(tag === 'all' ? allPosts : allPosts.filter(p => (p.tags||[]).includes(tag)));
     }
@@ -210,7 +331,6 @@
       .then(r => r.json())
       .then(posts => {
         allPosts = posts;
-        // Build tag list
         const tags = ['all', ...new Set(posts.flatMap(p => p.tags||[]))];
         document.getElementById('tagFilter').innerHTML = tags.map(t =>
           `<button class="tag-btn${t==='all'?' active':''}" data-tag="${t}" onclick="filterByTag('${t}')">${t}</button>`

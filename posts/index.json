@@ -1,5 +1,109 @@
 [
   {
+    "id": "2026-05-04-salary-negotiation",
+    "title": "How to Negotiate Your Salary After a Job Offer in South Africa",
+    "date": "2026-05-04",
+    "tags": ["salary", "career", "negotiation"],
+    "image": "posts/images/pexels-xuanthanh-35605661.jpg",
+    "excerpt": "Most South African job seekers accept the first salary offered without negotiating. This is a costly mistake. Here is how to negotiate confidently and professionally — and why you should always try."
+  },
+  {
+    "id": "2026-05-03-build-cv-from-scratch",
+    "title": "Building Your CV from Scratch — A Complete Step-by-Step Guide",
+    "date": "2026-05-03",
+    "tags": ["cv", "career", "tips"],
+    "image": "posts/images/pexels-vika-glitter-392079-23232388.jpg",
+    "excerpt": "Whether you are entering the job market for the first time or rebuilding after years away, here is exactly how to construct a professional, effective CV from the ground up."
+  },
+  {
+    "id": "2026-05-02-workplace-safety-rights",
+    "title": "Workplace Safety Rights Every South African Employee Should Know",
+    "date": "2026-05-02",
+    "tags": ["workplace-safety", "workers-rights", "ohsa"],
+    "image": "posts/images/pexels-ron-lach-9832716.jpg",
+    "excerpt": "South African workers have powerful legal rights when it comes to health and safety at work. Most do not know what they are. Here is what the law says — and how to use it."
+  },
+  {
+    "id": "2026-05-01-online-job-platforms",
+    "title": "Using Online Job Platforms Effectively in South Africa",
+    "date": "2026-05-01",
+    "tags": ["job-hunting", "digital", "career"],
+    "image": "posts/images/pexels-rdne-7845160.jpg",
+    "excerpt": "There are dozens of job platforms available to South African job seekers. Most people use them wrong — applying to everything and optimising for nothing. Here is how to use them strategically."
+  },
+  {
+    "id": "2026-04-30-interview-first-impressions",
+    "title": "First Impressions at Interviews: Dress, Body Language, and Presence",
+    "date": "2026-04-30",
+    "tags": ["interview", "career", "tips"],
+    "image": "posts/images/pexels-ninobur-17410693.jpg",
+    "excerpt": "Research consistently shows that interviewers form a strong impression of a candidate within the first 90 seconds. Before you say a word, you are already being assessed. Here is how to make that first impression count."
+  },
+  {
+    "id": "2026-04-29-panel-interview-preparation",
+    "title": "How to Prepare for a Panel Interview — and Walk Out Confident",
+    "date": "2026-04-29",
+    "tags": ["interview", "career", "tips"],
+    "image": "posts/images/pexels-mikael-blomkvist-8961026.jpg",
+    "excerpt": "Panel interviews are used by most large South African corporates, banks, and government departments. They feel intimidating — but they are the most predictable format there is, if you know how to prepare."
+  },
+  {
+    "id": "2026-04-28-cv-bullet-points",
+    "title": "CV Bullet Points That Get You Shortlisted — What to Write and How",
+    "date": "2026-04-28",
+    "tags": ["cv", "career", "tips"],
+    "image": "posts/images/pexels-kampus-8204361.jpg",
+    "excerpt": "The bullet points under your work experience are the most critical part of your CV. Most candidates write them wrong — describing job duties instead of achievements. Here is how to get it right."
+  },
+  {
+    "id": "2026-04-27-cover-letter-guide",
+    "title": "How to Write a Cover Letter That Actually Gets You an Interview",
+    "date": "2026-04-27",
+    "tags": ["cover-letter", "cv", "career"],
+    "image": "posts/images/pexels-iwashere-15109999.jpg",
+    "excerpt": "Most cover letters are ignored because they are generic, self-focused, and forgettable. A well-crafted cover letter is one of the most powerful tools in your job search. Here is how to write one."
+  },
+  {
+    "id": "2026-04-26-uif-explained",
+    "title": "UIF Explained: How the Unemployment Insurance Fund Works for You",
+    "date": "2026-04-26",
+    "tags": ["uif", "unemployment", "south-africa"],
+    "image": "posts/images/pexels-felipe-silva-1458994757-27102114.jpg",
+    "excerpt": "The Unemployment Insurance Fund is one of South Africa's most important worker protections — yet many people do not know what they are entitled to or how to claim. Here is everything you need to know."
+  },
+  {
+    "id": "2026-04-25-workmens-compensation-fund",
+    "title": "The Compensation Fund: How It Works and How to Claim in South Africa",
+    "date": "2026-04-25",
+    "tags": ["compensation", "workers-rights", "south-africa"],
+    "image": "posts/images/pexels-erkocphoto-30248030.jpg",
+    "excerpt": "South Africa's Compensation Fund is a crucial safety net for workers injured or made ill at work. Many workers and even employers do not fully understand how it works. Here is a clear, practical guide."
+  },
+  {
+    "id": "2026-04-24-injury-on-duty",
+    "title": "Injury on Duty in South Africa: Your Rights and Exactly What to Do",
+    "date": "2026-04-24",
+    "tags": ["injury-on-duty", "workplace-safety", "workers-rights"],
+    "image": "posts/images/pexels-equalstock-31090812.jpg",
+    "excerpt": "If you are injured at work in South Africa, you have clear legal rights — but only if you act quickly and follow the correct process. Here is everything you need to know about injury on duty."
+  },
+  {
+    "id": "2026-04-23-ohsa-compliance-south-africa",
+    "title": "OHSA Compliance in South Africa: What Every Employer Must Know",
+    "date": "2026-04-23",
+    "tags": ["ohsa", "workplace-safety", "compliance"],
+    "image": "posts/images/pexels-equalstock-31030923.jpg",
+    "excerpt": "The Occupational Health and Safety Act places clear legal obligations on South African employers. Ignorance is not a defence — and the penalties for non-compliance are severe. Here is what you need to know."
+  },
+  {
+    "id": "2026-04-22-job-hunting-strategy",
+    "title": "Smart Job Hunting in South Africa: A Strategy That Actually Works",
+    "date": "2026-04-22",
+    "tags": ["job-hunting", "career", "south-africa"],
+    "image": "posts/images/pexels-cottonbro-6803543.jpg",
+    "excerpt": "Most job seekers apply to hundreds of positions and hear nothing back. The problem is rarely the CV — it is the strategy. Here is how to job hunt smarter, not harder, in South Africa."
+  },
+  {
     "id": "2026-04-21-online-presence-south-africa",
     "title": "Building Your Professional Online Presence in South Africa",
     "date": "2026-04-21",
