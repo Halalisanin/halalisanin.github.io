@@ -2,7 +2,7 @@
 title: OHSA Compliance in South Africa: What Every Employer Must Know
 date: 2026-04-23
 tags: ohsa, workplace-safety, compliance
-image: posts/images/pexels-equalstock-31030923.jpg
+image: posts/images/pexels-equalstock-31030923.webp
 excerpt: The Occupational Health and Safety Act places clear legal obligations on South African employers. Ignorance is not a defence — and the penalties for non-compliance are severe. Here is what you need to know.
 ---
 
@@ -14,7 +14,7 @@ OHSA's core purpose is to provide for the health and safety of persons at work a
 
 ## The General Duty of Care
 
-At its heart, OHSA creates a "general duty of care." Employers are required to provide and maintain, as far as is reasonably practicable, a working environment that is safe and without risk to the health of workers.
+At its heart, OHSA creates a "general duty of care." Employers are required to provide and maintain, as far as is reasonably practicable, a working environment that's safe and without risk to the health of workers.
 
 This is a broad obligation that covers:
 
@@ -24,7 +24,7 @@ This is a broad obligation that covers:
 - Work systems and procedures
 - Training, supervision, and instruction
 
-"Reasonably practicable" means that employers must weigh the severity and probability of the risk against the cost and effort required to eliminate it. This does not mean doing the cheapest thing — it means doing what is proportionate to the hazard.
+"Reasonably practicable" means that employers must weigh the severity and probability of the risk against the cost and effort required to eliminate it. This doesn't mean doing the cheapest thing, it means doing what's proportionate to the hazard.
 
 ## Key Employer Obligations Under OHSA
 
@@ -38,9 +38,9 @@ Workplaces with 20 or more employees must designate a health and safety represen
 
 ### 3. Provide Personal Protective Equipment (PPE)
 
-Where hazards cannot be eliminated or sufficiently controlled, employers must provide appropriate PPE — free of charge to employees. This includes items like hard hats, safety boots, gloves, eye protection, and high-visibility vests depending on the nature of the work.
+Where hazards can't be eliminated or sufficiently controlled, employers must provide appropriate PPE, free of charge to employees. This includes items like hard hats, safety boots, gloves, eye protection, and high-visibility vests depending on the nature of the work.
 
-Importantly, employers must also ensure that PPE is used. Providing equipment and then ignoring whether it is worn does not satisfy the legal obligation.
+Importantly, employers must also ensure that PPE is used. Providing equipment and then ignoring whether it's worn doesn't satisfy the legal obligation.
 
 ### 4. Train and Inform Workers
 
@@ -65,7 +65,7 @@ Failure to report is itself a criminal offence.
 
 The Department enforces OHSA through inspectors who have broad powers to enter any workplace without notice, examine documents, interview employees, issue compliance notices, and initiate criminal prosecution.
 
-An inspector who finds a workplace in violation can issue a prohibition notice — effectively shutting down operations immediately until the violation is rectified.
+An inspector who finds a workplace in violation can issue a prohibition notice, effectively shutting down operations immediately until the violation is rectified.
 
 ## Penalties for Non-Compliance
 
@@ -75,22 +75,22 @@ Non-compliance with OHSA is a criminal offence. Penalties include:
 - Imprisonment of up to two years
 - Both fines and imprisonment for serious contraventions
 
-Directors and managers can be held personally liable. This is not a theoretical risk — prosecutions do occur.
+Directors and managers can be held personally liable. This isn't a theoretical risk, prosecutions do occur.
 
 ## Employee Rights and Responsibilities
 
-OHSA is not just about employer obligations. Employees also have a duty to:
+OHSA isn't just about employer obligations. Employees also have a duty to:
 
 - Cooperate with employers on safety matters
 - Obey safety rules and use PPE provided
 - Report unsafe conditions to their health and safety representative
 - Not intentionally put themselves or others at risk
 
-Critically, employees have the right to refuse work that they reasonably believe poses an imminent serious danger to their health or safety — without fear of dismissal or disciplinary action.
+Critically, employees have the right to refuse work that they reasonably believe poses an imminent serious danger to their health or safety, without fear of dismissal or disciplinary action.
 
 ## Practical Steps for Employers
 
-If you are reviewing your OHSA compliance, start here:
+If you're reviewing your OHSA compliance, start here:
 
 1. Conduct a full workplace risk assessment
 2. Check whether your health and safety representatives are appointed and active
@@ -99,4 +99,4 @@ If you are reviewing your OHSA compliance, start here:
 5. Ensure your incident reporting process is understood by all supervisors
 6. Check that emergency procedures (fire evacuation, first aid) are in place and practiced
 
-OHSA compliance is not a once-off tick-box exercise. It is an ongoing system. The employers who take it seriously protect their workers — and themselves.
+OHSA compliance isn't a once-off tick-box exercise. It's an ongoing system. The employers who take it seriously protect their workers, and themselves.

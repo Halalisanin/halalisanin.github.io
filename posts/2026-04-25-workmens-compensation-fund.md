@@ -2,7 +2,7 @@
 title: The Compensation Fund: How It Works and How to Claim in South Africa
 date: 2026-04-25
 tags: compensation, workers-rights, south-africa
-image: posts/images/pexels-erkocphoto-30248030.jpg
+image: posts/images/pexels-erkocphoto-30248030.webp
 excerpt: South Africa's Compensation Fund is a crucial safety net for workers injured or made ill at work. Many workers and even employers do not fully understand how it works. Here is a clear, practical guide.
 ---
 
@@ -14,7 +14,7 @@ The Compensation Fund, established under the **Compensation for Occupational Inj
 - Disabled (temporarily or permanently) due to a work-related injury or occupational disease
 - Killed as a result of a work-related incident (with benefits going to dependants)
 
-The Fund is financed by levies paid by employers — not employees. Workers never pay into it directly.
+The Fund is financed by levies paid by employers, not employees. Workers never pay into it directly.
 
 ## Who Is Covered?
 
@@ -25,20 +25,20 @@ Most formal sector employees in South Africa are covered. This includes:
 - Learners and apprentices
 - Foreign nationals working legally in South Africa
 
-**Who is NOT covered:**
+**Who's NOT covered:**
 
 - Domestic workers employed in private homes
-- Independent contractors (only employees are covered — not self-employed persons)
-- Members of the SANDF and SAPS (they have separate schemes)
+- Independent contractors (only employees are covered, not self-employed persons)
+- Members of the SANDF and SAPS (they've separate schemes)
 - Workers earning more than the annual ceiling (currently set by government and adjusted periodically)
 
 ## Employer Obligations to the Fund
 
 Every employer who employs one or more workers is required to:
 
-1. **Register with the Compensation Fund** — failure to register is an offence
-2. **Submit an annual Return of Earnings (W.As.8 form)** — this declares your total payroll, on which your levy is calculated
-3. **Pay the annual assessment levy** — the amount varies by industry risk classification
+1. **Register with the Compensation Fund**, failure to register is an offence
+2. **Submit an annual Return of Earnings (W.As.8 form)**, this declares your total payroll, on which your levy is calculated
+3. **Pay the annual assessment levy**, the amount varies by industry risk classification
 4. **Report all workplace accidents within seven days**
 5. **Keep accurate records** of all workplace injuries
 
@@ -54,7 +54,7 @@ All reasonable medical expenses arising from a work-related injury or occupation
 - Prosthetics and assistive devices
 
 ### Temporary Total Disablement (TTD)
-If a worker is unable to work for more than three days due to an injury, they are entitled to 75% of their pre-injury earnings. This is paid for up to **24 months**.
+If a worker is unable to work for more than three days due to an injury, they're entitled to 75% of their pre-injury earnings. This is paid for up to **24 months**.
 
 During this period, the employer must continue to pay the worker's full salary and then reclaim the 75% portion from the Compensation Fund.
 
@@ -69,7 +69,7 @@ If a worker dies as a result of a work-related injury:
 - A funeral allowance is paid
 - A monthly pension is paid to the surviving spouse and/or minor children (calculated based on the deceased worker's earnings)
 
-## How to Submit a Claim — Step by Step
+## How to Submit a Claim. Step by Step
 
 **Step 1: The accident must be reported to the employer immediately.**
 
@@ -77,7 +77,7 @@ If a worker dies as a result of a work-related injury:
 
 **Step 3: The injured worker sees a doctor**, who completes the **WCL4 form** (Medical Report) and submits it to the Fund.
 
-**Step 4: A claim number is generated.** Keep this number — it is your reference for all follow-up.
+**Step 4: A claim number is generated.** Keep this number, it's your reference for all follow-up.
 
 **Step 5: Further medical reports (WCL5)** are submitted as treatment progresses.
 
@@ -95,7 +95,7 @@ The Compensation Fund has, historically, had significant administrative backlogs
 
 1. Obtain your claim reference number
 2. Follow up directly with the Fund via email: **cf.claims@labour.gov.za** or by calling **0860 105 350**
-3. If the claim is rejected, you have the right to appeal the decision — this must be done within **90 days** of the rejection
+3. If the claim is rejected, you've the right to appeal the decision, this must be done within **90 days** of the rejection
 4. Seek assistance from your trade union, a labour consultant, or the Department of Employment and Labour's client services office
 
 ## Protecting Yourself
@@ -105,6 +105,6 @@ As a worker, the most important things you can do are:
 - Report every workplace injury immediately, no matter how minor it seems at the time
 - Always see a doctor and ensure the injury is documented
 - Get your claim reference number and keep it in a safe place
-- Do not allow your employer to discourage you from claiming — this is your legal right
+- Don't allow your employer to discourage you from claiming, this is your legal right
 
 The Compensation Fund exists precisely for moments when work becomes dangerous. Use it.
