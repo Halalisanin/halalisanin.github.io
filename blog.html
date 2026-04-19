@@ -251,7 +251,7 @@
       const drawer  = document.getElementById('articleDrawer');
       const content = document.getElementById('drawerContent');
       drawer.classList.add('open');
-      document.getElementById('drawerFullLink').href = `post.html?id=${id}`;
+      document.getElementById('drawerFullLink').href = `${id}.html`;
       setTimeout(() => drawer.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
 
       const post = window.POSTS_DATA && window.POSTS_DATA[id];
@@ -267,7 +267,7 @@
       const enc   = encodeURIComponent;
       // Build a shareable URL pointing to the dedicated post page
       const base  = window.location.href.split('blog.html')[0];
-      const postUrl = base + 'post.html?id=' + id;
+      const postUrl = base + id + '.html';
 
       content.innerHTML = `
         ${fm.image ? `<img class="drawer-hero" src="${fm.image}" alt="${escAttr(title)}" loading="lazy"/>` : ''}
