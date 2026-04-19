@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "updated": "2026-04-19 17:50",
   "count": 299,
   "jobs": [
@@ -849,6 +850,50 @@
       "source": "CareerJunction",
       "snippet": "",
       "date_found": "2026-04-19"
+=======
+  "updated": "2026-04-19 12:56",
+  "count": 162,
+  "jobs": [
+    {
+      "title": "Sales Administrator",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/sales-administrator-job-2636433.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-19"
+    },
+    {
+      "title": "IT Project Administrator (Contract) - CPT",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/it-project-administrator-contract-cpt-job-2636378.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-19"
+    },
+    {
+      "title": "Accountant/Bookkeeper",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/accountant-bookkeeper-job-2636372.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-19"
+    },
+    {
+      "title": "Order Processing Clerk",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/order-processing-clerk-job-2636386.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Order Processing Clerk (Kempton Park)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/order-processing-clerk-kempton-park-job-2635808.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+>>>>>>> 56327ec34f6fd54eeeee0bc1af47371e1326feef
     },
     {
       "title": "Training Consultant (Sales & Facilitation Focus)",
@@ -856,6 +901,7 @@
       "url": "https://www.careerjunction.co.za/training-consultant-sales-%26amp-facilitation-focus-job-2636387.aspx",
       "source": "CareerJunction",
       "snippet": "",
+<<<<<<< HEAD
       "date_found": "2026-04-19"
     },
     {
@@ -1001,6 +1047,121 @@
       "source": "CareerJunction",
       "snippet": "",
       "date_found": "2026-04-19"
+=======
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "HR Team Leader",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/hr-team-leader-job-2633507.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Debtors Clerk at Resourgenix",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/debtors-clerk-at-resourgenix-job-2636873.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Rewards and Benefits Specialist",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/rewards-and-benefits-specialist-job-2636358.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Creditors & Debtors Clerk - Ballito",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/creditors-%26amp-debtors-clerk-ballito-job-2636505.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Import Clerk",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/import-clerk-job-2636812.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Senior Wealth Administrator",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/senior-wealth-administrator-job-2636777.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Qualified Claims Administrator",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/qualified-claims-administrator-job-2636336.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Store Manager (45 hr) - Sneaker Factory _ Kunjani Mall at The Foschini Group",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/store-manager-45-hr-sneaker-factory-kunjani-mall-at-the-foschini-group-job-2636344.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Client Service Specialist - Investments(CH1179)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/client-service-specialist-investmentsch1179-job-2636835.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Checkout Assistant at PnP",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/checkout-assistant-at-pnp-job-2637422.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Technical Sales Representative",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/technical-sales-representative-job-2637376.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Internal Sales Representative - Truck Trailer & Bus Parts (Kempton Park)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/internal-sales-representative-truck-trailer-%26amp-bus-parts-kempton-park-job-2636723.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Technical Sales Representative",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/technical-sales-representative-job-2632099.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Pharmacy Sales Representative \u2013 Nelspruit",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/pharmacy-sales-representative-nelspruit-job-2636623.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-18"
+>>>>>>> 56327ec34f6fd54eeeee0bc1af47371e1326feef
     },
     {
       "title": "SENIOR TELECOM & NETWORK ASSISTANT (6 MONTHS CONTRACT)",
@@ -1008,6 +1169,7 @@
       "url": "https://www.careerjunction.co.za/senior-telecom-%26amp-network-assistant-6-months-contract-job-2636337.aspx",
       "source": "CareerJunction",
       "snippet": "",
+<<<<<<< HEAD
       "date_found": "2026-04-19"
     },
     {
@@ -1329,6 +1491,73 @@
       "source": "Adzuna",
       "snippet": "In fast changing markets, customers worldwide rely on Thales. Thales is a business where brilliant people from all over the world come together to share ideas and inspire each other. In aerospace, tra",
       "date_found": "2026-04-19"
+=======
+      "date_found": "2026-04-18"
+    },
+    {
+      "title": "Digital Forensic Consultant at SNG Grant Thornton",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/digital-forensic-consultant-at-sng-grant-thornton-job-2636798.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-17"
+    },
+    {
+      "title": "Senior Wealth Administrator",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/senior-wealth-administrator-job-2636776.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-17"
+    },
+    {
+      "title": "Inventory Clerk",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/inventory-clerk-job-2637395.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-17"
+    },
+    {
+      "title": "Inventory Clerk",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/inventory-clerk-job-2637394.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-17"
+    },
+    {
+      "title": "Pod Clerk",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/pod-clerk-job-2637392.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-17"
+    },
+    {
+      "title": "Pod Clerk",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/pod-clerk-job-2637391.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-17"
+    },
+    {
+      "title": "New Business Sales Consultant (Entry-Level)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/new-business-sales-consultant-entry-level-job-2636394.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-17"
+    },
+    {
+      "title": "Debtors Clerk",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/debtors-clerk-job-2633925.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-17"
+>>>>>>> 56327ec34f6fd54eeeee0bc1af47371e1326feef
     },
     {
       "title": "Junior Logistics Controller / Junior Buyer / Procurement Administrator (FTC)",
