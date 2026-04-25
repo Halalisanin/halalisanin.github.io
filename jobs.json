@@ -1,7 +1,263 @@
 {
-  "updated": "2026-04-24 21:20",
-  "count": 263,
+  "updated": "2026-04-25 08:49",
+  "count": 295,
   "jobs": [
+    {
+      "title": "Clerk Float Office at PnP",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/clerk-float-office-at-pnp-job-2637808.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Clerk Cash Office at PnP",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/clerk-cash-office-at-pnp-job-2637721.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Administrator",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/administrator-job-2637759.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Junior Bookkeeper and Reception",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/junior-bookkeeper-and-reception-job-2637661.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Key Accounts Administration",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/key-accounts-administration-job-2637842.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Finance Data Capturer",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/finance-data-capturer-job-2637677.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Field Sales Representative - Beverages",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/field-sales-representative-beverages-job-2637745.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "External Sales Consultant (Rest of Africa) Building / Construction (Muldersdrift)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/external-sales-consultant-rest-of-africa-building-construction-muldersdrift-job-2637732.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "External Sales Representative",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/external-sales-representative-job-2637705.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "HR Transformation & Training Specialist",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/hr-transformation-%26amp-training-specialist-job-2637837.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Store Manager (45 hr) - Foschini - Chatsworth at The Foschini Group",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/store-manager-45-hr-foschini-chatsworth-at-the-foschini-group-job-2637086.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Payroll Officer at Ntice Sourcing Solutions (Pty) Ltd.",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/payroll-officer-at-ntice-sourcing-solutions-pty-ltd-job-2637757.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "2x CREDITORS CLERK POSITIONS",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/2x-creditors-clerk-positions-job-2637301.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Intermediate Accounts Payable Clerk at Takora",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/intermediate-accounts-payable-clerk-at-takora-job-2637269.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Senior Credit Risk Analyst (Retail Credit)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/senior-credit-risk-analyst-retail-credit-job-2636617.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Creditors / Financial Clerk",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/creditors-financial-clerk-job-2636603.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Creditors Clerk",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/creditors-clerk-job-2637144.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "sales consultant",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/sales-consultant-job-2637835.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Internal Sales Consultant - Midrand",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/internal-sales-consultant-midrand-job-2637880.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "3 x Welding Sales Representatives (Middleburg Cape Town Durban)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/3-x-welding-sales-representatives-middleburg-cape-town-durban-job-2637803.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Consumer Sales Representative",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/consumer-sales-representative-job-2637749.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Sales Representative (Remote - Cape Town)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/sales-representative-remote-cape-town-job-2636113.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Sales Representative - Stationery",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/sales-representative-stationery-job-2636355.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Pharmacy Sales Representative \u2013 Nelspruit",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/pharmacy-sales-representative-nelspruit-job-2636623.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Senior Sales Broker - Gateway Mall",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/senior-sales-broker-gateway-mall-job-2628709.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Technical Sales Representative (Chemical)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/technical-sales-representative-chemical-job-2636805.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Legal Secretary - Pretoria",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/legal-secretary-pretoria-job-2634721.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Group Company Secretary at Sabenza IT & Recruitment",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/group-company-secretary-at-sabenza-it-%26-recruitment-job-2637752.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "HR Manager",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/hr-manager-job-2637019.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "HR Manager",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/hr-manager-job-2634205.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Hygiene Consultant",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/hygiene-consultant-job-2637288.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
+    {
+      "title": "Business Transformation Consultant - Finance at Sabenza IT & Recruitment",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/business-transformation-consultant-finance-at-sabenza-it-%26-recruitment-job-2637113.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-25"
+    },
     {
       "title": "HR Business Partner Cape Town (Contract)",
       "company": "See listing",
