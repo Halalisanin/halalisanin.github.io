@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <!--
+    ADMIN SERVICE DESK
+    Default password: Halali@2026
+    To change it, find the line:  const ADMIN_PASSWORD = 'Halali@2026';
+    and replace the value with your new password.
+    Keep this page private — do not link to it from public navigation.
+  -->
+  <title>Service Desk — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#080810;--bg2:#0f0f1a;--bg3:#13131f;--bg4:#1a1a28;--gold:#c9a84c;--gold-lt:#e0c47a;--gold-dim:#7d6630;--cream:#f5efe0;--text:#e8e0d0;--muted:#8a8070;--border:rgba(201,168,76,.18);--border-lt:rgba(201,168,76,.35);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Outfit',sans-serif;--mono:'DM Mono',monospace;--red:#c05050;--amber:#c0882a;--green:#4a9c6a;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.6;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px;}
+
+    /* LOGIN GATE */
+    #login-gate{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);}
+    #login-gate.hide{display:none;}
+    .login-box{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:3rem;width:100%;max-width:400px;text-align:center;}
+    .login-logo{font-family:var(--serif);font-size:1.6rem;color:var(--gold);margin-bottom:.3rem;font-weight:300;}
+    .login-sub{font-size:.76rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-family:var(--mono);margin-bottom:2.2rem;}
+    .login-label{display:block;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:.5rem;text-align:left;}
+    .login-input{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:2px;padding:.72rem 1rem;font-family:var(--sans);font-size:.9rem;color:var(--text);outline:none;margin-bottom:1.2rem;transition:border-color .22s;}
+    .login-input:focus{border-color:var(--gold-dim);}
+    .login-btn{width:100%;padding:.82rem;background:var(--gold);color:var(--bg);font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;transition:background .22s;}
+    .login-btn:hover{background:var(--gold-lt);}
+    .login-err{font-size:.8rem;color:var(--red);margin-top:.6rem;display:none;}
+    .login-err.show{display:block;}
+
+    /* DASHBOARD */
+    #dashboard{display:none;}
+    #dashboard.show{display:block;}
+
+    /* TOP BAR */
+    .topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+    .topbar-brand{font-family:var(--serif);font-size:1.1rem;color:var(--gold);font-weight:300;}
+    .topbar-brand span{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-family:var(--mono);margin-left:.8rem;}
+    .topbar-actions{display:flex;align-items:center;gap:1rem;}
+    .topbar-link{font-size:.72rem;color:var(--muted);cursor:pointer;transition:color .22s;letter-spacing:.08em;text-transform:uppercase;}
+    .topbar-link:hover{color:var(--gold);}
+    .logout-btn{font-size:.72rem;color:var(--muted);cursor:pointer;background:none;border:1px solid var(--border);border-radius:2px;padding:.3rem .8rem;transition:border-color .22s,color .22s;letter-spacing:.08em;text-transform:uppercase;}
+    .logout-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
+
+    /* MAIN LAYOUT */
+    .dash-wrap{padding:2rem;max-width:1200px;margin:0 auto;}
+
+    /* STATS */
+    .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;}
+    .stat-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:1.4rem 1.6rem;}
+    .stat-num{font-family:var(--serif);font-size:2.4rem;font-weight:300;color:var(--cream);line-height:1;}
+    .stat-label{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;font-family:var(--mono);}
+    .stat-card.open .stat-num{color:#e8a040;}
+    .stat-card.inprogress .stat-num{color:var(--gold);}
+    .stat-card.closed .stat-num{color:var(--green);}
+
+    /* TOOLBAR */
+    .toolbar{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+    .filter-tabs{display:flex;gap:.4rem;}
+    .ftab{padding:.4rem 1rem;border:1px solid var(--border);border-radius:2px;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:border-color .22s,color .22s,background .22s;background:none;}
+    .ftab:hover{border-color:var(--gold-dim);color:var(--text);}
+    .ftab.active{border-color:var(--gold-dim);color:var(--gold);background:rgba(201,168,76,.07);}
+    .search-box{flex:1;min-width:200px;max-width:320px;background:var(--bg3);border:1px solid var(--border);border-radius:2px;padding:.45rem 1rem;font-family:var(--sans);font-size:.85rem;color:var(--text);outline:none;transition:border-color .22s;}
+    .search-box:focus{border-color:var(--gold-dim);}
+    .search-box::placeholder{color:var(--muted);}
+    .toolbar-right{margin-left:auto;display:flex;gap:.8rem;}
+    .action-btn{padding:.42rem 1rem;border:1px solid var(--border);border-radius:2px;font-size:.72rem;color:var(--muted);cursor:pointer;background:none;transition:border-color .22s,color .22s;letter-spacing:.08em;text-transform:uppercase;}
+    .action-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
+
+    /* TICKET LIST */
+    .ticket-list{display:flex;flex-direction:column;gap:.7rem;}
+    .no-tickets{text-align:center;padding:4rem;color:var(--muted);font-size:.9rem;}
+
+    /* TICKET CARD */
+    .ticket-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:border-color .22s;}
+    .ticket-card:hover{border-color:rgba(201,168,76,.3);}
+    .ticket-card.expanded{border-color:var(--gold-dim);}
+    .ticket-header{padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1.2rem;cursor:pointer;user-select:none;}
+    .ticket-ref{font-family:var(--mono);font-size:.72rem;color:var(--gold);min-width:160px;}
+    .ticket-info{flex:1;}
+    .ticket-name{font-size:.9rem;color:var(--cream);font-weight:500;}
+    .ticket-service{font-size:.78rem;color:var(--muted);margin-top:.1rem;}
+    .ticket-meta{display:flex;align-items:center;gap:1rem;flex-shrink:0;}
+    .ticket-date{font-size:.72rem;color:var(--muted);font-family:var(--mono);}
+    .badge{display:inline-flex;align-items:center;padding:.22rem .7rem;border-radius:2px;font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-family:var(--mono);}
+    .badge-open{background:rgba(224,128,64,.12);color:#e08040;border:1px solid rgba(224,128,64,.3);}
+    .badge-inprogress{background:rgba(201,168,76,.1);color:var(--gold);border:1px solid var(--border-lt);}
+    .badge-closed{background:rgba(74,156,106,.1);color:var(--green);border:1px solid rgba(74,156,106,.3);}
+    .badge-urgent{background:rgba(192,80,80,.1);color:#e07070;border:1px solid rgba(192,80,80,.3);margin-right:.4rem;}
+    .ticket-toggle{width:20px;height:20px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:transform .22s;}
+    .ticket-card.expanded .ticket-toggle{transform:rotate(180deg);}
+
+    /* TICKET BODY */
+    .ticket-body{display:none;border-top:1px solid var(--border);padding:1.6rem 1.4rem;}
+    .ticket-card.expanded .ticket-body{display:grid;grid-template-columns:1fr 340px;gap:2rem;}
+
+    /* DETAIL PANE */
+    .detail-section{margin-bottom:1.4rem;}
+    .detail-section:last-child{margin-bottom:0;}
+    .detail-label{font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-family:var(--mono);margin-bottom:.4rem;}
+    .detail-value{font-size:.87rem;color:var(--text);font-weight:300;line-height:1.6;}
+    .detail-value a{color:var(--gold);border-bottom:1px solid var(--border);}
+    .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .desc-box{background:var(--bg2);border:1px solid var(--border);border-radius:2px;padding:.9rem 1rem;font-size:.86rem;color:var(--muted);line-height:1.7;white-space:pre-wrap;word-break:break-word;}
+
+    /* ACTION PANE */
+    .action-pane{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:1.4rem;}
+    .action-pane-title{font-size:.67rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-family:var(--mono);margin-bottom:1.2rem;}
+    .action-field{margin-bottom:1.1rem;}
+    .action-label{display:block;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;}
+    .action-input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:2px;padding:.58rem .8rem;font-family:var(--mono);font-size:.82rem;color:var(--text);outline:none;transition:border-color .22s;}
+    .action-input:focus{border-color:var(--gold-dim);}
+    .action-select{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:2px;padding:.58rem .8rem;font-family:var(--sans);font-size:.85rem;color:var(--text);outline:none;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .8rem center;cursor:pointer;transition:border-color .22s;}
+    .action-select:focus{border-color:var(--gold-dim);}
+    .action-select option{background:var(--bg3);}
+    .action-textarea{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:2px;padding:.58rem .8rem;font-family:var(--sans);font-size:.84rem;color:var(--text);outline:none;resize:vertical;min-height:90px;line-height:1.6;transition:border-color .22s;}
+    .action-textarea:focus{border-color:var(--gold-dim);}
+    .action-btns{display:flex;gap:.7rem;flex-wrap:wrap;}
+    .save-btn{flex:1;padding:.62rem 1rem;background:var(--gold);color:var(--bg);font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;transition:background .22s;}
+    .save-btn:hover{background:var(--gold-lt);}
+    .close-btn{padding:.62rem 1rem;background:rgba(74,156,106,.12);color:var(--green);font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(74,156,106,.3);border-radius:2px;cursor:pointer;transition:background .22s,border-color .22s;}
+    .close-btn:hover{background:rgba(74,156,106,.22);}
+    .save-feedback{font-size:.75rem;color:var(--green);margin-top:.5rem;display:none;}
+    .save-feedback.show{display:block;}
+
+    /* TOAST */
+    .toast{position:fixed;bottom:2rem;right:2rem;background:var(--bg3);border:1px solid var(--gold-dim);border-radius:4px;padding:.8rem 1.4rem;font-size:.82rem;color:var(--gold);z-index:9999;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;pointer-events:none;}
+    .toast.show{opacity:1;transform:translateY(0);}
+
+    /* EMPTY */
+    .empty-state{text-align:center;padding:5rem 2rem;}
+    .empty-state p{font-size:.92rem;color:var(--muted);margin-bottom:1.5rem;}
+    .empty-state a{color:var(--gold);border-bottom:1px solid var(--border);font-size:.84rem;}
+
+    @media(max-width:900px){
+      .stats-row{grid-template-columns:repeat(2,1fr);}
+      .ticket-body{grid-template-columns:1fr!important;}
+      .detail-grid{grid-template-columns:1fr;}
+    }
+    @media(max-width:600px){
+      .dash-wrap{padding:1rem;}
+      .topbar{padding:.8rem 1rem;}
+      .stats-row{grid-template-columns:repeat(2,1fr);}
+      .ticket-header{flex-wrap:wrap;gap:.6rem;}
+      .ticket-ref{min-width:unset;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN GATE -->
+<div id="login-gate">
+  <div class="login-box">
+    <div class="login-logo">Halalisani Ngema</div>
+    <div class="login-sub">Service Desk · Admin</div>
+    <label class="login-label" for="admin-pw">Password</label>
+    <input type="password" class="login-input" id="admin-pw" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')doLogin()"/>
+    <button class="login-btn" onclick="doLogin()">Access Dashboard</button>
+    <div class="login-err" id="login-err">Incorrect password. Please try again.</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-brand">Service Desk <span>Admin Panel</span></div>
+    <div class="topbar-actions">
+      <a href="cipc-services.html" class="topbar-link">View Services Page</a>
+      <a href="ticket.html" class="topbar-link">Submit Test Ticket</a>
+      <button class="logout-btn" onclick="doLogout()">Log Out</button>
+    </div>
+  </div>
+
+  <div class="dash-wrap">
+
+    <!-- STATS -->
+    <div class="stats-row" id="stats-row">
+      <div class="stat-card">
+        <div class="stat-num" id="stat-total">0</div>
+        <div class="stat-label">Total Tickets</div>
+      </div>
+      <div class="stat-card open">
+        <div class="stat-num" id="stat-open">0</div>
+        <div class="stat-label">Open</div>
+      </div>
+      <div class="stat-card inprogress">
+        <div class="stat-num" id="stat-inprogress">0</div>
+        <div class="stat-label">In Progress</div>
+      </div>
+      <div class="stat-card closed">
+        <div class="stat-num" id="stat-closed">0</div>
+        <div class="stat-label">Closed</div>
+      </div>
+    </div>
+
+    <!-- TOOLBAR -->
+    <div class="toolbar">
+      <div class="filter-tabs">
+        <button class="ftab active" data-filter="all" onclick="setFilter('all',this)">All</button>
+        <button class="ftab" data-filter="open" onclick="setFilter('open',this)">Open</button>
+        <button class="ftab" data-filter="inprogress" onclick="setFilter('inprogress',this)">In Progress</button>
+        <button class="ftab" data-filter="closed" onclick="setFilter('closed',this)">Closed</button>
+      </div>
+      <input type="text" class="search-box" id="search-box" placeholder="Search by name, ref, or service…" oninput="renderTickets()"/>
+      <div class="toolbar-right">
+        <button class="action-btn" onclick="exportCSV()">Export CSV</button>
+        <button class="action-btn" onclick="if(confirm('Clear ALL tickets? This cannot be undone.')){localStorage.removeItem(\'cipc_tickets\');localStorage.removeItem(\'cipc_ticket_counter\');renderTickets();updateStats();}">Clear All</button>
+      </div>
+    </div>
+
+    <!-- TICKET LIST -->
+    <div class="ticket-list" id="ticket-list"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ── CONFIG ──────────────────────────────────────────────
+  const ADMIN_PASSWORD = 'Halali@2026';
+  // Change the line above to set your own password.
+  // ────────────────────────────────────────────────────────
+
+  let currentFilter = 'all';
+
+  // AUTH
+  function doLogin() {
+    const pw = document.getElementById('admin-pw').value;
+    if (pw === ADMIN_PASSWORD) {
+      sessionStorage.setItem('admin_auth', '1');
+      document.getElementById('login-gate').classList.add('hide');
+      document.getElementById('dashboard').classList.add('show');
+      renderTickets();
+      updateStats();
+    } else {
+      document.getElementById('login-err').classList.add('show');
+      document.getElementById('admin-pw').value = '';
+      document.getElementById('admin-pw').focus();
+    }
+  }
+
+  function doLogout() {
+    sessionStorage.removeItem('admin_auth');
+    document.getElementById('login-gate').classList.remove('hide');
+    document.getElementById('dashboard').classList.remove('show');
+    document.getElementById('admin-pw').value = '';
+  }
+
+  // Auto-login if session active
+  if (sessionStorage.getItem('admin_auth') === '1') {
+    document.getElementById('login-gate').classList.add('hide');
+    document.getElementById('dashboard').classList.add('show');
+  }
+
+  // DATA
+  function getTickets() {
+    return JSON.parse(localStorage.getItem('cipc_tickets') || '[]');
+  }
+
+  function saveTickets(tickets) {
+    localStorage.setItem('cipc_tickets', JSON.stringify(tickets));
+  }
+
+  // STATS
+  function updateStats() {
+    const tickets = getTickets();
+    document.getElementById('stat-total').textContent = tickets.length;
+    document.getElementById('stat-open').textContent = tickets.filter(t => t.status === 'open').length;
+    document.getElementById('stat-inprogress').textContent = tickets.filter(t => t.status === 'inprogress').length;
+    document.getElementById('stat-closed').textContent = tickets.filter(t => t.status === 'closed').length;
+  }
+
+  // FILTER
+  function setFilter(f, btn) {
+    currentFilter = f;
+    document.querySelectorAll('.ftab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderTickets();
+  }
+
+  // FORMAT DATE
+  function fmtDate(iso) {
+    if (!iso) return '—';
+    const d = new Date(iso);
+    return d.toLocaleDateString('en-ZA', {day:'2-digit',month:'short',year:'numeric'}) + ' ' +
+      d.toLocaleTimeString('en-ZA', {hour:'2-digit',minute:'2-digit'});
+  }
+
+  // BADGE HTML
+  function badgeHtml(status) {
+    if (status === 'open') return '<span class="badge badge-open">Open</span>';
+    if (status === 'inprogress') return '<span class="badge badge-inprogress">In Progress</span>';
+    return '<span class="badge badge-closed">Closed</span>';
+  }
+
+  // RENDER TICKETS
+  function renderTickets() {
+    const list = document.getElementById('ticket-list');
+    const q = (document.getElementById('search-box').value || '').toLowerCase();
+    let tickets = getTickets().slice().reverse(); // newest first
+
+    if (currentFilter !== 'all') tickets = tickets.filter(t => t.status === currentFilter);
+    if (q) tickets = tickets.filter(t =>
+      (t.id||'').toLowerCase().includes(q) ||
+      (t.name||'').toLowerCase().includes(q) ||
+      (t.service||'').toLowerCase().includes(q) ||
+      (t.email||'').toLowerCase().includes(q)
+    );
+
+    if (!tickets.length) {
+      list.innerHTML = '<div class="no-tickets">No tickets found.</div>';
+      updateStats();
+      return;
+    }
+
+    list.innerHTML = tickets.map(t => `
+      <div class="ticket-card" id="tc-${t.id}">
+        <div class="ticket-header" onclick="toggleTicket('${t.id}')">
+          <div class="ticket-ref">${t.id}</div>
+          <div class="ticket-info">
+            <div class="ticket-name">${esc(t.name)} ${t.company ? '<span style="color:var(--muted);font-weight:300;">· '+esc(t.company)+'</span>' : ''}</div>
+            <div class="ticket-service">${esc(t.service)} <span style="color:var(--muted);">· ${catLabel(t.category)}</span></div>
+          </div>
+          <div class="ticket-meta">
+            ${t.urgency === 'Urgent' ? '<span class="badge badge-urgent">Urgent</span>' : ''}
+            ${badgeHtml(t.status)}
+            <span class="ticket-date">${fmtDate(t.submitted).split(' ')[0]}</span>
+          </div>
+          <div class="ticket-toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="ticket-body">
+          <!-- Detail pane -->
+          <div>
+            <div class="detail-grid">
+              <div class="detail-section">
+                <div class="detail-label">Client Name</div>
+                <div class="detail-value">${esc(t.name)}</div>
+              </div>
+              <div class="detail-section">
+                <div class="detail-label">Company / Trading Name</div>
+                <div class="detail-value">${t.company ? esc(t.company) : '—'}</div>
+              </div>
+              <div class="detail-section">
+                <div class="detail-label">Email</div>
+                <div class="detail-value"><a href="mailto:${esc(t.email)}">${esc(t.email)}</a></div>
+              </div>
+              <div class="detail-section">
+                <div class="detail-label">Phone / WhatsApp</div>
+                <div class="detail-value"><a href="tel:${esc(t.phone)}">${esc(t.phone)}</a></div>
+              </div>
+              <div class="detail-section">
+                <div class="detail-label">Service Category</div>
+                <div class="detail-value">${catLabel(t.category)}</div>
+              </div>
+              <div class="detail-section">
+                <div class="detail-label">Specific Service</div>
+                <div class="detail-value">${esc(t.service)}</div>
+              </div>
+              <div class="detail-section">
+                <div class="detail-label">Urgency</div>
+                <div class="detail-value">${esc(t.urgency)}</div>
+              </div>
+              <div class="detail-section">
+                <div class="detail-label">Submitted</div>
+                <div class="detail-value">${fmtDate(t.submitted)}</div>
+              </div>
+              ${t.closedAt ? `<div class="detail-section"><div class="detail-label">Closed</div><div class="detail-value">${fmtDate(t.closedAt)}</div></div>` : ''}
+              ${t.adminRef ? `<div class="detail-section"><div class="detail-label">Service Desk Ref</div><div class="detail-value" style="font-family:var(--mono);color:var(--gold-lt);">${esc(t.adminRef)}</div></div>` : ''}
+            </div>
+            <div class="detail-section" style="margin-top:1rem;">
+              <div class="detail-label">Client Description</div>
+              <div class="desc-box">${esc(t.description)}</div>
+            </div>
+            ${t.adminReply ? `
+            <div class="detail-section" style="margin-top:1rem;">
+              <div class="detail-label">Admin Reply (sent to client)</div>
+              <div class="desc-box" style="border-color:rgba(201,168,76,.3);">${esc(t.adminReply)}</div>
+            </div>` : ''}
+            ${t.adminNotes ? `
+            <div class="detail-section" style="margin-top:1rem;">
+              <div class="detail-label">Internal Notes</div>
+              <div class="desc-box" style="border-color:rgba(100,100,150,.3);">${esc(t.adminNotes)}</div>
+            </div>` : ''}
+          </div>
+          <!-- Action pane -->
+          <div>
+            <div class="action-pane">
+              <div class="action-pane-title">Manage Ticket</div>
+
+              <div class="action-field">
+                <label class="action-label">Status</label>
+                <select class="action-select" id="as-status-${t.id}">
+                  <option value="open" ${t.status==='open'?'selected':''}>Open</option>
+                  <option value="inprogress" ${t.status==='inprogress'?'selected':''}>In Progress</option>
+                  <option value="closed" ${t.status==='closed'?'selected':''}>Closed</option>
+                </select>
+              </div>
+
+              <div class="action-field">
+                <label class="action-label">Service Desk Reference Number</label>
+                <input type="text" class="action-input" id="as-ref-${t.id}" value="${esc(t.adminRef||'')}" placeholder="e.g. CIPC-2026-XXXXX"/>
+              </div>
+
+              <div class="action-field">
+                <label class="action-label">Reply to Client</label>
+                <textarea class="action-textarea" id="as-reply-${t.id}" placeholder="Message that will be visible to client (optional)">${esc(t.adminReply||'')}</textarea>
+              </div>
+
+              <div class="action-field">
+                <label class="action-label">Internal Notes <span style="text-transform:none;letter-spacing:0;">(not shown to client)</span></label>
+                <textarea class="action-textarea" id="as-notes-${t.id}" placeholder="Your private notes about this ticket…">${esc(t.adminNotes||'')}</textarea>
+              </div>
+
+              <div class="action-btns">
+                <button class="save-btn" onclick="saveTicket('${t.id}')">Save Changes</button>
+                ${t.status !== 'closed' ? `<button class="close-btn" onclick="closeTicket('${t.id}')">Mark as Closed</button>` : ''}
+              </div>
+              <div class="save-feedback" id="sf-${t.id}">Saved.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    updateStats();
+  }
+
+  function toggleTicket(id) {
+    const card = document.getElementById('tc-' + id);
+    card.classList.toggle('expanded');
+  }
+
+  function esc(s) {
+    if (!s) return '';
+    return String(s)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
+  }
+
+  function catLabel(cat) {
+    const m = {services:'Company Services',documents:'Documents',registrations:'Registrations',other:'General Enquiry'};
+    return m[cat] || cat || '—';
+  }
+
+  function saveTicket(id) {
+    const tickets = getTickets();
+    const idx = tickets.findIndex(t => t.id === id);
+    if (idx === -1) return;
+    const newStatus = document.getElementById('as-status-' + id).value;
+    tickets[idx].status = newStatus;
+    tickets[idx].adminRef = document.getElementById('as-ref-' + id).value.trim();
+    tickets[idx].adminReply = document.getElementById('as-reply-' + id).value.trim();
+    tickets[idx].adminNotes = document.getElementById('as-notes-' + id).value.trim();
+    if (newStatus === 'closed' && !tickets[idx].closedAt) {
+      tickets[idx].closedAt = new Date().toISOString();
+    }
+    saveTickets(tickets);
+    const fb = document.getElementById('sf-' + id);
+    fb.classList.add('show');
+    setTimeout(() => fb.classList.remove('show'), 2500);
+    renderTickets();
+    // Re-expand the just-saved ticket
+    setTimeout(() => {
+      const card = document.getElementById('tc-' + id);
+      if (card) card.classList.add('expanded');
+    }, 50);
+    showToast('Ticket ' + id + ' updated.');
+  }
+
+  function closeTicket(id) {
+    const tickets = getTickets();
+    const idx = tickets.findIndex(t => t.id === id);
+    if (idx === -1) return;
+    tickets[idx].status = 'closed';
+    if (!tickets[idx].closedAt) tickets[idx].closedAt = new Date().toISOString();
+    // Save any pending field values too
+    const refEl = document.getElementById('as-ref-' + id);
+    const replyEl = document.getElementById('as-reply-' + id);
+    const notesEl = document.getElementById('as-notes-' + id);
+    if (refEl) tickets[idx].adminRef = refEl.value.trim();
+    if (replyEl) tickets[idx].adminReply = replyEl.value.trim();
+    if (notesEl) tickets[idx].adminNotes = notesEl.value.trim();
+    saveTickets(tickets);
+    renderTickets();
+    showToast('Ticket ' + id + ' closed.');
+  }
+
+  // EXPORT CSV
+  function exportCSV() {
+    const tickets = getTickets();
+    if (!tickets.length) { showToast('No tickets to export.'); return; }
+    const headers = ['Ref','Name','Email','Phone','Company','Category','Service','Urgency','Status','AdminRef','Reply','Notes','Submitted','Closed'];
+    const rows = tickets.map(t => [
+      t.id, t.name, t.email, t.phone, t.company||'', catLabel(t.category), t.service,
+      t.urgency, t.status, t.adminRef||'', t.adminReply||'', t.adminNotes||'',
+      t.submitted, t.closedAt||''
+    ].map(v => '"' + String(v).replace(/"/g,'""') + '"').join(','));
+    const csv = [headers.join(','), ...rows].join('\n');
+    const blob = new Blob([csv], {type:'text/csv'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'cipc-tickets-' + new Date().toISOString().slice(0,10) + '.csv';
+    a.click(); URL.revokeObjectURL(url);
+  }
+
+  // TOAST
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  // INIT
+  if (sessionStorage.getItem('admin_auth') === '1') {
+    renderTickets();
+    updateStats();
+  }
+</script>
+</body>
+</html>

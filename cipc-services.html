@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Company Registration Services — Halalisani Ngema</title>
+  <meta name="description" content="CIPC company registrations, document preparation, and statutory registrations for South African businesses. Full transparency on what I offer and what I don't."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#080810;--bg2:#0f0f1a;--bg3:#13131f;--gold:#c9a84c;--gold-lt:#e0c47a;--gold-dim:#7d6630;--cream:#f5efe0;--text:#e8e0d0;--muted:#8a8070;--border:rgba(201,168,76,.18);--border-lt:rgba(201,168,76,.35);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Outfit',sans-serif;--mono:'DM Mono',monospace;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden;}
+    ::selection{background:var(--gold-dim);color:var(--cream);}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:transparent;border-bottom:1px solid transparent;transition:background .35s,border-color .35s;transform:translateZ(0);}
+    nav.scrolled{background:rgba(8,8,16,.96);border-color:var(--border);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+    .nav-logo-btn{display:flex;align-items:center;gap:.75rem;text-decoration:none;flex-shrink:0;transition:opacity .25s;}
+    .nav-logo-btn:hover{opacity:.8;}
+    .nav-logo-btn svg{height:34px;width:auto;display:block;}
+    .nav-brand{font-family:var(--serif);font-size:1rem;font-weight:600;letter-spacing:.04em;color:var(--gold);}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{font-size:.74rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);transition:color .22s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .26s ease;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold-lt);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-cta{font-size:.73rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.46rem 1.2rem;border:1px solid var(--gold-dim);color:var(--gold);border-radius:2px;transition:background .22s,color .22s,border-color .22s;}
+    .nav-cta:hover{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+    .nav-hamburger span{display:block;width:24px;height:1.5px;background:var(--gold);}
+    .mobile-nav{display:none;position:fixed;inset:0;background:var(--bg);z-index:800;flex-direction:column;align-items:center;justify-content:center;gap:2.4rem;}
+    .mobile-nav.open{display:flex;}
+    .mobile-nav a{font-family:var(--serif);font-size:2.4rem;font-weight:300;color:var(--text);transition:color .22s;}
+    .mobile-nav a:hover{color:var(--gold);}
+    .mobile-nav-close{position:absolute;top:2rem;right:2rem;background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer;}
+
+    /* PAGE HEADER */
+    .page-header{position:relative;padding:10rem 4rem 5rem;overflow:hidden;background:var(--bg2);}
+    .ph-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(201,168,76,.06) 0%,transparent 70%);}
+    .ph-content{position:relative;max-width:700px;}
+    .ph-badge{display:inline-flex;align-items:center;gap:.7rem;font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+    .ph-badge::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+    .ph-h1{font-family:var(--serif);font-size:clamp(2.6rem,5.5vw,4.5rem);font-weight:300;line-height:1.1;color:var(--cream);margin-bottom:1.2rem;}
+    .ph-h1 em{font-style:italic;color:var(--gold-lt);}
+    .ph-sub{font-size:1rem;font-weight:300;color:var(--muted);max-width:560px;line-height:1.82;margin-bottom:2rem;}
+    .ph-actions{display:flex;flex-wrap:wrap;gap:1rem;}
+
+    /* SECTIONS */
+    section{padding:6rem 4rem;position:relative;}
+    .container{max-width:1100px;margin:0 auto;}
+    .section-rule{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--border-lt),transparent);}
+    .section-eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-size:.67rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+    .section-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+    .section-heading{font-family:var(--serif);font-size:clamp(2rem,3.8vw,3.2rem);font-weight:300;line-height:1.18;color:var(--cream);margin-bottom:.6rem;}
+    .section-heading em{font-style:italic;color:var(--gold-lt);}
+    .section-sub{font-size:.93rem;font-weight:300;color:var(--muted);line-height:1.8;max-width:600px;margin-bottom:3rem;}
+
+    /* TWIN TABLE LAYOUT */
+    .twin-tables{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:1rem;}
+
+    /* TABLES */
+    .tbl-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+    .tbl-head{padding:1.2rem 1.6rem;border-bottom:1px solid var(--border);}
+    .tbl-head-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-family:var(--mono);margin-bottom:.3rem;}
+    .tbl-head-label.offer{color:var(--gold);}
+    .tbl-head-label.no-offer{color:var(--muted);}
+    .tbl-head-title{font-family:var(--serif);font-size:1.4rem;font-weight:300;color:var(--cream);}
+    table{width:100%;border-collapse:collapse;}
+    thead th{padding:.7rem 1.2rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;text-align:left;border-bottom:1px solid var(--border);}
+    thead th.col-service{color:var(--gold);}
+    thead th.col-who{color:var(--muted);}
+    tbody tr{border-bottom:1px solid rgba(201,168,76,.07);transition:background .18s;}
+    tbody tr:last-child{border-bottom:none;}
+    tbody tr:hover{background:rgba(201,168,76,.04);}
+    td{padding:.65rem 1.2rem;font-size:.85rem;font-weight:300;color:var(--muted);vertical-align:top;line-height:1.55;}
+    td.offer-item{color:var(--text);}
+    td.offer-item::before{content:'✓ ';color:var(--gold);font-size:.8rem;}
+    td.no-item{color:var(--muted);}
+    td.no-item::before{content:'✕ ';color:#7a3535;font-size:.8rem;}
+    td.who{color:var(--muted);font-size:.8rem;font-style:italic;}
+
+    /* BUTTONS */
+    .btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.82rem 1.8rem;background:var(--gold);color:var(--bg);font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:background .22s,transform .2s,box-shadow .22s;box-shadow:0 4px 18px rgba(201,168,76,.22);}
+    .btn-primary:hover{background:var(--gold-lt);transform:translateY(-2px);}
+    .btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.82rem 1.8rem;background:transparent;color:var(--gold);font-family:var(--sans);font-size:.76rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--border-lt);border-radius:2px;transition:background .22s,border-color .22s,transform .2s;}
+    .btn-outline:hover{background:rgba(201,168,76,.07);border-color:var(--gold);transform:translateY(-2px);}
+
+    /* CTA BAND */
+    #cta-band{background:var(--bg2);text-align:center;}
+    .cta-inner{max-width:680px;margin:0 auto;}
+    .cta-eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-size:.67rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;justify-content:center;}
+    .cta-eyebrow::before,.cta-eyebrow::after{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+    .cta-heading{font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:1rem;}
+    .cta-heading em{font-style:italic;color:var(--gold-lt);}
+    .cta-sub{font-size:.96rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:2.4rem;}
+    .cta-actions{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;}
+
+    /* DISCLAIMER */
+    #disclaimer{background:var(--bg);padding:3rem 4rem;}
+    .disclaimer-box{max-width:900px;margin:0 auto;border:1px solid var(--border);border-radius:4px;padding:1.8rem 2.4rem;background:var(--bg3);}
+    .disclaimer-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-family:var(--mono);color:var(--gold-dim);margin-bottom:.6rem;}
+    .disclaimer-text{font-size:.84rem;font-weight:300;color:var(--muted);line-height:1.8;}
+
+    /* FOOTER */
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-brand{font-family:var(--serif);font-size:1rem;color:var(--gold);}
+    .footer-socials{display:flex;gap:1.1rem;}
+    .footer-socials a{color:var(--muted);transition:color .22s;}
+    .footer-socials a:hover{color:var(--gold);}
+    .footer-copy{font-size:.72rem;color:var(--muted);}
+
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+    .fade-in.visible{opacity:1;transform:translateY(0);}
+
+    @media(max-width:960px){
+      nav{padding:1rem 1.5rem;}.nav-links,.nav-cta,.nav-brand{display:none;}.nav-hamburger{display:flex;}
+      .page-header{padding:8rem 1.5rem 4rem;}
+      section{padding:4rem 1.5rem;}
+      .twin-tables{grid-template-columns:1fr;}
+      #disclaimer{padding:2rem 1.5rem;}
+      footer{padding:1.5rem;flex-direction:column;align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo-btn" title="Home">
+    <svg viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="el" cx="35%" cy="28%" r="68%"><stop offset="0%" stop-color="#f2d874"/><stop offset="50%" stop-color="#c9a84c"/><stop offset="100%" stop-color="#6e5018"/></radialGradient>
+        <radialGradient id="em" cx="33%" cy="26%" r="68%"><stop offset="0%" stop-color="#f8e080"/><stop offset="48%" stop-color="#d4b255"/><stop offset="100%" stop-color="#7a5a1c"/></radialGradient>
+        <radialGradient id="er" cx="35%" cy="28%" r="68%"><stop offset="0%" stop-color="#f2d874"/><stop offset="50%" stop-color="#c9a84c"/><stop offset="100%" stop-color="#6e5018"/></radialGradient>
+      </defs>
+      <g transform="translate(13,22) rotate(-17)"><path d="M0,-10.5C6,-10.5 8.5,-3 8.5,2.5C8.5,8 5,11 0,11C-5,11-8.5,8-8.5,2.5C-8.5,-3-6,-10.5 0,-10.5Z" fill="url(#el)" opacity=".86"/><ellipse cx="-2.5" cy="-6" rx="2" ry="2.8" fill="rgba(255,255,255,.2)" transform="rotate(-12,-2.5,-6)"/></g>
+      <g transform="translate(51,22) rotate(17)"><path d="M0,-10.5C6,-10.5 8.5,-3 8.5,2.5C8.5,8 5,11 0,11C-5,11-8.5,8-8.5,2.5C-8.5,-3-6,-10.5 0,-10.5Z" fill="url(#er)" opacity=".86"/><ellipse cx="-2.5" cy="-6" rx="2" ry="2.8" fill="rgba(255,255,255,.2)" transform="rotate(-12,-2.5,-6)"/></g>
+      <g transform="translate(32,20)"><path d="M0,-12C7,-12 10,-3.5 10,2.8C10,9 6,12.5 0,12.5C-6,12.5-10,9-10,2.8C-10,-3.5-7,-12 0,-12Z" fill="url(#em)"/><ellipse cx="-3" cy="-7" rx="2.4" ry="3.2" fill="rgba(255,255,255,.24)" transform="rotate(-12,-3,-7)"/></g>
+    </svg>
+    <span class="nav-brand">Halalisani Ngema</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="cipc-services.html" class="active">Company Reg</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="jobs.html">Jobs</a></li>
+    <li><a href="ourwork.html">Our Work</a></li>
+  </ul>
+  <a href="ticket.html" class="nav-cta">Log a Request</a>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="services.html" onclick="toggleMobileNav()">Services</a>
+  <a href="cipc-services.html" onclick="toggleMobileNav()">Company Reg</a>
+  <a href="blog.html" onclick="toggleMobileNav()">Blog</a>
+  <a href="jobs.html" onclick="toggleMobileNav()">Jobs</a>
+  <a href="ourwork.html" onclick="toggleMobileNav()">Our Work</a>
+  <a href="ticket.html" onclick="toggleMobileNav()">Log a Request</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="ph-overlay"></div>
+  <div class="ph-content">
+    <div class="ph-badge">Services, Documents &amp; Registrations</div>
+    <h1 class="ph-h1">What I offer.<br><em>Full transparency.</em></h1>
+    <p class="ph-sub">A complete overview of every company registration, document, and statutory registration I handle — and the services I refer to qualified professionals. No guesswork, no surprises.</p>
+    <div class="ph-actions">
+      <a href="ticket.html" class="btn-primary">Log a Service Request →</a>
+      <a href="#services" class="btn-outline">Browse Services ↓</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── 1. SERVICES ── -->
+<section id="services">
+  <div class="section-rule"></div>
+  <div class="container">
+    <div class="section-eyebrow fade-in">01 — Services</div>
+    <h2 class="section-heading fade-in">Company <em>Services</em></h2>
+    <p class="section-sub fade-in">From Pty Ltd registrations to beneficial ownership updates — the full range of CIPC-related services I handle on your behalf.</p>
+
+    <div class="twin-tables">
+      <!-- OFFER -->
+      <div class="tbl-wrap fade-in">
+        <div class="tbl-head">
+          <div class="tbl-head-label offer">Services I Offer</div>
+          <div class="tbl-head-title">What I handle</div>
+        </div>
+        <table>
+          <tbody>
+            <tr><td class="offer-item">Private company (Pty Ltd) registration</td></tr>
+            <tr><td class="offer-item">Non-profit company (NPC) registration</td></tr>
+            <tr><td class="offer-item">Personal liability company (Inc.) registration</td></tr>
+            <tr><td class="offer-item">Co-operative registration</td></tr>
+            <tr><td class="offer-item">Foreign company registration</td></tr>
+            <tr><td class="offer-item">Name reservation</td></tr>
+            <tr><td class="offer-item">Company name change</td></tr>
+            <tr><td class="offer-item">Director / member additions and removals</td></tr>
+            <tr><td class="offer-item">Registered address change</td></tr>
+            <tr><td class="offer-item">Financial year-end change</td></tr>
+            <tr><td class="offer-item">MOI amendments (standard)</td></tr>
+            <tr><td class="offer-item">Share structure changes</td></tr>
+            <tr><td class="offer-item">Annual returns filing</td></tr>
+            <tr><td class="offer-item">Beneficial ownership register (BOR) updates</td></tr>
+            <tr><td class="offer-item">B-BBEE certificate application (CIPC)</td></tr>
+            <tr><td class="offer-item">Voluntary deregistration</td></tr>
+            <tr><td class="offer-item">Restoration of deregistered company</td></tr>
+            <tr><td class="offer-item">Company searches and disclosure</td></tr>
+            <tr><td class="offer-item">Trademark filing (admin only)</td></tr>
+            <tr><td class="offer-item">Business plans</td></tr>
+            <tr><td class="offer-item">Company profiles</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- DON'T OFFER -->
+      <div class="tbl-wrap fade-in">
+        <div class="tbl-head">
+          <div class="tbl-head-label no-offer">Services I Do Not Offer</div>
+          <div class="tbl-head-title">Who you need instead</div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th class="col-service">Service</th>
+              <th class="col-who">Who You Need</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="no-item">Patent applications</td><td class="who">Registered Patent Attorney / Agent</td></tr>
+            <tr><td class="no-item">Business rescue proceedings</td><td class="who">Licensed Business Rescue Practitioner</td></tr>
+            <tr><td class="no-item">Independent review of financial statements</td><td class="who">SAIPA / SAICA member</td></tr>
+            <tr><td class="no-item">Auditing</td><td class="who">Registered Auditor (IRBA)</td></tr>
+            <tr><td class="no-item">Legal advice on IP or company law</td><td class="who">Admitted Attorney (LPC)</td></tr>
+            <tr><td class="no-item">Tax compliance advice and tax returns</td><td class="who">Registered Tax Practitioner (SARS)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 2. DOCUMENTS ── -->
+<section id="documents" style="background:var(--bg2);">
+  <div class="section-rule"></div>
+  <div class="container">
+    <div class="section-eyebrow fade-in">02 — Documents</div>
+    <h2 class="section-heading fade-in">Documents &amp; <em>Templates</em></h2>
+    <p class="section-sub fade-in">All standard CIPC forms, business stationery, and statutory documents I complete or design — and those that require a qualified professional.</p>
+
+    <div class="twin-tables">
+      <!-- OFFER -->
+      <div class="tbl-wrap fade-in">
+        <div class="tbl-head">
+          <div class="tbl-head-label offer">Documents I Complete / Design</div>
+          <div class="tbl-head-title">What I handle</div>
+        </div>
+        <table>
+          <tbody>
+            <tr><td class="offer-item">CoR14.1 — Notice of Incorporation</td></tr>
+            <tr><td class="offer-item">CoR14.1A — Initial Directors of the Company</td></tr>
+            <tr><td class="offer-item">CoR14.3 — Registration Certificate</td></tr>
+            <tr><td class="offer-item">CoR15.1 — Memorandum of Incorporation (standard / default)</td></tr>
+            <tr><td class="offer-item">CoR9.1 — Name Reservation Form</td></tr>
+            <tr><td class="offer-item">CoR39 — Director Change Form</td></tr>
+            <tr><td class="offer-item">CoR21.1 — Registered Address Change</td></tr>
+            <tr><td class="offer-item">CoR30.1 — Annual Returns</td></tr>
+            <tr><td class="offer-item">CoR40.1 — Deregistration Form</td></tr>
+            <tr><td class="offer-item">CoR20.1 — External Company Registration</td></tr>
+            <tr><td class="offer-item">CoR20.1 Annexure A — Directors of External Company</td></tr>
+            <tr><td class="offer-item">CoR21.2 — Notice of Person Authorised to Accept Service</td></tr>
+            <tr><td class="offer-item">Beneficial ownership register (BOR) forms</td></tr>
+            <tr><td class="offer-item">B-BBEE certificate application form</td></tr>
+            <tr><td class="offer-item">Financial year-end change form</td></tr>
+            <tr><td class="offer-item">Share certificates</td></tr>
+            <tr><td class="offer-item">Business plans</td></tr>
+            <tr><td class="offer-item">Company profiles</td></tr>
+            <tr><td class="offer-item">Letterheads</td></tr>
+            <tr><td class="offer-item">Business cards</td></tr>
+            <tr><td class="offer-item">Invoice templates</td></tr>
+            <tr><td class="offer-item">Quotation templates</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- DON'T OFFER -->
+      <div class="tbl-wrap fade-in">
+        <div class="tbl-head">
+          <div class="tbl-head-label no-offer">Documents I Do Not Complete / Design</div>
+          <div class="tbl-head-title">Who you need instead</div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th class="col-service">Document</th>
+              <th class="col-who">Who You Need</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="no-item">Custom MOI with special legal provisions</td><td class="who">Admitted Attorney</td></tr>
+            <tr><td class="no-item">Shareholders' agreement</td><td class="who">Admitted Attorney</td></tr>
+            <tr><td class="no-item">Trust deed</td><td class="who">Admitted Attorney</td></tr>
+            <tr><td class="no-item">Any legal contract or agreement</td><td class="who">Admitted Attorney</td></tr>
+            <tr><td class="no-item">Legal opinion on IP or company law</td><td class="who">Admitted Attorney</td></tr>
+            <tr><td class="no-item">Business rescue plan</td><td class="who">Licensed Business Rescue Practitioner</td></tr>
+            <tr><td class="no-item">Financial statements</td><td class="who">Accountant (SAIPA / SAICA)</td></tr>
+            <tr><td class="no-item">Independent review report</td><td class="who">Recognised professional body member</td></tr>
+            <tr><td class="no-item">Audit report</td><td class="who">Registered Auditor (IRBA)</td></tr>
+            <tr><td class="no-item">Tax returns and tax opinions</td><td class="who">Registered Tax Practitioner (SARS)</td></tr>
+            <tr><td class="no-item">Patent specifications</td><td class="who">Registered Patent Attorney / Agent</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 3. REGISTRATIONS ── -->
+<section id="registrations">
+  <div class="section-rule"></div>
+  <div class="container">
+    <div class="section-eyebrow fade-in">03 — Registrations</div>
+    <h2 class="section-heading fade-in">Statutory <em>Registrations</em></h2>
+    <p class="section-sub fade-in">Government and statutory registrations I process on behalf of businesses — and those that require professional qualifications or certified financials.</p>
+
+    <div class="twin-tables">
+      <!-- OFFER -->
+      <div class="tbl-wrap fade-in">
+        <div class="tbl-head">
+          <div class="tbl-head-label offer">Registrations I Handle</div>
+          <div class="tbl-head-title">What I process</div>
+        </div>
+        <table>
+          <tbody>
+            <tr><td class="offer-item">CSD registration (Central Supplier Database — National Treasury)</td></tr>
+            <tr><td class="offer-item">COIDA / COID registration (Compensation Fund — Dept of Labour)</td></tr>
+            <tr><td class="offer-item">Letter of Good Standing application and renewal</td></tr>
+            <tr><td class="offer-item">Return of Earnings (ROE) submission</td></tr>
+            <tr><td class="offer-item">UIF registration (Unemployment Insurance Fund)</td></tr>
+            <tr><td class="offer-item">CIDB registration — Grade 1 (Construction Industry Development Board)</td></tr>
+            <tr><td class="offer-item">NHBRC registration (National Home Builders Registration Council)</td></tr>
+            <tr><td class="offer-item">B-BBEE affidavit (EME / QSE qualifying companies)</td></tr>
+            <tr><td class="offer-item">Import / Export licence registration</td></tr>
+            <tr><td class="offer-item">SARS income tax number registration</td></tr>
+            <tr><td class="offer-item">PAYE registration</td></tr>
+            <tr><td class="offer-item">SDL registration (Skills Development Levy)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- DON'T OFFER -->
+      <div class="tbl-wrap fade-in">
+        <div class="tbl-head">
+          <div class="tbl-head-label no-offer">Registrations I Do Not Handle</div>
+          <div class="tbl-head-title">Why &amp; who you need</div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th class="col-service">Registration</th>
+              <th class="col-who">Why Not</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="no-item">VAT registration and VAT advice</td><td class="who">Registered Tax Practitioner required</td></tr>
+            <tr><td class="no-item">CIDB Grade 2 and above</td><td class="who">Audited / reviewed financials from qualified accountant required</td></tr>
+            <tr><td class="no-item">PSIRA registration</td><td class="who">Private Security industry — specific compliance qualifications required</td></tr>
+            <tr><td class="no-item">Business rescue proceedings</td><td class="who">Licensed Business Rescue Practitioner required</td></tr>
+            <tr><td class="no-item">Tax compliance advice and returns</td><td class="who">Registered Tax Practitioner (SARS) required</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section id="cta-band">
+  <div class="section-rule"></div>
+  <div class="container">
+    <div class="cta-inner fade-in">
+      <div class="cta-eyebrow">Ready to get started?</div>
+      <h2 class="cta-heading">Log a service request.<br><em>I'll take it from there.</em></h2>
+      <p class="cta-sub">Submit your request online and I will follow up within 1 business day. You will receive a reference number once your call has been logged.</p>
+      <div class="cta-actions">
+        <a href="ticket.html" class="btn-primary">Log a Service Request →</a>
+        <a href="index.html#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<div id="disclaimer">
+  <div class="disclaimer-box fade-in">
+    <div class="disclaimer-label">Important Notice</div>
+    <p class="disclaimer-text">This page is for information purposes only and does not constitute legal, financial, or professional advice. Services marked as "not offered" carry legal, financial, or technical liability and must be performed by a duly qualified professional. Where a referral is recommended, I am happy to assist you find the right person — just ask when logging your request.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Halalisani Ngema</div>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/halalisaningema/" target="_blank" rel="noopener" title="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    <a href="https://www.facebook.com/halalisaning" target="_blank" rel="noopener" title="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+    <a href="https://ehub.alxafrica.com/profile/7c2fd094-0c32-4b88-bca5-ea25b81ffa7d" target="_blank" rel="noopener" title="ALX Africa"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></a>
+  </div>
+  <div class="footer-copy">&copy; 2026 &nbsp;&middot;&nbsp; South Africa &nbsp;&middot;&nbsp; <a href="legal.html" style="color:var(--muted);text-decoration:underline;text-underline-offset:3px;">Legal &amp; Privacy</a></div>
+</footer>
+
+<script>
+  let raf=false;const nav=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>{if(!raf){raf=true;requestAnimationFrame(()=>{nav.classList.toggle('scrolled',window.scrollY>60);raf=false;});}},{passive:true});
+  function toggleMobileNav(){document.getElementById('mobileNav').classList.toggle('open');}
+  const obs=new IntersectionObserver((e)=>{e.forEach((en,i)=>{if(en.isIntersecting){setTimeout(()=>en.target.classList.add('visible'),i*80);obs.unobserve(en.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
