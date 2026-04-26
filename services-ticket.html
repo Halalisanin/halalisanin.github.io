@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Log a Service Request — Halalisani Ngema</title>
+  <meta name="description" content="Submit a CV, coaching, admin, or jobs board service request. You will receive a reference number and we will follow up within 1 business day."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#080810;--bg2:#0f0f1a;--bg3:#13131f;--gold:#c9a84c;--gold-lt:#e0c47a;--gold-dim:#7d6630;--cream:#f5efe0;--text:#e8e0d0;--muted:#8a8070;--border:rgba(201,168,76,.18);--border-lt:rgba(201,168,76,.35);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Outfit',sans-serif;--mono:'DM Mono',monospace;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden;min-height:100vh;}
+    ::selection{background:var(--gold-dim);color:var(--cream);}
+    a{color:inherit;text-decoration:none;}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 4rem;background:transparent;border-bottom:1px solid transparent;transition:background .35s,border-color .35s;}
+    nav.scrolled{background:rgba(8,8,16,.96);border-color:var(--border);backdrop-filter:blur(8px);}
+    .nav-logo-btn{display:flex;align-items:center;gap:.75rem;text-decoration:none;flex-shrink:0;transition:opacity .25s;}
+    .nav-logo-btn:hover{opacity:.8;}
+    .nav-logo-btn svg{height:34px;width:auto;}
+    .nav-brand{font-family:var(--serif);font-size:1rem;font-weight:600;letter-spacing:.04em;color:var(--gold);}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{font-size:.74rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);transition:color .22s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .26s ease;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold-lt);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-cta{font-size:.73rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:.46rem 1.2rem;border:1px solid var(--gold-dim);color:var(--gold);border-radius:2px;transition:background .22s,color .22s,border-color .22s;}
+    .nav-cta:hover{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+    .nav-hamburger span{display:block;width:24px;height:1.5px;background:var(--gold);}
+    .mobile-nav{display:none;position:fixed;inset:0;background:var(--bg);z-index:800;flex-direction:column;align-items:center;justify-content:center;gap:2.4rem;}
+    .mobile-nav.open{display:flex;}
+    .mobile-nav a{font-family:var(--serif);font-size:2.4rem;font-weight:300;color:var(--text);transition:color .22s;}
+    .mobile-nav a:hover{color:var(--gold);}
+    .mobile-nav-close{position:absolute;top:2rem;right:2rem;background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer;}
+
+    /* PAGE */
+    .page-wrap{min-height:100vh;padding:9rem 4rem 6rem;display:flex;align-items:flex-start;justify-content:center;gap:5rem;}
+    .form-col{flex:1;max-width:640px;}
+    .info-col{width:300px;flex-shrink:0;padding-top:.5rem;}
+
+    /* HEADER */
+    .form-eyebrow{font-size:.67rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem;}
+    .form-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+    .form-heading{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.4rem);font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:.8rem;}
+    .form-heading em{font-style:italic;color:var(--gold-lt);}
+    .form-sub{font-size:.93rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:2.5rem;}
+
+    /* FORM */
+    .form-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:2.4rem;}
+    .form-row{margin-bottom:1.6rem;}
+    .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.6rem;}
+    label{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:.5rem;}
+    label span{color:var(--muted);font-size:.65rem;text-transform:none;letter-spacing:0;margin-left:.3rem;}
+    input,select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:2px;padding:.72rem 1rem;font-family:var(--sans);font-size:.9rem;font-weight:300;color:var(--text);transition:border-color .22s,box-shadow .22s;outline:none;appearance:none;-webkit-appearance:none;}
+    input::placeholder,textarea::placeholder{color:var(--muted);}
+    input:focus,select:focus,textarea:focus{border-color:var(--gold-dim);box-shadow:0 0 0 3px rgba(201,168,76,.08);}
+    textarea{resize:vertical;min-height:130px;line-height:1.7;}
+    select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.4rem;}
+    select option{background:var(--bg2);}
+    .field-hint{font-size:.76rem;color:var(--muted);margin-top:.4rem;line-height:1.55;}
+    .field-err{font-size:.76rem;color:#e07070;margin-top:.4rem;display:none;}
+    .field-err.show{display:block;}
+
+    /* URGENCY */
+    .radio-row{display:flex;gap:1rem;flex-wrap:wrap;}
+    .radio-opt{position:relative;}
+    .radio-opt input[type=radio]{position:absolute;opacity:0;width:0;}
+    .radio-opt label{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1.1rem;border:1px solid var(--border);border-radius:2px;font-size:.78rem;font-weight:400;color:var(--muted);cursor:pointer;transition:border-color .22s,color .22s,background .22s;letter-spacing:.06em;text-transform:none;}
+    .radio-opt input[type=radio]:checked+label{border-color:var(--gold-dim);color:var(--gold-lt);background:rgba(201,168,76,.07);}
+    .radio-opt label:hover{border-color:var(--gold-dim);color:var(--text);}
+
+    /* SUBMIT */
+    .form-submit{margin-top:2rem;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;}
+    .btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.84rem 2rem;background:var(--gold);color:var(--bg);font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;border:none;cursor:pointer;transition:background .22s,transform .2s,box-shadow .22s;box-shadow:0 4px 18px rgba(201,168,76,.22);}
+    .btn-primary:hover:not(:disabled){background:var(--gold-lt);transform:translateY(-2px);}
+    .btn-primary:disabled{opacity:.5;cursor:not-allowed;}
+    .btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.82rem 1.8rem;background:transparent;color:var(--gold);font-family:var(--sans);font-size:.76rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--border-lt);border-radius:2px;transition:background .22s,border-color .22s;}
+    .btn-outline:hover{background:rgba(201,168,76,.07);border-color:var(--gold);}
+    .submit-note{font-size:.76rem;color:var(--muted);line-height:1.55;}
+
+    /* INFO SIDEBAR */
+    .info-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:1.8rem;margin-bottom:1.5rem;}
+    .info-card-title{font-size:.67rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-family:var(--mono);margin-bottom:1rem;}
+    .info-step{display:flex;gap:.9rem;margin-bottom:1.1rem;}
+    .info-step:last-child{margin-bottom:0;}
+    .info-step-num{width:22px;height:22px;border-radius:50%;background:rgba(201,168,76,.12);border:1px solid var(--gold-dim);display:flex;align-items:center;justify-content:center;font-size:.62rem;color:var(--gold);font-family:var(--mono);flex-shrink:0;margin-top:.15rem;}
+    .info-step-text{font-size:.84rem;font-weight:300;color:var(--muted);line-height:1.6;}
+    .info-step-text strong{color:var(--text);font-weight:500;}
+
+    /* PRICING QUICK REF */
+    .price-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--border);font-size:.82rem;}
+    .price-row:last-child{border-bottom:none;}
+    .price-row span{color:var(--gold);font-family:var(--mono);font-size:.85rem;}
+
+    /* SUCCESS */
+    #success-view{display:none;text-align:center;padding:4rem 2rem;}
+    #success-view.show{display:block;}
+    #form-view.hide{display:none;}
+    .success-icon{width:64px;height:64px;border-radius:50%;background:rgba(201,168,76,.1);border:1px solid var(--gold-dim);display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;}
+    .success-icon svg{color:var(--gold);}
+    .success-ref{font-family:var(--mono);font-size:1.4rem;color:var(--gold);letter-spacing:.1em;background:rgba(201,168,76,.07);border:1px solid var(--border);border-radius:4px;padding:.8rem 1.6rem;display:inline-block;margin:1.2rem 0;}
+    .success-heading{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;color:var(--cream);margin-bottom:.6rem;}
+    .success-sub{font-size:.93rem;font-weight:300;color:var(--muted);line-height:1.8;max-width:480px;margin:0 auto 2rem;}
+
+    /* FOOTER */
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer-brand{font-family:var(--serif);font-size:1rem;color:var(--gold);}
+    .footer-copy{font-size:.72rem;color:var(--muted);}
+
+    @media(max-width:960px){
+      nav{padding:1rem 1.5rem;}.nav-links,.nav-cta,.nav-brand{display:none;}.nav-hamburger{display:flex;}
+      .page-wrap{padding:7rem 1.5rem 4rem;flex-direction:column;gap:3rem;}
+      .info-col{width:100%;}
+      .form-row-2{grid-template-columns:1fr;}
+      footer{padding:1.5rem;flex-direction:column;align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo-btn" title="Home">
+    <svg viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <radialGradient id="el" cx="35%" cy="28%" r="68%"><stop offset="0%" stop-color="#f2d874"/><stop offset="50%" stop-color="#c9a84c"/><stop offset="100%" stop-color="#6e5018"/></radialGradient>
+        <radialGradient id="em" cx="33%" cy="26%" r="68%"><stop offset="0%" stop-color="#f8e080"/><stop offset="48%" stop-color="#d4b255"/><stop offset="100%" stop-color="#7a5a1c"/></radialGradient>
+        <radialGradient id="er" cx="35%" cy="28%" r="68%"><stop offset="0%" stop-color="#f2d874"/><stop offset="50%" stop-color="#c9a84c"/><stop offset="100%" stop-color="#6e5018"/></radialGradient>
+      </defs>
+      <g transform="translate(13,22) rotate(-17)"><path d="M0,-10.5C6,-10.5 8.5,-3 8.5,2.5C8.5,8 5,11 0,11C-5,11-8.5,8-8.5,2.5C-8.5,-3-6,-10.5 0,-10.5Z" fill="url(#el)" opacity=".86"/><ellipse cx="-2.5" cy="-6" rx="2" ry="2.8" fill="rgba(255,255,255,.2)" transform="rotate(-12,-2.5,-6)"/></g>
+      <g transform="translate(51,22) rotate(17)"><path d="M0,-10.5C6,-10.5 8.5,-3 8.5,2.5C8.5,8 5,11 0,11C-5,11-8.5,8-8.5,2.5C-8.5,-3-6,-10.5 0,-10.5Z" fill="url(#er)" opacity=".86"/><ellipse cx="-2.5" cy="-6" rx="2" ry="2.8" fill="rgba(255,255,255,.2)" transform="rotate(-12,-2.5,-6)"/></g>
+      <g transform="translate(32,20)"><path d="M0,-12C7,-12 10,-3.5 10,2.8C10,9 6,12.5 0,12.5C-6,12.5-10,9-10,2.8C-10,-3.5-7,-12 0,-12Z" fill="url(#em)"/><ellipse cx="-3" cy="-7" rx="2.4" ry="3.2" fill="rgba(255,255,255,.24)" transform="rotate(-12,-3,-7)"/></g>
+    </svg>
+    <span class="nav-brand">Halalisani Ngema</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="cipc-services.html">Company Reg</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="jobs.html">Jobs</a></li>
+    <li><a href="ourwork.html">Our Work</a></li>
+  </ul>
+  <a href="services-ticket.html" class="nav-cta active">Log a Request</a>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="services.html" onclick="toggleMobileNav()">Services</a>
+  <a href="cipc-services.html" onclick="toggleMobileNav()">Company Reg</a>
+  <a href="blog.html" onclick="toggleMobileNav()">Blog</a>
+  <a href="jobs.html" onclick="toggleMobileNav()">Jobs</a>
+  <a href="ourwork.html" onclick="toggleMobileNav()">Our Work</a>
+</div>
+
+<div class="page-wrap">
+
+  <!-- FORM COLUMN -->
+  <div class="form-col">
+    <div class="form-eyebrow">Services Desk</div>
+    <h1 class="form-heading">Request a<br><em>service.</em></h1>
+    <p class="form-sub">Fill in the form below and I will follow up within 1 business day. A unique reference number is generated immediately — keep it for your records.</p>
+
+    <!-- FORM VIEW -->
+    <div id="form-view">
+      <div class="form-card">
+        <form id="srvForm" novalidate>
+
+          <div class="form-row-2">
+            <div>
+              <label for="f-name">Full Name <span>*</span></label>
+              <input type="text" id="f-name" name="name" placeholder="Your full name" autocomplete="name" required/>
+              <div class="field-err" id="err-name">Please enter your name.</div>
+            </div>
+            <div>
+              <label for="f-email">Email Address <span>*</span></label>
+              <input type="email" id="f-email" name="email" placeholder="you@example.com" autocomplete="email" required/>
+              <div class="field-err" id="err-email">Please enter a valid email.</div>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div>
+              <label for="f-phone">Phone / WhatsApp <span>*</span></label>
+              <input type="tel" id="f-phone" name="phone" placeholder="e.g. 082 123 4567" autocomplete="tel" required/>
+              <div class="field-err" id="err-phone">Please enter a contact number.</div>
+            </div>
+            <div>
+              <label for="f-budget">Budget <span>optional</span></label>
+              <input type="text" id="f-budget" name="budget" placeholder="e.g. R450 or open to quote"/>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="f-category">Service Category <span>*</span></label>
+            <select id="f-category" name="category" required onchange="updateServiceOptions()">
+              <option value="">— Select a category —</option>
+              <option value="cv">CV &amp; Profile Rewrite</option>
+              <option value="interview">Interview Coaching</option>
+              <option value="admin">Admin &amp; Clerical Support</option>
+              <option value="jobs">Jobs Board</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+            <div class="field-err" id="err-category">Please select a category.</div>
+          </div>
+
+          <div class="form-row">
+            <label for="f-service">Specific Service <span>*</span></label>
+            <select id="f-service" name="service" required>
+              <option value="">— Select a category first —</option>
+            </select>
+            <div class="field-err" id="err-service">Please select a service.</div>
+          </div>
+
+          <div class="form-row">
+            <label for="f-desc">Tell Me What You Need <span>*</span></label>
+            <textarea id="f-desc" name="description" placeholder="Describe what you need. The more detail you give, the better I can help — current situation, role you're targeting, deadlines, anything relevant." required></textarea>
+            <div class="field-hint">The more detail you share, the faster I can assist.</div>
+            <div class="field-err" id="err-desc">Please describe your requirements (min. 10 characters).</div>
+          </div>
+
+          <div class="form-row">
+            <label>Urgency</label>
+            <div class="radio-row">
+              <div class="radio-opt">
+                <input type="radio" id="urg-normal" name="urgency" value="Normal" checked/>
+                <label for="urg-normal">Normal (3–5 business days)</label>
+              </div>
+              <div class="radio-opt">
+                <input type="radio" id="urg-urgent" name="urgency" value="Urgent"/>
+                <label for="urg-urgent">Urgent (1–2 business days)</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-primary" id="submitBtn">Submit Request →</button>
+            <p class="submit-note">You will receive a reference number immediately upon submission.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- SUCCESS VIEW -->
+    <div id="success-view">
+      <div class="success-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2 class="success-heading">Request <em>received.</em></h2>
+      <p class="success-sub">Your request has been logged. Keep your reference number — I will follow up within 1 business day.</p>
+      <div class="success-ref" id="successRef">SRV-20260426-0001</div>
+      <p class="success-sub" style="font-size:.82rem;">Screenshot or note this reference number for any follow-up communication.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1rem;">
+        <a href="services.html" class="btn-outline">Back to Services</a>
+        <a href="index.html" class="btn-outline">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO SIDEBAR -->
+  <div class="info-col">
+
+    <div class="info-card">
+      <div class="info-card-title">How it works</div>
+      <div class="info-step">
+        <div class="info-step-num">1</div>
+        <div class="info-step-text"><strong>Submit this form.</strong> You get a reference number immediately.</div>
+      </div>
+      <div class="info-step">
+        <div class="info-step-num">2</div>
+        <div class="info-step-text"><strong>I review your request</strong> and follow up within 1 business day to confirm scope and quote.</div>
+      </div>
+      <div class="info-step">
+        <div class="info-step-num">3</div>
+        <div class="info-step-text"><strong>We get started</strong> once you confirm. Your reference number stays active throughout.</div>
+      </div>
+      <div class="info-step">
+        <div class="info-step-num">4</div>
+        <div class="info-step-text"><strong>Delivered &amp; closed</strong> once everything is complete and you're happy.</div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">Quick Pricing</div>
+      <div class="price-row">CV Only <span>R450</span></div>
+      <div class="price-row">Career Package <span>R1 200</span></div>
+      <div class="price-row">Interview Coaching <span>R650/session</span></div>
+      <div class="price-row">Virtual Admin (10 hrs) <span>R1 200/mo</span></div>
+      <div class="price-row">HR Admin (25 hrs) <span>R2 800/mo</span></div>
+      <div class="price-row">Job Posting <span>from R199</span></div>
+      <a href="services.html#pricing" style="display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--gold);margin-top:1.2rem;border-bottom:1px solid var(--border);padding-bottom:.15rem;">Full pricing →</a>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">Need something else?</div>
+      <div class="info-step-text" style="font-size:.84rem;color:var(--muted);line-height:1.7;">
+        For company registrations &amp; CIPC services, use the
+        <a href="ticket.html" style="color:var(--gold);border-bottom:1px solid var(--border);">Company Reg desk</a> instead.
+        Or connect on <a href="https://www.linkedin.com/in/halalisaningema/" target="_blank" style="color:var(--gold);border-bottom:1px solid var(--border);">LinkedIn</a>.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Halalisani Ngema</div>
+  <div class="footer-copy">&copy; 2026 &nbsp;&middot;&nbsp; South Africa</div>
+</footer>
+
+<script>
+  let raf = false; const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { if (!raf) { raf = true; requestAnimationFrame(() => { nav.classList.toggle('scrolled', window.scrollY > 60); raf = false; }); } }, { passive: true });
+  function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+
+  const SERVICE_OPTIONS = {
+    cv: [
+      'Full CV rewrite (2–3 pages)',
+      'Cover letter only',
+      'LinkedIn profile summary rewrite',
+      'Career Package — CV + interview coaching session',
+      'CV review &amp; feedback (no rewrite)',
+    ],
+    interview: [
+      '60-minute telephonic coaching session',
+      'Role-specific question preparation',
+      'Salary negotiation coaching',
+      'Mock interview session',
+      'Career Package — CV + interview coaching session',
+    ],
+    admin: [
+      'Data capture &amp; spreadsheet management',
+      'Document &amp; report preparation',
+      'Email correspondence drafting',
+      'Filing &amp; records organisation',
+      'HR admin support (payroll inputs, benefits, onboarding)',
+      'Monthly retainer — 10 hrs (R1 200/month)',
+      'Monthly retainer — 25 hrs (R2 800/month)',
+      'Once-off admin task',
+    ],
+    jobs: [
+      'Post a job listing (from R199)',
+      'Feature an existing vacancy',
+      'Employer package enquiry',
+      'General jobs board enquiry',
+    ],
+    other: [
+      'General enquiry',
+      'Not sure — please advise',
+      'Something not listed above',
+    ],
+  };
+
+  // Pre-select category from URL ?s= param
+  const urlParam = new URLSearchParams(window.location.search).get('s');
+  if (urlParam && SERVICE_OPTIONS[urlParam]) {
+    document.getElementById('f-category').value = urlParam;
+  }
+
+  function updateServiceOptions() {
+    const cat = document.getElementById('f-category').value;
+    const sel = document.getElementById('f-service');
+    if (!cat) {
+      sel.innerHTML = '<option value="">— Select a category first —</option>';
+      return;
+    }
+    sel.innerHTML = '<option value="">— Select a service —</option>';
+    (SERVICE_OPTIONS[cat] || []).forEach(s => {
+      const o = document.createElement('option');
+      o.value = s.replace(/&amp;/g, '&');
+      o.textContent = s.replace(/&amp;/g, '&');
+      sel.appendChild(o);
+    });
+  }
+
+  // Run on load in case URL param pre-selected a category
+  updateServiceOptions();
+
+  function validate() {
+    let ok = true;
+    const checks = [
+      ['f-name',     'err-name',     v => v.trim().length > 1],
+      ['f-email',    'err-email',    v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)],
+      ['f-phone',    'err-phone',    v => v.trim().length > 6],
+      ['f-category', 'err-category', v => !!v],
+      ['f-service',  'err-service',  v => !!v],
+      ['f-desc',     'err-desc',     v => v.trim().length > 10],
+    ];
+    window._firstErr = null;
+    checks.forEach(([id, errId, fn]) => {
+      const el  = document.getElementById(id);
+      const err = document.getElementById(errId);
+      const valid = fn(el.value);
+      err.classList.toggle('show', !valid);
+      if (!valid && !window._firstErr) window._firstErr = el;
+      if (!valid) ok = false;
+    });
+    return ok;
+  }
+
+  document.getElementById('srvForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validate()) {
+      if (window._firstErr) window._firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    const btn = this.querySelector('button[type=submit]');
+    const origText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const payload = {
+      name:        document.getElementById('f-name').value.trim(),
+      email:       document.getElementById('f-email').value.trim(),
+      phone:       document.getElementById('f-phone').value.trim(),
+      budget:      document.getElementById('f-budget').value.trim(),
+      category:    document.getElementById('f-category').options[document.getElementById('f-category').selectedIndex].text,
+      service:     document.getElementById('f-service').value,
+      description: document.getElementById('f-desc').value.trim(),
+      urgency:     document.querySelector('input[name=urgency]:checked').value,
+    };
+
+    fetch('https://liviyo.co.za/send-services.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (!data.success) throw new Error(data.error || 'Server error');
+      const all = JSON.parse(localStorage.getItem('srv_tickets') || '[]');
+      all.push({ ...payload, id: data.ticket, submitted: new Date().toISOString() });
+      localStorage.setItem('srv_tickets', JSON.stringify(all));
+      document.getElementById('successRef').textContent = data.ticket;
+      document.getElementById('form-view').classList.add('hide');
+      document.getElementById('success-view').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
+    .catch(err => {
+      btn.disabled = false;
+      btn.textContent = origText;
+      alert('Could not submit your request. Please try again.\n\nError: ' + err.message);
+    });
+  });
+</script>
+</body>
+</html>
