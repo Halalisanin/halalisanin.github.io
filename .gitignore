@@ -2,3 +2,5 @@ social_config.json
 .seen_jobs.json
 __pycache__/
 *.pyc
+send-ticket.php
+send-contact.php

@@ -341,33 +341,46 @@
     `).join('');
   }
 
-  document.getElementById('f-submit').addEventListener('click',()=>{
-    const name=document.getElementById('f-name').value.trim();
-    const email=document.getElementById('f-email').value.trim();
-    const topic=document.getElementById('f-topic').value;
-    const phone=document.getElementById('f-phone').value.trim();
-    const msg=document.getElementById('f-msg').value.trim();
-    if(!name||!msg){alert('Please fill in your name and message.');return;}
+  document.getElementById('f-submit').addEventListener('click', () => {
+    const name  = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const topic = document.getElementById('f-topic').value;
+    const phone = document.getElementById('f-phone').value.trim();
+    const msg   = document.getElementById('f-msg').value.trim();
+    if (!name || !msg) { alert('Please fill in your name and message.'); return; }
 
-    const msgs=JSON.parse(localStorage.getItem(MSG_KEY)||'[]');
-    msgs.push({name,email,topic,msg,date:new Date().toLocaleDateString('en-ZA',{year:'numeric',month:'short',day:'numeric'})});
-    localStorage.setItem(MSG_KEY,JSON.stringify(msgs));
+    const btn = document.getElementById('f-submit');
+    const origText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
 
-    // Build mailto link
-    const subject=encodeURIComponent(`[Website Contact] ${topic} — ${name}`);
-    const body=encodeURIComponent(`Name: ${name}\nEmail: ${email||'—'}\nPhone: ${phone||'—'}\nTopic: ${topic}\n\n${msg}`);
-    /* TODO: Replace the email address below with your actual email address */
-    const mailtoHref=`mailto:your-email@example.com?subject=${subject}&body=${body}`;
-
-    const success=document.getElementById('f-success');
-    document.getElementById('f-mailto-wrap').innerHTML=`<a href="${mailtoHref}" style="color:var(--gold-lt);text-decoration:underline;text-underline-offset:3px;">Click here to also send it to my inbox →</a>`;
-    success.style.display='block';
-
-    document.getElementById('f-name').value='';
-    document.getElementById('f-email').value='';
-    document.getElementById('f-phone').value='';
-    document.getElementById('f-msg').value='';
-    loadMessages();
+    fetch('https://liviyo.co.za/send-contact.php', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({name, email, topic, phone, message: msg}),
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (!data.success) throw new Error(data.error || 'Server error');
+      // Persist locally
+      const msgs = JSON.parse(localStorage.getItem(MSG_KEY) || '[]');
+      msgs.push({name, email, topic, msg, date: new Date().toLocaleDateString('en-ZA', {year:'numeric',month:'short',day:'numeric'})});
+      localStorage.setItem(MSG_KEY, JSON.stringify(msgs));
+      document.getElementById('f-mailto-wrap').innerHTML = '';
+      document.getElementById('f-success').style.display = 'block';
+      document.getElementById('f-name').value  = '';
+      document.getElementById('f-email').value = '';
+      document.getElementById('f-phone').value = '';
+      document.getElementById('f-msg').value   = '';
+      btn.disabled = false;
+      btn.textContent = origText;
+      loadMessages();
+    })
+    .catch(err => {
+      btn.disabled = false;
+      btn.textContent = origText;
+      alert('Could not send your message. Please try again.\n\nError: ' + err.message);
+    });
   });
 
   loadMessages();

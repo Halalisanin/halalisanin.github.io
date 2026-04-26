@@ -441,35 +441,47 @@
       return;
     }
 
-    const ref = genRef();
-    const ticket = {
-      id: ref,
-      name: document.getElementById('f-name').value.trim(),
-      email: document.getElementById('f-email').value.trim(),
-      phone: document.getElementById('f-phone').value.trim(),
-      company: document.getElementById('f-company').value.trim(),
-      category: document.getElementById('f-category').value,
-      service: document.getElementById('f-service').value,
+    const btn = this.querySelector('button[type=submit]');
+    const origText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const payload = {
+      name:        document.getElementById('f-name').value.trim(),
+      email:       document.getElementById('f-email').value.trim(),
+      phone:       document.getElementById('f-phone').value.trim(),
+      company:     document.getElementById('f-company').value.trim(),
+      category:    document.getElementById('f-category').value,
+      service:     document.getElementById('f-service').value,
       description: document.getElementById('f-desc').value.trim(),
-      urgency: document.querySelector('input[name=urgency]:checked').value,
-      status: 'open',
-      submitted: new Date().toISOString(),
-      adminRef: '',
-      adminReply: '',
-      adminNotes: '',
-      closedAt: null,
+      urgency:     document.querySelector('input[name=urgency]:checked').value,
     };
 
-    // Persist
-    const all = JSON.parse(localStorage.getItem('cipc_tickets') || '[]');
-    all.push(ticket);
-    localStorage.setItem('cipc_tickets', JSON.stringify(all));
-
-    // Show success
-    document.getElementById('successRef').textContent = ref;
-    document.getElementById('form-view').classList.add('hide');
-    document.getElementById('success-view').classList.add('show');
-    window.scrollTo({top:0,behavior:'smooth'});
+    fetch('https://liviyo.co.za/send-ticket.php', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload),
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (!data.success) throw new Error(data.error || 'Server error');
+      const ref = data.ticket;
+      // Also persist locally as a record
+      const ticket = {...payload, id: ref, status: 'open', submitted: new Date().toISOString(),
+        adminRef: '', adminReply: '', adminNotes: '', closedAt: null};
+      const all = JSON.parse(localStorage.getItem('cipc_tickets') || '[]');
+      all.push(ticket);
+      localStorage.setItem('cipc_tickets', JSON.stringify(all));
+      document.getElementById('successRef').textContent = ref;
+      document.getElementById('form-view').classList.add('hide');
+      document.getElementById('success-view').classList.add('show');
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    })
+    .catch(err => {
+      btn.disabled = false;
+      btn.textContent = origText;
+      alert('Could not submit your request. Please try again or contact us directly.\n\nError: ' + err.message);
+    });
   });
 </script>
 </body>
