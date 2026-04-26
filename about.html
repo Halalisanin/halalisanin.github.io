@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>About — Halalisani Ngema</title>
-  <meta name="description" content="About Halalisani Ngema — office administrator and customer service professional helping South Africans find work and present themselves with confidence."/>
+  <meta name="description" content="Halalisani Ngema — career services for job seekers and company registration for entrepreneurs. 13 years of real-world experience across banking, HR, and administration."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
@@ -67,32 +67,49 @@
     .about-photo{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;border-radius:50%;border:2px solid var(--gold-dim);}
     .about-photo-caption{margin-top:1rem;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-align:center;}
     .prose p{font-size:.96rem;font-weight:300;color:var(--muted);line-height:1.88;margin-bottom:1.2rem;}
+    .prose p:last-child{margin-bottom:0;}
     .prose p strong{color:var(--gold-lt);font-weight:500;}
-    .prose p em{color:var(--text);font-style:italic;}
+
+    /* TWO WINGS */
+    #two-wings{background:var(--bg);}
+    .wings-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
+    .wing-card{padding:2.4rem 2rem;background:var(--bg3);border:1px solid var(--border);border-radius:4px;transition:border-color .25s,transform .25s;}
+    .wing-card:hover{border-color:var(--gold-dim);transform:translateY(-3px);}
+    .wing-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-family:var(--mono);margin-bottom:.9rem;}
+    .wing-card h3{font-family:var(--serif);font-size:1.55rem;font-weight:300;color:var(--cream);margin-bottom:.8rem;line-height:1.2;}
+    .wing-card h3 em{font-style:italic;color:var(--gold-lt);}
+    .wing-card p{font-size:.88rem;font-weight:300;color:var(--muted);line-height:1.75;margin-bottom:1.2rem;}
+    .wing-list{display:flex;flex-direction:column;gap:.4rem;}
+    .wing-list li{display:flex;align-items:flex-start;gap:.6rem;font-size:.84rem;color:var(--muted);list-style:none;line-height:1.55;}
+    .wing-list li::before{content:'–';color:var(--gold-dim);flex-shrink:0;}
+    .wing-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.76rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:1.5rem;padding-bottom:.2rem;border-bottom:1px solid var(--border);transition:color .22s,border-color .22s;}
+    .wing-link:hover{color:var(--gold-lt);border-color:var(--gold-dim);}
 
     /* WHAT WE DO */
-    #what-we-do{background:var(--bg);}
-    .mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
-    .mission-card{padding:2rem 1.8rem;background:var(--bg3);border:1px solid var(--border);border-radius:4px;transition:border-color .25s;}
+    #what-we-do{background:var(--bg2);}
+    .mission-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:3rem;}
+    .mission-card{padding:1.9rem 1.7rem;background:var(--bg3);border:1px solid var(--border);border-radius:4px;transition:border-color .25s;}
     .mission-card:hover{border-color:var(--gold-dim);}
-    .mission-card h3{font-family:var(--serif);font-size:1.25rem;font-weight:400;color:var(--cream);margin-bottom:.6rem;}
-    .mission-card p{font-size:.87rem;font-weight:300;color:var(--muted);line-height:1.72;}
+    .mission-card-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-family:var(--mono);margin-bottom:.6rem;}
+    .mission-card h3{font-family:var(--serif);font-size:1.18rem;font-weight:400;color:var(--cream);margin-bottom:.6rem;line-height:1.25;}
+    .mission-card p{font-size:.85rem;font-weight:300;color:var(--muted);line-height:1.7;}
 
     /* SKILLS */
-    #skills-summary{background:var(--bg2);}
+    #skills-summary{background:var(--bg);}
     .skills-list{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem;}
     .skill{padding:.42rem 1rem;background:rgba(201,168,76,.06);border:1px solid var(--border);border-radius:2px;font-size:.81rem;color:var(--text);letter-spacing:.04em;}
     .skill.hi{background:rgba(201,168,76,.11);border-color:var(--gold-dim);color:var(--gold);}
 
     /* CTA */
-    #about-cta{background:var(--bg);text-align:center;}
-    .cta-inner{max-width:560px;margin:0 auto;}
+    #about-cta{background:var(--bg2);text-align:center;}
+    .cta-inner{max-width:620px;margin:0 auto;}
     .cta-h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--cream);margin-bottom:1rem;line-height:1.15;}
     .cta-h2 em{font-style:italic;color:var(--gold);}
-    .cta-sub{font-size:.96rem;font-weight:300;color:var(--muted);margin-bottom:2rem;line-height:1.8;}
+    .cta-sub{font-size:.96rem;font-weight:300;color:var(--muted);margin-bottom:2.2rem;line-height:1.8;}
+    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
     .btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.88rem 2rem;background:var(--gold);color:var(--bg);font-family:var(--sans);font-size:.77rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:background .22s,transform .2s,box-shadow .22s;box-shadow:0 4px 18px rgba(201,168,76,.22);}
     .btn-primary:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,.32);}
-    .btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.88rem 2rem;background:transparent;color:var(--gold);font-family:var(--sans);font-size:.77rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--border-lt);border-radius:2px;transition:background .22s,border-color .22s,transform .2s;margin-left:1rem;}
+    .btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.88rem 2rem;background:transparent;color:var(--gold);font-family:var(--sans);font-size:.77rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--border-lt);border-radius:2px;transition:background .22s,border-color .22s,transform .2s;}
     .btn-outline:hover{background:rgba(201,168,76,.07);border-color:var(--gold);transform:translateY(-2px);}
 
     /* FOOTER */
@@ -112,7 +129,8 @@
       section{padding:4.5rem 1.5rem;}
       .about-grid{grid-template-columns:1fr;gap:3rem;}
       .about-photo-col{position:static;}
-      .mission-grid{grid-template-columns:1fr;gap:1.5rem;}
+      .wings-grid{grid-template-columns:1fr;}
+      .mission-grid{grid-template-columns:1fr;gap:1.2rem;}
       footer{padding:1.5rem;flex-direction:column;align-items:flex-start;}
     }
   </style>
@@ -136,21 +154,23 @@
   <ul class="nav-links">
     <li><a href="about.html" class="active">About</a></li>
     <li><a href="services.html">Services</a></li>
+    <li><a href="cipc-services.html">Company Reg</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="jobs.html">Jobs</a></li>
     <li><a href="ourwork.html">Our Work</a></li>
   </ul>
-  <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+  <a href="services-ticket.html" class="nav-cta">Get Started</a>
   <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
-  <a href="about.html"    onclick="toggleMobileNav()">About</a>
-  <a href="services.html" onclick="toggleMobileNav()">Services</a>
-  <a href="blog.html"     onclick="toggleMobileNav()">Blog</a>
-  <a href="jobs.html"     onclick="toggleMobileNav()">Jobs</a>
-  <a href="ourwork.html"  onclick="toggleMobileNav()">Our Work</a>
-  <a href="index.html#contact" onclick="toggleMobileNav()">Get in Touch</a>
+  <a href="about.html"         onclick="toggleMobileNav()">About</a>
+  <a href="services.html"      onclick="toggleMobileNav()">Services</a>
+  <a href="cipc-services.html" onclick="toggleMobileNav()">Company Reg</a>
+  <a href="blog.html"          onclick="toggleMobileNav()">Blog</a>
+  <a href="jobs.html"          onclick="toggleMobileNav()">Jobs</a>
+  <a href="ourwork.html"       onclick="toggleMobileNav()">Our Work</a>
+  <a href="services-ticket.html" onclick="toggleMobileNav()">Get Started</a>
 </div>
 
 <!-- PAGE HEADER -->
@@ -158,9 +178,9 @@
   <div class="ph-img"></div>
   <div class="ph-overlay"></div>
   <div class="ph-content">
-    <div class="ph-badge">About This Platform</div>
-    <h1 class="ph-h1">Helping South Africans<br><em>find their footing.</em></h1>
-    <p class="ph-sub">Career support, a live jobs board, and honest guidance — from someone who has worked the same desks and answered the same phones.</p>
+    <div class="ph-badge">About This Business</div>
+    <h1 class="ph-h1">Practical help for job seekers<br><em>and business owners.</em></h1>
+    <p class="ph-sub">Career services for people building their future. Company registration and compliance for entrepreneurs starting theirs. One business. Two wings. Both backed by 13 years of real-world experience.</p>
   </div>
 </div>
 
@@ -176,25 +196,62 @@
       </div>
       <div class="fade-in">
         <div class="section-eyebrow">The Person Behind It</div>
-        <h2 class="section-heading">Office professional.<br><em>Customer service veteran.</em></h2>
+        <h2 class="section-heading">Business owner.<br><em>Built on 13 years of doing the work.</em></h2>
         <div class="prose">
           <p>
-            My name is Halalisani Ngema. I am an <strong>office administrator and customer service professional</strong> with more than 13 years of hands-on working experience across three industries — banking, HR administration, and retail sales.
+            My name is Halalisani Ngema. I run a business that serves two types of clients — <strong>people who are building their careers</strong>, and <strong>entrepreneurs who are building their companies</strong>. Both sets of clients need the same thing: someone who knows what they are doing, does it properly, and keeps them informed throughout.
           </p>
           <p>
-            I started my career in <strong>HR benefits administration at Nedbank</strong>, where I spent six years processing payroll adjustments, managing employee benefits enrolments and exits, handling telephonic advisory for thousands of staff, and maintaining compliance records. I was not a strategist — I was the person on the phone answering real questions and making sure the paperwork was right.
+            My background spans 13 years across banking, HR administration, and sales. I started in <strong>HR benefits administration at Nedbank</strong>, where I spent six years processing payroll adjustments, managing employee benefits enrolments and exits, and maintaining compliance records for thousands of staff. From there I moved to the <strong>banking floor as a Multifunctional Consultant</strong> — high-volume client service, fraud prevention, ATM management, and cross-selling. Before that, I worked in <strong>telephonic sales at Metropolitan and Leza Legalwise</strong>, where I learned how to explain complex products clearly and build trust with clients I had never met in person.
           </p>
           <p>
-            From there I moved to the <strong>banking floor as a Multifunctional Consultant</strong> — teller duties, walk-in and telephonic customer service, fraud prevention, ATM management, and cross-selling. High-volume, face-to-face, detail-oriented work every single day.
+            That experience is what powers both wings of this business. <strong>The career services are credible because I have worked inside the hiring process.</strong> The company registration services are reliable because I understand compliance, documentation, and the importance of getting every detail right the first time.
           </p>
           <p>
-            I also worked in <strong>sales at Metropolitan and Leza Legalwise</strong>, where I learned how to have real conversations with clients about financial products and legal cover. Needs-based selling, objection handling, and building client trust over the phone.
-          </p>
-          <p>
-            I am not a specialist. I am someone who has done the work, at every level, across a wide range of office and service environments. That practical experience is what I bring to this platform — and it is exactly what makes the advice here worth trusting.
+            This is not a side project. It is a professional service business — with a ticket system, dedicated inboxes, and a commitment to following up within one business day. Every client gets a reference number. Every request gets handled properly.
           </p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO WINGS -->
+<section id="two-wings">
+  <div class="section-rule"></div>
+  <div class="container">
+    <div class="section-eyebrow fade-in">Two Ways We Can Help</div>
+    <h2 class="section-heading fade-in">Whether you are building a career<br><em>or building a company.</em></h2>
+    <div class="wings-grid">
+
+      <div class="wing-card fade-in">
+        <div class="wing-label">Wing 01</div>
+        <h3>Career &amp; Professional<br><em>Services</em></h3>
+        <p>For South Africans navigating the job market — from writing a CV that actually gets read, to preparing for interviews with confidence, to finding a virtual admin assistant for your growing small business.</p>
+        <ul class="wing-list">
+          <li>CV rewrite and cover letter</li>
+          <li>LinkedIn profile summary</li>
+          <li>Interview coaching — telephonic, one-on-one</li>
+          <li>Virtual admin and clerical support</li>
+          <li>Live jobs board — free, always updated</li>
+        </ul>
+        <a href="services.html" class="wing-link">View career services →</a>
+      </div>
+
+      <div class="wing-card fade-in">
+        <div class="wing-label">Wing 02</div>
+        <h3>Company Registration &amp;<br><em>Compliance</em></h3>
+        <p>For entrepreneurs who need their businesses registered correctly, their statutory obligations met, and their documents filed on time — without having to navigate the CIPC system themselves.</p>
+        <ul class="wing-list">
+          <li>Private company (Pty Ltd), NPC, co-op registration</li>
+          <li>Name reservations and company changes</li>
+          <li>Annual returns and beneficial ownership filings</li>
+          <li>CSD, UIF, PAYE, COIDA, CIDB registrations</li>
+          <li>B-BBEE affidavits, business plans, company profiles</li>
+        </ul>
+        <a href="cipc-services.html" class="wing-link">View company reg services →</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -203,25 +260,46 @@
 <section id="what-we-do">
   <div class="section-rule"></div>
   <div class="container">
-    <div class="section-eyebrow fade-in">Our Purpose</div>
-    <h2 class="section-heading fade-in">What this platform<br><em>actually does</em></h2>
+    <div class="section-eyebrow fade-in">Full Service Offering</div>
+    <h2 class="section-heading fade-in">Everything this business<br><em>handles for clients.</em></h2>
     <div class="mission-grid">
+
       <div class="mission-card fade-in">
-        <h3>Job sourcing &amp; aggregation</h3>
-        <p>We pull live listings from across South Africa every few hours, covering all sectors and levels — admin, customer service, banking, retail, HR, call centre, and more. One place, hundreds of listings, completely free.</p>
+        <div class="mission-card-label">Company Reg</div>
+        <h3>Business Registration</h3>
+        <p>Pty Ltd, NPC, co-operative, personal liability company, and foreign company registration — handled correctly, filed on time, with all supporting documentation prepared.</p>
       </div>
+
       <div class="mission-card fade-in">
-        <h3>Career readiness support</h3>
-        <p>We help job seekers get ready before they apply. That means a CV that reads cleanly, a profile that says the right things, and interview preparation that removes the fear of the unknown.</p>
+        <div class="mission-card-label">Compliance</div>
+        <h3>Statutory Registrations</h3>
+        <p>CSD, UIF, PAYE, SDL, COIDA, CIDB, NHBRC, import/export licences, and SARS tax numbers. Keeping your business compliant so you can focus on running it.</p>
       </div>
+
       <div class="mission-card fade-in">
-        <h3>Profile &amp; document coaching</h3>
-        <p>Most candidates are rejected before they are interviewed — because their CV does not communicate their value clearly. We fix that, drawing on 13 years of experience inside the hiring process.</p>
+        <div class="mission-card-label">Documents</div>
+        <h3>Business Documents &amp; Filings</h3>
+        <p>Annual returns, beneficial ownership register updates, MOI amendments, B-BBEE certificates, business plans, company profiles, and all CIPC form preparation.</p>
       </div>
+
       <div class="mission-card fade-in">
-        <h3>Admin &amp; clerical support</h3>
-        <p>Small businesses and individuals who need professional office admin support — data capture, document preparation, correspondence, general admin — can access that service here, on demand.</p>
+        <div class="mission-card-label">Career Services</div>
+        <h3>CV &amp; Interview Coaching</h3>
+        <p>CV rewrites that communicate real value, cover letters that open doors, and interview coaching drawn from 13 years of experience on both sides of the hiring process.</p>
       </div>
+
+      <div class="mission-card fade-in">
+        <div class="mission-card-label">Admin Support</div>
+        <h3>Virtual Admin &amp; Clerical</h3>
+        <p>Data capture, document preparation, email correspondence, filing, HR admin support — available on a monthly retainer or as once-off tasks, for individuals and small businesses.</p>
+      </div>
+
+      <div class="mission-card fade-in">
+        <div class="mission-card-label">Jobs Board</div>
+        <h3>Live Jobs Board</h3>
+        <p>Hundreds of South African job listings updated automatically every few hours — admin, customer service, banking, retail, HR, and more. Free to use, always. No registration required.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -230,25 +308,25 @@
 <section id="skills-summary">
   <div class="section-rule"></div>
   <div class="container fade-in">
-    <div class="section-eyebrow">Core Strengths</div>
-    <h2 class="section-heading">What I bring<br><em>to the table</em></h2>
+    <div class="section-eyebrow">Capabilities</div>
+    <h2 class="section-heading">What every client<br><em>gets access to.</em></h2>
     <div class="skills-list">
-      <span class="skill hi">Telephonic Customer Service</span>
-      <span class="skill hi">Face-to-Face Client Service</span>
+      <span class="skill hi">Company Registration (CIPC)</span>
+      <span class="skill hi">Statutory Compliance Filings</span>
+      <span class="skill hi">HR Benefits Administration</span>
       <span class="skill hi">Office Administration</span>
       <span class="skill hi">Document &amp; Records Management</span>
-      <span class="skill">HR Benefits Administration</span>
+      <span class="skill hi">Telephonic Client Service</span>
       <span class="skill">Payroll Processing</span>
       <span class="skill">Compliance &amp; Legislative Reporting</span>
       <span class="skill">Retail Banking Operations</span>
-      <span class="skill">Fraud Prevention</span>
-      <span class="skill">Sales &amp; Client Engagement</span>
-      <span class="skill">Conflict Resolution</span>
       <span class="skill">Data Capture &amp; Reporting</span>
-      <span class="skill">AI Tools &amp; Prompt Engineering</span>
-      <span class="skill">No-Code Web Development</span>
-      <span class="skill">Microsoft Word &amp; Excel</span>
       <span class="skill">Professional Writing</span>
+      <span class="skill">Sales &amp; Client Engagement</span>
+      <span class="skill">AI Tools &amp; Prompt Engineering</span>
+      <span class="skill">Microsoft Word &amp; Excel</span>
+      <span class="skill">CIPC e-Services Portal</span>
+      <span class="skill">B-BBEE Affidavit Preparation</span>
     </div>
   </div>
 </section>
@@ -257,11 +335,14 @@
 <section id="about-cta">
   <div class="section-rule"></div>
   <div class="container">
-    <div class="cta-inner">
-      <h2 class="cta-h2">Ready to take<br><em>the next step?</em></h2>
-      <p class="cta-sub">Browse what we offer or go straight to the jobs board. Either way, you're in the right place.</p>
-      <a href="services.html" class="btn-primary">See Our Services</a>
-      <a href="jobs.html" class="btn-outline">Browse Jobs</a>
+    <div class="cta-inner fade-in">
+      <h2 class="cta-h2">Not sure where<br><em>to start?</em></h2>
+      <p class="cta-sub">Use the service desk that fits your situation — or browse what we offer first. Either way, every request gets a reference number and a follow-up within one business day.</p>
+      <div class="cta-buttons">
+        <a href="services-ticket.html" class="btn-primary">Career Services Desk →</a>
+        <a href="ticket.html" class="btn-outline">Company Reg Desk</a>
+        <a href="jobs.html" class="btn-outline">Browse Jobs</a>
+      </div>
     </div>
   </div>
 </section>
