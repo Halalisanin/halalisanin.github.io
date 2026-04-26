@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Our Work — Halalisani Ngema</title>
-  <meta name="description" content="Full professional profile of Halalisani Ngema — experience, skills, certifications, and education."/>
+  <meta name="description" content="13 years of real-world experience in banking, HR administration, and client service — the expertise behind every service we offer."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
@@ -69,6 +69,7 @@
     .profile-photo{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;border-radius:50%;border:2px solid var(--gold-dim);}
     .profile-photo-caption{margin-top:1rem;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-align:center;}
     .prose p{font-size:.96rem;font-weight:300;color:var(--muted);line-height:1.88;margin-bottom:1.2rem;}
+    .prose p:last-child{margin-bottom:0;}
     .prose p strong{color:var(--gold-lt);font-weight:500;}
 
     /* EXPERIENCE */
@@ -80,12 +81,17 @@
     .tl-company{font-size:.74rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;}
     .tl-role{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--cream);margin-bottom:.55rem;line-height:1.25;}
     .tl-body{font-size:.88rem;font-weight:300;color:var(--muted);line-height:1.75;}
+    .tl-means{margin-top:1rem;padding:.85rem 1rem;background:rgba(201,168,76,.05);border-left:2px solid var(--gold-dim);border-radius:0 2px 2px 0;}
+    .tl-means-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-family:var(--mono);margin-bottom:.3rem;}
+    .tl-means-text{font-size:.85rem;font-weight:300;color:var(--text);line-height:1.65;}
     .tl-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem;}
     .tl-tag{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--border);border-radius:2px;color:var(--muted);}
 
     /* SKILLS */
     #skills{background:var(--bg2);}
-    .skills-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;}
+    .skills-intro{font-size:.94rem;font-weight:300;color:var(--muted);line-height:1.85;max-width:680px;margin-bottom:3rem;}
+    .skills-intro strong{color:var(--gold-lt);font-weight:500;}
+    .skills-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;}
     .skills-group h3{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:var(--cream);margin-bottom:1.2rem;}
     .skill-list{display:flex;flex-wrap:wrap;gap:.65rem;}
     .skill-tag{padding:.38rem .95rem;background:rgba(201,168,76,.06);border:1px solid var(--border);border-radius:2px;font-size:.8rem;color:var(--text);letter-spacing:.04em;}
@@ -93,7 +99,8 @@
 
     /* CERTIFICATIONS */
     #certifications{background:var(--bg);}
-    .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.5rem;margin-top:3rem;}
+    .cert-intro{font-size:.94rem;font-weight:300;color:var(--muted);line-height:1.85;max-width:680px;margin-bottom:3rem;}
+    .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.5rem;}
     .cert-card{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:1.75rem 1.6rem;transition:border-color .25s,transform .25s;}
     .cert-card:hover{border-color:var(--gold-dim);transform:translateY(-3px);}
     .cert-year{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
@@ -108,6 +115,18 @@
     .edu-year{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
     .edu-degree{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--cream);line-height:1.3;margin-bottom:.35rem;}
     .edu-institution{font-size:.82rem;color:var(--muted);}
+
+    /* CTA SECTION */
+    #cta{background:var(--bg);text-align:center;}
+    .cta-inner{max-width:620px;margin:0 auto;}
+    .cta-heading{font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--cream);line-height:1.2;margin-bottom:1rem;}
+    .cta-heading em{font-style:italic;color:var(--gold-lt);}
+    .cta-sub{font-size:.96rem;font-weight:300;color:var(--muted);line-height:1.82;margin-bottom:2.5rem;}
+    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    .btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.84rem 2rem;background:var(--gold);color:var(--bg);font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:background .22s,transform .2s,box-shadow .22s;box-shadow:0 4px 18px rgba(201,168,76,.22);}
+    .btn-primary:hover{background:var(--gold-lt);transform:translateY(-2px);}
+    .btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.82rem 1.8rem;background:transparent;color:var(--gold);font-family:var(--sans);font-size:.76rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--border-lt);border-radius:2px;transition:background .22s,border-color .22s,transform .2s;}
+    .btn-outline:hover{background:rgba(201,168,76,.07);border-color:var(--gold);transform:translateY(-2px);}
 
     /* FOOTER */
     footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
@@ -152,21 +171,23 @@
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
     <li><a href="services.html">Services</a></li>
+    <li><a href="cipc-services.html">Company Reg</a></li>
     <li><a href="blog.html">Blog</a></li>
     <li><a href="jobs.html">Jobs</a></li>
     <li><a href="ourwork.html" class="active">Our Work</a></li>
   </ul>
-  <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+  <a href="services-ticket.html" class="nav-cta">Get Started</a>
   <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-nav-close" onclick="toggleMobileNav()">✕</button>
-  <a href="about.html"    onclick="toggleMobileNav()">About</a>
-  <a href="services.html" onclick="toggleMobileNav()">Services</a>
-  <a href="blog.html"     onclick="toggleMobileNav()">Blog</a>
-  <a href="jobs.html"     onclick="toggleMobileNav()">Jobs</a>
-  <a href="ourwork.html"  onclick="toggleMobileNav()">Our Work</a>
-  <a href="index.html#contact" onclick="toggleMobileNav()">Get in Touch</a>
+  <a href="about.html"         onclick="toggleMobileNav()">About</a>
+  <a href="services.html"      onclick="toggleMobileNav()">Services</a>
+  <a href="cipc-services.html" onclick="toggleMobileNav()">Company Reg</a>
+  <a href="blog.html"          onclick="toggleMobileNav()">Blog</a>
+  <a href="jobs.html"          onclick="toggleMobileNav()">Jobs</a>
+  <a href="ourwork.html"       onclick="toggleMobileNav()">Our Work</a>
+  <a href="services-ticket.html" onclick="toggleMobileNav()">Get Started</a>
 </div>
 
 <!-- PAGE HEADER -->
@@ -174,9 +195,9 @@
   <div class="ph-img"></div>
   <div class="ph-overlay"></div>
   <div class="ph-content">
-    <div class="ph-badge">The Full Picture</div>
-    <h1 class="ph-h1">Experience,<br><em>credentials &amp; skills.</em></h1>
-    <p class="ph-sub">Thirteen years across banking, HR administration, and sales. Every role, every skill, every qualification — laid out plainly.</p>
+    <div class="ph-badge">The Expertise Behind Every Service</div>
+    <h1 class="ph-h1">13 years of real work.<br><em>Real results for clients.</em></h1>
+    <p class="ph-sub">Every service offered here is built on experience that was lived — not studied, not guessed at. Here is what that means for you.</p>
   </div>
 </div>
 
@@ -192,17 +213,17 @@
         <p class="profile-photo-caption">Halalisani Ngema &nbsp;·&nbsp; South Africa</p>
       </div>
       <div class="fade-in">
-        <div class="section-eyebrow">Who I Am</div>
-        <h2 class="section-heading">Office professional.<br><em>Customer service veteran.</em></h2>
+        <div class="section-eyebrow">Why It Matters</div>
+        <h2 class="section-heading">Built inside the system.<br><em>Now working for you.</em></h2>
         <div class="prose">
           <p>
-            My name is Halalisani Ngema. I am an <strong>office administrator and customer service professional</strong> with over 13 years of hands-on experience across banking, HR administration, and sales.
+            For 13 years I worked inside the systems your career depends on — banking floors, HR departments, payroll teams, compliance offices. I know how hiring managers think because I sat next to them. I know what makes a CV fail in the first ten seconds because I saw it happen in real time, repeatedly.
           </p>
           <p>
-            I answer phones, manage paperwork, process benefits enrolments, handle cash, cross-sell financial products, and keep records in order. That is the work I have done — in real offices, with real clients, every day for over a decade.
+            When I rewrite your CV, I am not guessing at what works. <strong>I am applying more than a decade of knowledge about what the other side of the table actually looks for.</strong> When I register your company or handle your admin, I bring the same precision that corporate environments demanded of me for over a decade — no margin for error, no shortcuts.
           </p>
           <p>
-            I am not a specialist. I am someone who has done the work at every level, across a wide range of office and service environments. That practical experience is what I bring to this platform — and what makes the career guidance here worth trusting.
+            This business exists because I have done the work at every level — and I know exactly where people get it wrong. That is the difference between a service built on theory and one built on experience.
           </p>
         </div>
       </div>
@@ -215,7 +236,7 @@
   <div class="section-rule"></div>
   <div class="container fade-in">
     <div class="section-eyebrow">Work History</div>
-    <h2 class="section-heading">Where I have worked<br><em>and what I did.</em></h2>
+    <h2 class="section-heading">The experience behind<br><em>every service.</em></h2>
     <div class="timeline">
 
       <div class="tl-item">
@@ -225,10 +246,13 @@
         </div>
         <div>
           <div class="tl-role">Multifunctional Consultant</div>
-          <div class="tl-body">Teller duties, walk-in and telephonic customer service, fraud prevention, ATM management, and cross-selling of banking products. High-volume, face-to-face work every day — processing hundreds of transactions, resolving account queries, and referring clients to the right banking solutions.</div>
+          <div class="tl-body">Seven years of high-volume, face-to-face and telephonic client service — processing hundreds of daily transactions, resolving account disputes, managing fraud queries, overseeing ATM operations, and cross-selling banking products to walk-in clients. Every interaction required professionalism under pressure and the ability to explain complex banking in plain, human language.</div>
+          <div class="tl-means">
+            <div class="tl-means-label">What this means for you</div>
+            <div class="tl-means-text">When I coach you through an interview or draft your professional correspondence, I draw on seven years of real client-facing experience — handling difficult conversations, maintaining composure, and communicating clearly. That is what I teach, because that is what I did.</div>
+          </div>
           <div class="tl-tags">
-            <span class="tl-tag">Teller</span>
-            <span class="tl-tag">Customer Service</span>
+            <span class="tl-tag">Client Service</span>
             <span class="tl-tag">Banking</span>
             <span class="tl-tag">Fraud Prevention</span>
             <span class="tl-tag">ATM Management</span>
@@ -244,13 +268,17 @@
         </div>
         <div>
           <div class="tl-role">HR Benefits Consultant</div>
-          <div class="tl-body">Processing payroll adjustments, managing employee benefits enrolments and exits, handling telephonic advisory for thousands of staff, and maintaining compliance records. Six years answering real questions from employees and making sure the paperwork was right — pension, medical aid, group life, disability claims.</div>
+          <div class="tl-body">Six years managing employee benefits enrolments and exits, payroll adjustments, pension processing, medical aid, group life, and disability claims for thousands of staff members. Maintaining compliance records, handling telephonic advisory for employees across the organisation, and making sure every document was accurate — because in HR administration, errors have real consequences for real people.</div>
+          <div class="tl-means">
+            <div class="tl-means-label">What this means for you</div>
+            <div class="tl-means-text">When I handle your company's HR admin, process your statutory registrations, or manage your compliance documents — I do it with the same accuracy a major bank required of me for six years. You are not a test run. This is work I have done at scale, under pressure, with zero tolerance for mistakes.</div>
+          </div>
           <div class="tl-tags">
             <span class="tl-tag">HR Administration</span>
             <span class="tl-tag">Benefits</span>
             <span class="tl-tag">Payroll</span>
             <span class="tl-tag">Compliance</span>
-            <span class="tl-tag">Telephonic Advisory</span>
+            <span class="tl-tag">Record Keeping</span>
           </div>
         </div>
       </div>
@@ -262,7 +290,11 @@
         </div>
         <div>
           <div class="tl-role">Sales Consultant</div>
-          <div class="tl-body">Telephonic sales of legal cover products. Needs-based consultations, objection handling, and building client trust. Explaining complex cover terms in plain language so clients could make informed decisions.</div>
+          <div class="tl-body">Telephonic sales of legal cover products — needs-based consultations, objection handling, and explaining complex legal terms in plain, accessible language so that clients could make genuinely informed decisions. The work required trust-building fast, over the phone, with people who were often sceptical.</div>
+          <div class="tl-means">
+            <div class="tl-means-label">What this means for you</div>
+            <div class="tl-means-text">Every document I produce — whether it is your CV, a company profile, or a CIPC filing — is written in clear, plain language. No padding, no jargon. I learned early that the ability to explain things simply is not a soft skill. It is the skill.</div>
+          </div>
           <div class="tl-tags">
             <span class="tl-tag">Telephonic Sales</span>
             <span class="tl-tag">Legal Cover</span>
@@ -278,7 +310,11 @@
         </div>
         <div>
           <div class="tl-role">Sales Consultant</div>
-          <div class="tl-body">Selling financial products to clients, conducting needs-based financial consultations, and managing a client book. Building long-term relationships and following up consistently to retain and grow the client base.</div>
+          <div class="tl-body">Selling financial products through needs-based consultations and managing an ongoing client book — building long-term relationships, following up consistently, and retaining clients through genuine service rather than pressure tactics.</div>
+          <div class="tl-means">
+            <div class="tl-means-label">What this means for you</div>
+            <div class="tl-means-text">I do not process your request and disappear. Client relationships matter to this business because I built my career on them. When you log a ticket, I follow up. When your document is ready, you hear from me directly.</div>
+          </div>
           <div class="tl-tags">
             <span class="tl-tag">Financial Services</span>
             <span class="tl-tag">Sales</span>
@@ -295,8 +331,9 @@
 <section id="skills">
   <div class="section-rule"></div>
   <div class="container fade-in">
-    <div class="section-eyebrow">Capabilities</div>
-    <h2 class="section-heading">What I bring<br><em>to the table.</em></h2>
+    <div class="section-eyebrow">What You Get Access To</div>
+    <h2 class="section-heading">Skills built in the field.<br><em>Put to work for you.</em></h2>
+    <p class="skills-intro">These are not courses completed to fill a profile. They are capabilities used daily across 13 years of real employment — <strong>and they are exactly what is applied to every client engagement on this platform.</strong></p>
     <div class="skills-split">
       <div class="skills-group">
         <h3>Customer &amp; Client Service</h3>
@@ -328,15 +365,16 @@
           <span class="skill-tag">Microsoft Outlook</span>
           <span class="skill-tag">Email Management</span>
           <span class="skill-tag">Banking Systems</span>
+          <span class="skill-tag">CIPC e-Services</span>
         </div>
       </div>
       <div class="skills-group">
-        <h3>Personal Strengths</h3>
+        <h3>How I Work</h3>
         <div class="skill-list">
           <span class="skill-tag hi">Attention to Detail</span>
-          <span class="skill-tag hi">Communication</span>
-          <span class="skill-tag">Reliability</span>
-          <span class="skill-tag">Time Management</span>
+          <span class="skill-tag hi">Clear Communication</span>
+          <span class="skill-tag">Reliable Delivery</span>
+          <span class="skill-tag">Deadline Management</span>
           <span class="skill-tag">Professionalism</span>
         </div>
       </div>
@@ -348,8 +386,9 @@
 <section id="certifications">
   <div class="section-rule"></div>
   <div class="container fade-in">
-    <div class="section-eyebrow">Certifications</div>
-    <h2 class="section-heading">Courses &amp;<br><em>qualifications earned.</em></h2>
+    <div class="section-eyebrow">Ongoing Learning</div>
+    <h2 class="section-heading">Still building.<br><em>Always improving.</em></h2>
+    <p class="cert-intro">Running a business in 2026 means staying ahead of how technology is reshaping the workplace. These are the tools and skills being actively developed — so that clients benefit from current, relevant knowledge, not just historical experience.</p>
     <div class="cert-grid">
       <div class="cert-card">
         <div class="cert-year">May 2025</div>
@@ -380,7 +419,7 @@
   <div class="section-rule"></div>
   <div class="container fade-in">
     <div class="section-eyebrow">Education</div>
-    <h2 class="section-heading">Academic<br><em>background.</em></h2>
+    <h2 class="section-heading">The academic<br><em>foundation.</em></h2>
     <div class="edu-grid">
       <div class="edu-card">
         <div class="edu-year">2007</div>
@@ -391,6 +430,22 @@
         <div class="edu-year">2003</div>
         <div class="edu-degree">National Senior Certificate (Matric)</div>
         <div class="edu-institution">Secondary School</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-rule"></div>
+  <div class="container fade-in">
+    <div class="cta-inner">
+      <div class="section-eyebrow" style="justify-content:center;">Ready to Work Together</div>
+      <h2 class="cta-heading">Experience you can<br><em>actually use.</em></h2>
+      <p class="cta-sub">Whether you need a CV that gets you called, a company registered properly, or admin handled without fuss — this is where 13 years of real-world work becomes your advantage.</p>
+      <div class="cta-buttons">
+        <a href="services-ticket.html" class="btn-primary">Book a Service →</a>
+        <a href="ticket.html" class="btn-outline">Company Reg Desk</a>
       </div>
     </div>
   </div>
