@@ -1,7 +1,23 @@
 {
-  "updated": "2026-04-30 10:04",
+  "updated": "2026-04-30 13:48",
   "count": 300,
   "jobs": [
+    {
+      "title": "Sales Consultant (Rustenburg)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/sales-consultant-rustenburg-job-2638079.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-30"
+    },
+    {
+      "title": "SAIPA Accountant (Newly Qualified)",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/saipa-accountant-newly-qualified-job-2637576.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-30"
+    },
     {
       "title": "Senior Bookkeeper (Accounts Payable and Accounts Receivable)/Financial Controller",
       "company": "See listing",
@@ -2384,22 +2400,6 @@
       "url": "https://www.adzuna.co.za/details/5299697505?utm_medium=api&utm_source=a89ba671",
       "source": "Adzuna",
       "snippet": "Our client is seeking a proactive Accounts Receivable Clerk to join their finance team. This role is ideal for someone who thrives in a structured environment, is customer-focused, and enjoys working",
-      "date_found": "2026-04-22"
-    },
-    {
-      "title": "Senior Creditors Clerk",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5269768760?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Key responsibilities:Manage the end-to-end accounts payable process, including invoice verification, coding, and processing, ensuring adherence to company policies and proceduresReconcile supplier sta",
-      "date_found": "2026-04-22"
-    },
-    {
-      "title": "Invoice Clerk",
-      "company": "See listing",
-      "url": "https://www.careerjunction.co.za/invoice-clerk-job-2637314.aspx",
-      "source": "CareerJunction",
-      "snippet": "",
       "date_found": "2026-04-22"
     }
   ]
