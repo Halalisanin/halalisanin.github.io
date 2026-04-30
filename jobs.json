@@ -1,7 +1,15 @@
 {
-  "updated": "2026-04-29 21:01",
+  "updated": "2026-04-30 02:41",
   "count": 300,
   "jobs": [
+    {
+      "title": "Technical Sales Representative",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/technical-sales-representative-job-2632099.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-04-30"
+    },
     {
       "title": "Supply Chain Management Clerk Orders",
       "company": "See listing",
@@ -2392,14 +2400,6 @@
       "url": "https://www.careerjunction.co.za/saipa-accountant-job-2637563.aspx",
       "source": "CareerJunction",
       "snippet": "",
-      "date_found": "2026-04-22"
-    },
-    {
-      "title": "HR Officer",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5704841974?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Responsibilities :Manage disciplinary processes, grievances, and disputesRepresent the company in external forums when requiredAdvise management on labour law and ensure fair proceduresAct as a truste",
       "date_found": "2026-04-22"
     }
   ]
