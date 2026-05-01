@@ -1,7 +1,15 @@
 {
-  "updated": "2026-05-01 16:55",
+  "updated": "2026-05-01 20:49",
   "count": 300,
   "jobs": [
+    {
+      "title": "Finance Clerk - Hotel Head Office",
+      "company": "See listing",
+      "url": "https://www.careerjunction.co.za/finance-clerk-hotel-head-office-job-2637053.aspx",
+      "source": "CareerJunction",
+      "snippet": "",
+      "date_found": "2026-05-01"
+    },
     {
       "title": "Internal Sales Administrator",
       "company": "See listing",
@@ -2392,14 +2400,6 @@
       "url": "https://www.careerjunction.co.za/property-services-administrator-job-2637070.aspx",
       "source": "CareerJunction",
       "snippet": "",
-      "date_found": "2026-04-22"
-    },
-    {
-      "title": "PAM 18186 - Receptionist (Construction) \u2013 Randburg",
-      "company": "Unknown",
-      "url": "https://www.adzuna.co.za/details/5690901978?utm_medium=api&utm_source=a89ba671",
-      "source": "Adzuna",
-      "snippet": "Employer DescriptionRoofing manufacturersJob DescriptionYour duties will encompass:Greet and welcome visitors with warmth and professionalismPrepare tea & coffee for guestsManage front desk operations",
       "date_found": "2026-04-22"
     }
   ]
